@@ -59,10 +59,10 @@
 
 * ### 流程图
 	     
-![](/Users/huangfan/Desktop/work/发起.png)  
+![](http://47.95.12.0:3389/ftp/发起.png)  
 
       
-![](/Users/huangfan/Desktop/work/参与.png) 
+![](http://47.95.12.0:3389/ftp/参与.png) 
 		       	       
 		       
 		       
