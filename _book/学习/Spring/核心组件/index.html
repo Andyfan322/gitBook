@@ -1,0 +1,567 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>核心组件 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../加载流程/" />
+    
+    
+    <link rel="prev" href="../" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../../">
+            
+                <a href="../../../">
+            
+                    
+                    简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    学习
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    一、Spring
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.2.1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    核心组件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.2" data-path="../加载流程/">
+            
+                <a href="../加载流程/">
+            
+                    
+                    加载流程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.3" data-path="../BeanFactory/">
+            
+                <a href="../BeanFactory/">
+            
+                    
+                    BeanFactory
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../../Tomcat/">
+            
+                <a href="../../Tomcat/">
+            
+                    
+                    二、Tomcat
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.2.1" data-path="../../结构/">
+            
+                <a href="../../结构/">
+            
+                    
+                    结构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.2" data-path="../../核心类/">
+            
+                <a href="../../核心类/">
+            
+                    
+                    核心类
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../../../日常/">
+            
+                <a href="../../../日常/">
+            
+                    
+                    日常
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../../../日常/吃货大作战/">
+            
+                <a href="../../../日常/吃货大作战/">
+            
+                    
+                    一、吃货大作战
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../../.." >核心组件</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#x6838;&#x5FC3;&#x7EC4;&#x4EF6;">&#x6838;&#x5FC3;&#x7EC4;&#x4EF6;</h1>
+<h3 id="&#x7EFC;&#x8FF0;">&#x7EFC;&#x8FF0;</h3>
+<blockquote>
+<p>OOP&#xFF08;&#x9762;&#x5411;&#x5BF9;&#x8C61;&#x7F16;&#x7A0B;&#xFF09;&#x7F16;&#x7A0B;&#x601D;&#x60F3;&#xFF0C;&#x90A3;&#x4E48;Spring&#x53EF;&#x4EE5;&#x7406;&#x89E3;&#x4E3A;BOP&#xFF08;&#x9762;&#x5411;Bean&#x7F16;&#x7A0B;&#xFF09;&#xFF0C;&#x5373;&#x5728;Spring&#x91CC;&#x9762;Bean&#x662F;&#x6838;&#x5FC3;&#x3002;</p>
+</blockquote>
+<ul>
+<li>Beans&#x3001;Core&#x3001;Context&#x3001;SpEL</li>
+<li>Beans&#x3001;Core &#x662F;&#x6846;&#x67B6;&#x7684;&#x6700;&#x57FA;&#x7840;&#x5907;&#x4EFD;&#xFF0C;&#x5305;&#x542B;&#x4E86;IOC/DI</li>
+<li>Context &#x662F;&#x5EFA;&#x7ACB;&#x5728;Beans&#x3001;Core &#x4E4B;&#x4E0A;&#xFF0C;&#x63D0;&#x4F9B;&#x4E86;&#x6846;&#x67B6;&#x5F0F;&#x7684;&#x8BBF;&#x95EE;&#x65B9;&#x5F0F;</li>
+<li>SpEL &#x5F3A;&#x5927;&#x7684;&#x8FD0;&#x884C;&#x65F6;&#x64CD;&#x4F5C;&#x5BF9;&#x8C61;&#x7684;&#x8868;&#x8FBE;&#x5F0F;&#x8BED;&#x8A00;</li>
+</ul>
+<h3 id="&#x4E0D;&#x6070;&#x5F53;&#x7684;&#x7C7B;&#x6BD4;">&#x4E0D;&#x6070;&#x5F53;&#x7684;&#x7C7B;&#x6BD4;</h3>
+<ul>
+<li>&#x4EBA;&#x6C11; Bean &#xFF0C;&#x56FD;&#x5BB6; Context &#xFF0C;&#x5DE5;&#x5177; Core  </li>
+<li>Bean &#x662F;&#x4F53;&#x73B0;&#x4E86;&#x4EE5;&#x4EBA;&#x4E3A;&#x672C;&#x7684;&#x601D;&#x60F3;&#xFF0C;Context &#x6240;&#x6709;&#x7684;&#x4EBA;&#x6C11;&#x90FD;&#x8D56;&#x4EE5;&#x751F;&#x5B58;&#x7684;&#x73AF;&#x5883;&#xFF0C;Core &#x4ED6;&#x4EEC;&#x4E4B;&#x95F4;&#x8FDB;&#x884C;&#x5173;&#x7CFB;&#x5173;&#x8054;&#x548C;&#x7BA1;&#x7406;&#x7684;&#x5DE5;&#x5177;</li>
+</ul>
+<h3 id="bean-&#x7EC4;&#x4EF6;">Bean &#x7EC4;&#x4EF6;</h3>
+<blockquote>
+<p>&#x529F;&#x80FD;&#xFF1A;Bean&#x7684;&#x521B;&#x5EFA;&#xFF0C;&#x5B9A;&#x4E49;&#xFF0C;&#x89E3;&#x6790;</p>
+</blockquote>
+<ul>
+<li><p>&#x521B;&#x5EFA;&#xFF1A;DefaultListableBeanFactory &#x7C7B;&#x7ED3;&#x6784;&#x56FE;</p>
+<p>  <img src="http://47.95.12.0:3389/ftp/DefaultListableBeanFactory.png" alt="">     </p>
+</li>
+</ul>
+<blockquote>
+<p>&#x4E0A;&#x8FF0;&#x7684;&#x7C7B;&#x7ED3;&#x6784;&#x56FE;&#x8FD8;&#x662F;&#x6709;&#x70B9;&#x590D;&#x6742;&#x7684;&#xFF0C;&#x5176;&#x5B9E;&#x8FD9;&#x4E48;&#x8BBE;&#x8BA1;&#x539F;&#x5219;&#xFF0C;&#x6B63;&#x662F;&#x7B26;&#x5408;&#x4E86;&#x5355;&#x4E00;&#x8D23;&#x4EFB;&#x539F;&#x5219;&#xFF0C;&#x6211;&#x4EEC;&#x53EA;&#x9700;&#x8981;&#x5173;&#x5FC3;&#x4ECE;Beanfactory&#x8FD9;&#x6761;&#x7EBF;&#x5230;DefaultListableBeanFactory&#x3002;&#x5B83;&#x5B9E;&#x73B0;&#x4E86;&#x4E0A;&#x8FF0;&#x6240;&#x6709;&#x63A5;&#x53E3;&#x548C;&#x62BD;&#x8C61;&#x7C7B;&#x7684;&#x529F;&#x80FD;,&#x662F;&#x4E00;&#x4E2A;&#x6B63;&#x771F;&#x7684;IOC&#x5BB9;&#x5668;&#x3002;</p>
+</blockquote>
+<ul>
+<li><p>&#x5B9A;&#x4E49;&#xFF1A;BeanDefinition &#x7C7B;&#x7ED3;&#x6784;&#x56FE;</p>
+<p><img src="http://47.95.12.0:3389/ftp/RootBeanDefinition.png" alt="">  </p>
+</li>
+<li><p>&#x89E3;&#x6790;&#xFF1A;XmlBeanDefinitionReader &#x7C7B;&#x7ED3;&#x6784;&#x56FE;</p>
+<p><img src="http://47.95.12.0:3389/ftp/XmlBeanDefinitionReader.png" alt="">  </p>
+</li>
+</ul>
+<h3 id="&#x521B;&#x5EFA;&#x3001;&#x5B9A;&#x4E49;&#x3001;&#x89E3;&#x6790;&#x4ECB;&#x7ECD;">&#x521B;&#x5EFA;&#x3001;&#x5B9A;&#x4E49;&#x3001;&#x89E3;&#x6790;&#x4ECB;&#x7ECD;</h3>
+<blockquote>
+<p>&#x4E00;&#x822C;&#x6211;&#x4EEC;&#x6F5C;&#x610F;&#x8BC6;&#x8BA4;&#x4E3A;BeanFactory&#x662F;&#x4E00;&#x4E2A;IOC&#x5BB9;&#x5668;&#xFF0C;&#x5F53;&#x7136;&#x5B83;&#x786E;&#x5B9E;&#x4E5F;&#x662F;&#xFF0C;&#x4F46;&#x662F;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x6CE8;&#x610F;&#x5B83;&#x662F;&#x4E00;&#x4E2A;&#x63A5;&#x53E3;&#xFF0C;&#x53EA;&#x662F;&#x5B9A;&#x4E49;&#x4E86;&#x4E00;&#x4E9B;&#x89C4;&#x8303;&#xFF0C;&#x5177;&#x4F53;&#x7684;&#x5B9E;&#x73B0;&#x6709;&#x5F88;&#x591A;&#x3002;BeanFactory&#x9ED8;&#x8BA4;&#x7684;&#x76F4;&#x63A5;&#x7EE7;&#x627F;&#x8005;&#x6709;&#x4E09;&#x4E2A;&#xFF1A;HierarchicalBeanFactory ListableBeanFactory AutowireCapableBeanFactory </p>
+</blockquote>
+<ul>
+<li><p>&#x4E00;&#x3001;&#x521B;&#x5EFA; </p>
+<ol>
+<li><p>BeanFactory </p>
+<pre><code class="lang-java"> <span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">BeanFactory</span> </span>{
+     <span class="hljs-comment">//&#x4E3B;&#x8981;&#x662F;&#x4E3A;&#x4E86;&#x533A;&#x5206;FactoryBean&#x83B7;&#x5F97;Bean&#x662F;&#x81EA;&#x8EAB;&#x8FD8;&#x662F;&#x5B9E;&#x73B0;&#x4E86;&#x5B83;&#x7684;&#x5BF9;&#x8C61;</span>
+     String FACTORY_BEAN_PREFIX = <span class="hljs-string">&quot;&amp;&quot;</span>;
+
+     <span class="hljs-function">Object <span class="hljs-title">getBean</span><span class="hljs-params">(String var1)</span> <span class="hljs-keyword">throws</span> BeansException</span>;
+     <span class="hljs-comment">// 4&#x4E2A;&#x4EBA;&#x4E0D;&#x540C;&#x5165;&#x53C2;&#x7684;getBean&#x65B9;&#x6CD5;</span>
+     &lt;T&gt; <span class="hljs-function">T <span class="hljs-title">getBean</span><span class="hljs-params">(String var1, Class&lt;T&gt; var2)</span> <span class="hljs-keyword">throws</span> BeansException</span>;
+
+     <span class="hljs-function">Object <span class="hljs-title">getBean</span><span class="hljs-params">(String var1, Object... var2)</span> <span class="hljs-keyword">throws</span> BeansException</span>;
+
+     &lt;T&gt; <span class="hljs-function">T <span class="hljs-title">getBean</span><span class="hljs-params">(Class&lt;T&gt; var1)</span> <span class="hljs-keyword">throws</span> BeansException</span>;
+
+     &lt;T&gt; <span class="hljs-function">T <span class="hljs-title">getBean</span><span class="hljs-params">(Class&lt;T&gt; var1, Object... var2)</span> <span class="hljs-keyword">throws</span> BeansException</span>;
+
+     <span class="hljs-function"><span class="hljs-keyword">boolean</span> <span class="hljs-title">containsBean</span><span class="hljs-params">(String var1)</span></span>;
+     <span class="hljs-comment">//&#x5355;&#x4F8B;</span>
+     <span class="hljs-function"><span class="hljs-keyword">boolean</span> <span class="hljs-title">isSingleton</span><span class="hljs-params">(String var1)</span> <span class="hljs-keyword">throws</span> NoSuchBeanDefinitionException</span>;
+     <span class="hljs-comment">//&#x539F;&#x578B;</span>
+     <span class="hljs-function"><span class="hljs-keyword">boolean</span> <span class="hljs-title">isPrototype</span><span class="hljs-params">(String var1)</span> <span class="hljs-keyword">throws</span> NoSuchBeanDefinitionException</span>;
+     <span class="hljs-comment">//2&#x4E2A; &#x7C7B;&#x5B9A;&#x4E49;&#x7684;&#x540D;&#x79F0;&#x548C;&#x7C7B;&#x578B;&#x662F;&#x5426;&#x5339;&#x914D;&#x65B9;&#x6CD5;</span>
+     <span class="hljs-function"><span class="hljs-keyword">boolean</span> <span class="hljs-title">isTypeMatch</span><span class="hljs-params">(String var1, ResolvableType var2)</span> <span class="hljs-keyword">throws</span> NoSuchBeanDefinitionException</span>;
+
+     <span class="hljs-function"><span class="hljs-keyword">boolean</span> <span class="hljs-title">isTypeMatch</span><span class="hljs-params">(String var1, Class&lt;?&gt; var2)</span> <span class="hljs-keyword">throws</span> NoSuchBeanDefinitionException</span>;
+      <span class="hljs-comment">//&#x83B7;&#x53D6;Class&#x7C7B;&#x578B;</span>
+     Class&lt;?&gt; getType(String var1) <span class="hljs-keyword">throws</span> NoSuchBeanDefinitionException;
+    <span class="hljs-comment">//&#x6839;&#x636E;&#x5B9E;&#x4F8B;&#x540D;&#x5B57;&#x83B7;&#x53D6;&#x522B;&#x540D;</span>
+     String[] getAliases(String var1);
+ }
+</code></pre>
+</li>
+<li><p>&#x76F4;&#x63A5;&#x7EE7;&#x627F;&#x8005;3&#x4E2A;</p>
+<ul>
+<li><p>&#x5217;&#x51FA;&#x672C;&#x5DE5;&#x5382;&#x53EF;&#x4EE5;&#x751F;&#x4EA7;&#x7684;Bean&#x7684;&#x5DE5;&#x5382;  ListableBeanFactory   </p>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">ListableBeanFactory</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">BeanFactory</span> </span>{
+  <span class="hljs-comment">// &#x662F;&#x5426;&#x6709;Bean&#x5B9A;&#x4E49;ByName</span>
+  <span class="hljs-function"><span class="hljs-keyword">boolean</span> <span class="hljs-title">containsBeanDefinition</span><span class="hljs-params">(String var1)</span></span>;
+  <span class="hljs-comment">// &#x8FD4;&#x56DE;&#x5DE5;&#x5382;&#x91CC;BeanDefinition&#x603B;&#x6570;&#x91CF;</span>
+  <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">getBeanDefinitionCount</span><span class="hljs-params">()</span></span>;
+   <span class="hljs-comment">// &#x8FD4;&#x56DE;&#x5DE5;&#x5382;&#x91CC;&#x6240;&#x6709;Bean&#x540D;&#x5B57;</span>
+  String[] getBeanDefinitionNames();
+  <span class="hljs-comment">// 3&#x4E2A;&#x6839;&#x636E;&#x7C7B;&#x578B;&#x83B7;&#x53D6;BeanName&#x65B9;&#x6CD5;</span>
+  String[] getBeanNamesForType(ResolvableType var1);
+
+  String[] getBeanNamesForType(Class&lt;?&gt; var1);
+
+  String[] getBeanNamesForType(Class&lt;?&gt; var1, <span class="hljs-keyword">boolean</span> var2, <span class="hljs-keyword">boolean</span> var3);
+   <span class="hljs-comment">//2&#x4E2A;&#x6839;&#x636E;&#x7C7B;&#x578B;&#xFF08;&#x5305;&#x62EC;&#x5B50;&#x7C7B;&#xFF09;&#x8FD4;&#x56DE;&#x6307;&#x5B9A;Bean&#x540D;&#x548C;Bean&#x7684;Map</span>
+  &lt;T&gt; <span class="hljs-function">Map&lt;String, T&gt; <span class="hljs-title">getBeansOfType</span><span class="hljs-params">(Class&lt;T&gt; var1)</span> <span class="hljs-keyword">throws</span> BeansException</span>;
+
+  &lt;T&gt; <span class="hljs-function">Map&lt;String, T&gt; <span class="hljs-title">getBeansOfType</span><span class="hljs-params">(Class&lt;T&gt; var1, <span class="hljs-keyword">boolean</span> var2, <span class="hljs-keyword">boolean</span> var3)</span> <span class="hljs-keyword">throws</span> BeansException</span>;
+  <span class="hljs-comment">//2&#x4E2A;&#x8DDF;&#x6CE8;&#x89E3;&#x67E5;&#x627E;&#x6709;&#x5173;&#x7684;&#x65B9;&#x6CD5;</span>
+  String[] getBeanNamesForAnnotation(Class&lt;? extends Annotation&gt; var1);
+
+  <span class="hljs-function">Map&lt;String, Object&gt; <span class="hljs-title">getBeansWithAnnotation</span><span class="hljs-params">(Class&lt;? extends Annotation&gt; var1)</span> <span class="hljs-keyword">throws</span> BeansException</span>;
+
+  &lt;A extends Annotation&gt; <span class="hljs-function">A <span class="hljs-title">findAnnotationOnBean</span><span class="hljs-params">(String var1, Class&lt;A&gt; var2)</span> <span class="hljs-keyword">throws</span> NoSuchBeanDefinitionException</span>;
+}
+</code></pre>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+<pre><code>   * &#x5206;&#x5C42;&#x5DE5;&#x5382; HierarchicalBeanFactory
+
+        ```java
+        public interface HierarchicalBeanFactory extends BeanFactory {
+           //&#x8FD4;&#x56DE;&#x672C;Bean&#x5DE5;&#x5382;&#x7684;&#x7236;&#x5DE5;&#x5382;
+            BeanFactory getParentBeanFactory();
+            //&#x672C;&#x5730;&#x5DE5;&#x5382;&#x662F;&#x5426;&#x5305;&#x542B;&#x8FD9;&#x4E2A;Bean
+            boolean containsLocalBean(String name);
+
+        }
+        ```
+
+   * &#x53EF;&#x4EE5;&#x81EA;&#x52A8;&#x88C5;&#x914D;&#x5DE5;&#x5382; AutowireCapableBeanFactory
+
+        ```java
+        public interface AutowireCapableBeanFactory extends BeanFactory {
+           // 5&#x4E2A;&#x5E38;&#x91CF;&#xFF0C;&#x6307;&#x660E;&#x88C5;&#x914D;&#x7B56;&#x7565;
+            int AUTOWIRE_NO = 0;//&#x6CA1;&#x6709;&#x81EA;&#x52A8;&#x88C5;&#x914D;&#x7684;Bean
+
+            int AUTOWIRE_BY_NAME = 1;//&#x6839;&#x636E;&#x540D;&#x79F0;&#x81EA;&#x52A8;&#x88C5;&#x914D;
+
+            int AUTOWIRE_BY_TYPE = 2;//&#x6839;&#x636E;&#x7C7B;&#x578B;&#x81EA;&#x52A8;&#x88C5;&#x914D;
+
+            int AUTOWIRE_CONSTRUCTOR = 3;//&#x6839;&#x636E;&#x6784;&#x9020;&#x65B9;&#x6CD5;&#x81EA;&#x52A8;&#x88C5;&#x914D;
+
+            @Deprecated
+            int AUTOWIRE_AUTODETECT = 4;//&#x901A;&#x8FC7;Bean&#x7684;class&#x7684;&#x5185;&#x90E8;&#x6765;&#x81EA;&#x52A8;&#x88C5;&#x914D;&#xFF0C;&#x5E9F;&#x5F03;Since3.0
+            /**
+             * 8&#x4E2A;&#x8DDF;&#x81EA;&#x52A8;&#x88C5;&#x914D;&#x6709;&#x5173;&#x7684;&#x65B9;&#x6CD5;
+             */
+            //&#x6307;&#x5B9A;Class&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x5168;&#x65B0;&#x7684;Bean&#x5B9E;&#x4F8B;
+            &lt;T&gt; T createBean(Class&lt;T&gt; beanClass) throws BeansException;
+            //&#x6839;&#x636E;Bean&#x540D;&#x7684;BeanDefinition&#x88C5;&#x914D;&#x8FD9;&#x4E2A;&#x672A;&#x52A0;&#x5DE5;&#x7684;Object&#xFF0C;&#x6267;&#x884C;&#x56DE;&#x8C03;&#x548C;&#x5404;&#x79CD;&#x540E;&#x5904;&#x7406;&#x5668;&#x3002;
+            void autowireBean(Object existingBean) throws BeansException;
+            //&#x5206;&#x89E3;Bean&#x5728;&#x5DE5;&#x5382;&#x4E2D;&#x5B9A;&#x4E49;&#x7684;&#x8FD9;&#x4E2A;&#x6307;&#x5B9A;&#x7684;&#x4F9D;&#x8D56;descriptor
+            Object configureBean(Object existingBean, String beanName) throws BeansException;
+            //&#x6839;&#x636E;&#x7ED9;&#x5B9A;&#x7684;&#x7C7B;&#x578B;&#x548C;&#x6307;&#x5B9A;&#x7684;&#x88C5;&#x914D;&#x7B56;&#x7565;&#xFF0C;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x65B0;&#x7684;Bean&#x5B9E;&#x4F8B;
+            Object createBean(Class&lt;?&gt; beanClass, int autowireMode, boolean dependencyCheck) throws BeansException;
+
+            Object autowire(Class&lt;?&gt; beanClass, int autowireMode, boolean dependencyCheck) throws BeansException;
+            //&#x6839;&#x636E;&#x540D;&#x79F0;&#x6216;&#x7C7B;&#x578B;&#x81EA;&#x52A8;&#x88C5;&#x914D;
+            void autowireBeanProperties(Object existingBean, int autowireMode, boolean dependencyCheck)
+                    throws BeansException;
+
+            void applyBeanPropertyValues(Object existingBean, String beanName) throws BeansException;
+
+            Object initializeBean(Object existingBean, String beanName) throws BeansException;
+            //&#x521D;&#x59CB;&#x5316;&#x4E4B;&#x524D;&#x6267;&#x884C;BeanPostProcessors
+            Object applyBeanPostProcessorsBeforeInitialization(Object existingBean, String beanName)
+                    throws BeansException;
+           //&#x521D;&#x59CB;&#x5316;&#x4E4B;&#x540E;&#x6267;&#x884C;BeanPostProcessors
+            Object applyBeanPostProcessorsAfterInitialization(Object existingBean, String beanName)
+                    throws BeansException; 
+
+            void destroyBean(Object existingBean);
+
+            &lt;T&gt; NamedBeanHolder&lt;T&gt; resolveNamedBean(Class&lt;T&gt; requiredType) throws BeansException;
+
+
+            Object resolveDependency(DependencyDescriptor descriptor, String requestingBeanName) throws BeansException;
+           //&#x5206;&#x89E3;&#x6307;&#x5B9A;&#x7684;&#x4F9D;&#x8D56;
+            Object resolveDependency(DependencyDescriptor descriptor, String requestingBeanName,
+                    Set&lt;String&gt; autowiredBeanNames, TypeConverter typeConverter) throws BeansException;
+
+        }
+        ```
+</code></pre><ul>
+<li>&#x8BF4;&#x660E;&#xFF1A;&#x5BF9;&#x4E8E;Spring&#x6765;&#x8BF4;&#x6700;&#x9876;&#x5C42;&#x7684;Bean&#x5DE5;&#x5382;&#x4E3A;BeanFactory&#xFF0C;&#x5B83;&#x5B9A;&#x4E49;&#x7684;&#x529F;&#x80FD;&#x6BD4;&#x8F83;&#x7B80;&#x5355;&#xFF0C;getBean() &#x3001; containsBean()&#x7B49;&#xFF0C;&#x5E76;&#x4E0D;&#x5173;&#x5FC3;&#x8D44;&#x6E90;&#x3001;Bean&#x7684;&#x5B9A;&#x4E49;&#x7B49;&#x4FE1;&#x606F;&#x3002;&#x4F46;&#x5B83;&#x9ED8;&#x8BA4;&#x4E09;&#x4E2A;&#x76F4;&#x63A5;&#x7EE7;&#x627F;&#x8005;&#x6269;&#x5C55;&#x4E86;&#x5B83;&#xFF0C;Spring&#x63D0;&#x4F9B;&#x4E86;&#x86EE;&#x591A;&#x79CD;&#x65B9;&#x5F0F;&#x6765;&#x751F;&#x4EA7;Bean&#xFF0C;&#x6BD4;&#x8F83;&#x7E41;&#x6742;&#xFF0C;&#x8FD9;&#x4E9B;&#x7EE7;&#x627F;&#x8005;&#x4EEC;&#x5C31;&#x662F;Spring&#x5206;&#x800C;&#x6CBB;&#x4E4B;&#x8FD9;&#x4E9B;&#x96BE;&#x9898;&#x7684;&#x5C0F;&#x7EC4;&#x4EF6;&#x3002;&#x4ECE;&#x7C7B;&#x7ED3;&#x6784;&#x56FE;&#x53EF;&#x4EE5;&#x770B;&#x51FA;DefaultListableBeanFactory&#x662F;&#x7B2C;&#x4E00;&#x4E2A;&#x666E;&#x901A;&#x7C7B;&#xFF0C;&#x5B83;&#x662F;&#x4E00;&#x4E2A;&#x96C6;&#x5927;&#x6210;&#x8005;&#xFF0C;&#x6709;&#x5B8C;&#x6574;&#x7684;Bean&#x751F;&#x4EA7;&#x80FD;&#x529B;&#x3002;&#x6211;&#x4EEC;&#x5E38;&#x77E5;&#x9053;&#x7684;ClassPathXmlApllicationContext&#x5C31;&#x662F;&#x901A;&#x8FC7;&#x5B83;&#x7684;&#x4EE3;&#x7406;&#x5B9E;&#x73B0;Bean&#x5DE5;&#x5382;&#x7684;&#x3002;</li>
+</ul>
+<ul>
+<li>&#x4E8C;&#x3001;&#x5B9A;&#x4E49;  </li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../" class="navigation navigation-prev " aria-label="Previous page: 一、Spring">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../加载流程/" class="navigation navigation-next " aria-label="Next page: 加载流程">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"核心组件","level":"1.2.1.1","depth":3,"next":{"title":"加载流程","level":"1.2.1.2","depth":3,"path":"学习/Spring/加载流程/README.md","ref":"学习/Spring/加载流程/README.md","articles":[]},"previous":{"title":"一、Spring","level":"1.2.1","depth":2,"path":"学习/Spring/README.md","ref":"学习/Spring/README.md","articles":[{"title":"核心组件","level":"1.2.1.1","depth":3,"path":"学习/Spring/核心组件/README.md","ref":"学习/Spring/核心组件/README.md","articles":[]},{"title":"加载流程","level":"1.2.1.2","depth":3,"path":"学习/Spring/加载流程/README.md","ref":"学习/Spring/加载流程/README.md","articles":[]},{"title":"BeanFactory","level":"1.2.1.3","depth":3,"path":"学习/Spring/BeanFactory/README.md","ref":"学习/Spring/BeanFactory/README.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"学习/Spring/核心组件/README.md","mtime":"2018-11-23T07:50:00.565Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-26T03:53:09.667Z"},"basePath":"../../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../../gitbook/gitbook.js"></script>
+    <script src="../../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

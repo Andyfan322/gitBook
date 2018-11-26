@@ -60,7 +60,7 @@
     <link rel="next" href="../BeanFactory/" />
     
     
-    <link rel="prev" href="../" />
+    <link rel="prev" href="../核心组件/" />
     
 
     </head>
@@ -113,9 +113,10 @@
             
 
             
-        </li>
+            <ul class="articles">
+                
     
-        <li class="chapter " data-level="1.3" data-path="../">
+        <li class="chapter " data-level="1.2.1" data-path="../">
             
                 <a href="../">
             
@@ -129,7 +130,20 @@
             <ul class="articles">
                 
     
-        <li class="chapter active" data-level="1.3.1" data-path="./">
+        <li class="chapter " data-level="1.2.1.1" data-path="../核心组件/">
+            
+                <a href="../核心组件/">
+            
+                    
+                    核心组件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.1.2" data-path="./">
             
                 <a href="./">
             
@@ -142,7 +156,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.2" data-path="../BeanFactory/">
+        <li class="chapter " data-level="1.2.1.3" data-path="../BeanFactory/">
             
                 <a href="../BeanFactory/">
             
@@ -160,7 +174,57 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4" data-path="../../../日常/">
+        <li class="chapter " data-level="1.2.2" data-path="../../Tomcat/">
+            
+                <a href="../../Tomcat/">
+            
+                    
+                    二、Tomcat
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.2.1" data-path="../../结构/">
+            
+                <a href="../../结构/">
+            
+                    
+                    结构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.2" data-path="../../核心类/">
+            
+                <a href="../../核心类/">
+            
+                    
+                    核心类
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../../../日常/">
             
                 <a href="../../../日常/">
             
@@ -171,9 +235,10 @@
             
 
             
-        </li>
+            <ul class="articles">
+                
     
-        <li class="chapter " data-level="1.5" data-path="../../../日常/吃货大作战/">
+        <li class="chapter " data-level="1.3.1" data-path="../../../日常/吃货大作战/">
             
                 <a href="../../../日常/吃货大作战/">
             
@@ -183,6 +248,11 @@
                 </a>
             
 
+            
+        </li>
+    
+
+            </ul>
             
         </li>
     
@@ -232,6 +302,106 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="&#x52A0;&#x8F7D;&#x6D41;&#x7A0B;">&#x52A0;&#x8F7D;&#x6D41;&#x7A0B;</h1>
+<h3 id="springboot&#x5927;&#x81F4;&#x542F;&#x52A8;&#x6D41;&#x7A0B;">springBoot&#x5927;&#x81F4;&#x542F;&#x52A8;&#x6D41;&#x7A0B;</h3>
+<pre><code class="lang-java">    <span class="hljs-meta">@SpringBootApplication</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CollagePurchaseApplication</span> </span>{
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+            SpringApplication.run(CollagePurchaseApplication.class, args);
+        }
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> ConfigurableApplicationContext <span class="hljs-title">run</span><span class="hljs-params">(Object source, String... args)</span> </span>{
+        <span class="hljs-keyword">return</span> run(<span class="hljs-keyword">new</span> Object[]{source}, args);
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> ConfigurableApplicationContext <span class="hljs-title">run</span><span class="hljs-params">(Object[] sources, String[] args)</span> </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> SpringApplication(sources).run(args);
+    }
+    <span class="hljs-comment">//&#x26A0;&#xFE0F; &#x6838;&#x5FC3;&#x65B9;&#x6CD5;</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">SpringApplication</span><span class="hljs-params">(Object... sources)</span> </span>{
+        initialize(sources);
+    }
+
+    <span class="hljs-meta">@SuppressWarnings</span>({<span class="hljs-string">&quot;unchecked&quot;</span>, <span class="hljs-string">&quot;rawtypes&quot;</span>})
+    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">initialize</span><span class="hljs-params">(Object[] sources)</span> </span>{
+        <span class="hljs-keyword">if</span> (sources != <span class="hljs-keyword">null</span> &amp;&amp; sources.length &gt; <span class="hljs-number">0</span>) {
+            <span class="hljs-keyword">this</span>.sources.addAll(Arrays.asList(sources));
+        }
+        <span class="hljs-keyword">this</span>.webEnvironment = deduceWebEnvironment();
+        setInitializers((Collection) getSpringFactoriesInstances(
+                ApplicationContextInitializer.class));
+        setListeners((Collection) getSpringFactoriesInstances(ApplicationListener.class));
+        <span class="hljs-keyword">this</span>.mainApplicationClass = deduceMainApplicationClass();
+    }
+</code></pre>
+<ul>
+<li>&#x5206;&#x6790;</li>
+</ul>
+<blockquote>
+<p>&#x4ECE;&#x4EE5;&#x4E0A;&#x7684;&#x65B9;&#x6CD5;&#x53EF;&#x4EE5;&#x770B;&#x51FA;&#xFF0C;&#x4E3B;&#x8981;&#x7684;&#x529F;&#x80FD;&#x662F;&#x5F00;&#x542F;&#x4E00;&#x4E2A;SpringApplicationContext&#xFF0C;&#x5373;&#x4E00;&#x4E2A;Spring&#x7684;&#x4E0A;&#x4E0B;&#x6587;&#xFF08;&#x5BB9;&#x5668;&#xFF09;&#x3002;&#x4E3B;&#x8981;&#x8C03;&#x7528;&#x4E86;initialize&#x65B9;&#x6CD5;&#xFF0C;&#x7136;&#x540E;&#x518D;&#x6267;&#x884C;run&#x9632;&#x8303;</p>
+</blockquote>
+<ul>
+<li><p>&#x521D;&#x59CB;&#x5316;&#x65B9;&#x6CD5;initialize</p>
+<ul>
+<li>deduceWebEnvironment()&#x65B9;&#x6CD5;&#x662F;&#x9A8C;&#x8BC1;&#x662F;&#x5426;&#x6709;web&#x8FD0;&#x884C;&#x7684;&#x73AF;&#x5883;</li>
+<li>getSpringFactoriesInstances&#x65B9;&#x6CD5;</li>
+</ul>
+<pre><code class="lang-java">  <span class="hljs-keyword">private</span> &lt;T&gt; Collection&lt;? extends T&gt; getSpringFactoriesInstances(Class&lt;T&gt; type,Class&lt;?&gt;[] parameterTypes, Object... args) {
+    <span class="hljs-comment">//1.&#x83B7;&#x53D6;&#x5F53;&#x524D;&#x7C7B;&#x52A0;&#x8F7D;&#x5668;</span>
+    ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
+    <span class="hljs-comment">//2.&#x52A0;&#x8F7D;&#x6240;&#x6B32;jar&#x5305;&#x4E0B;&#x7684;META-INF/spring.factories</span>
+    Set&lt;String&gt; names = <span class="hljs-keyword">new</span> LinkedHashSet&lt;String&gt;(SpringFactoriesLoader.loadFactoryNames(type, classLoader));
+    <span class="hljs-comment">//3.&#x521B;&#x5EFA;ApplicationContextInitializer.class &#x8FD9;&#x4E2A;&#x7C7B;&#x578B;&#x7684;&#x5B9E;&#x4F8B;</span>
+    List&lt;T&gt; instances = createSpringFactoriesInstances(type, parameterTypes,classLoader, args, names);
+   <span class="hljs-comment">//4.&#x5C06;&#x4E0A;&#x8FF0;&#x6B65;&#x9AA4;3&#x7684;&#x5B9E;&#x4F8B;&#x6392;&#x5E8F;</span>
+    AnnotationAwareOrderComparator.sort(instances);
+    <span class="hljs-keyword">return</span> instances;
+}
+</code></pre>
+<ul>
+<li>run&#x65B9;&#x6CD5;</li>
+<li>&#x521B;&#x5EFA;&#x914D;&#x7F6E;&#x73AF;&#x5883;</li>
+<li>&#x4E8B;&#x4EF6;&#x76D1;&#x542C;</li>
+<li>&#x521B;&#x5EFA;&#x5E94;&#x7528;&#x4E0A;&#x4E0B;&#x6587;</li>
+<li>&#x5B9E;&#x73B0;&#x81EA;&#x52A8;&#x5316;&#x914D;&#x7F6E;</li>
+</ul>
+<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">public</span> ConfigurableApplicationContext <span class="hljs-title">run</span><span class="hljs-params">(String... args)</span> </span>{
+    StopWatch stopWatch = <span class="hljs-keyword">new</span> StopWatch();
+    stopWatch.start();
+    ConfigurableApplicationContext context = <span class="hljs-keyword">null</span>;
+    FailureAnalyzers analyzers = <span class="hljs-keyword">null</span>;
+    configureHeadlessProperty();
+    <span class="hljs-comment">//&#x521B;&#x5EFA;&#x5E94;&#x7528;&#x76D1;&#x542C;&#x5668;&#xFF0C;&#x5F00;&#x59CB;&#x76D1;&#x542C;</span>
+    SpringApplicationRunListeners listeners = getRunListeners(args);
+    listeners.starting();
+    <span class="hljs-keyword">try</span> {
+        ApplicationArguments applicationArguments = <span class="hljs-keyword">new</span> DefaultApplicationArguments(args);
+        <span class="hljs-comment">//&#x52A0;&#x8F7D;SpringBoot&#x7684;&#x914D;&#x7F6E;&#x73AF;&#x5883;</span>
+        ConfigurableEnvironment environment = prepareEnvironment(listeners,applicationArguments);
+        Banner printedBanner = printBanner(environment);
+        <span class="hljs-comment">//&#x521B;&#x5EFA;&#x914D;&#x7F6E;&#x4E0A;&#x4E0B;&#x6587;</span>
+        context = createApplicationContext();
+        analyzers = <span class="hljs-keyword">new</span> FailureAnalyzers(context);
+        <span class="hljs-comment">//&#x5C06;listeners&#x3001;environment&#x3001;applicationArguments&#x3001;banner&#x7B49;&#x91CD;&#x8981;&#x7EC4;&#x4EF6;&#x4E0E;&#x4E0A;&#x4E0B;&#x6587;&#x5BF9;&#x8C61;&#x5173;&#x8054;</span>
+        prepareContext(context, environment, listeners, applicationArguments,printedBanner);
+        refreshContext(context);
+        afterRefresh(context, applicationArguments);
+        <span class="hljs-comment">//&#x5B9E;&#x73B0;spring-boot-starter-*(mybatis&#x3001;redis&#x7B49;)&#x81EA;&#x52A8;&#x5316;&#x914D;&#x7F6E;&#x7684;&#x5173;&#x952E;&#xFF0C;&#x5305;&#x62EC;spring.factories&#x7684;&#x52A0;&#x8F7D;&#xFF0C;bean&#x7684;&#x5B9E;&#x4F8B;&#x5316;&#x7B49;&#x6838;&#x5FC3;&#x5DE5;&#x4F5C;&#x3002;</span>
+        listeners.finished(context, <span class="hljs-keyword">null</span>);
+        stopWatch.stop();
+        <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.logStartupInfo) {
+            <span class="hljs-keyword">new</span> StartupInfoLogger(<span class="hljs-keyword">this</span>.mainApplicationClass).logStarted(getApplicationLog(), stopWatch);
+        }
+        <span class="hljs-keyword">return</span> context;
+    }
+    <span class="hljs-keyword">catch</span> (Throwable ex) {
+        handleRunFailure(context, listeners, analyzers, ex);
+        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> IllegalStateException(ex);
+    }
+}
+</code></pre>
+</li>
+</ul>
 
                                 
                                 </section>
@@ -259,7 +429,7 @@
 
             
                 
-                <a href="../" class="navigation navigation-prev " aria-label="Previous page: 一、Spring">
+                <a href="../核心组件/" class="navigation navigation-prev " aria-label="Previous page: 核心组件">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
@@ -275,7 +445,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"加载流程","level":"1.3.1","depth":2,"next":{"title":"BeanFactory","level":"1.3.2","depth":2,"path":"学习/Spring/BeanFactory/README.md","ref":"学习/Spring/BeanFactory/README.md","articles":[]},"previous":{"title":"一、Spring","level":"1.3","depth":1,"path":"学习/Spring/README.md","ref":"学习/Spring/README.md","articles":[{"title":"加载流程","level":"1.3.1","depth":2,"path":"学习/Spring/加载流程/README.md","ref":"学习/Spring/加载流程/README.md","articles":[]},{"title":"BeanFactory","level":"1.3.2","depth":2,"path":"学习/Spring/BeanFactory/README.md","ref":"学习/Spring/BeanFactory/README.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"学习/Spring/加载流程/README.md","mtime":"2018-11-22T03:10:07.575Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-22T03:10:29.787Z"},"basePath":"../../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"加载流程","level":"1.2.1.2","depth":3,"next":{"title":"BeanFactory","level":"1.2.1.3","depth":3,"path":"学习/Spring/BeanFactory/README.md","ref":"学习/Spring/BeanFactory/README.md","articles":[]},"previous":{"title":"核心组件","level":"1.2.1.1","depth":3,"path":"学习/Spring/核心组件/README.md","ref":"学习/Spring/核心组件/README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"学习/Spring/加载流程/README.md","mtime":"2018-11-22T13:54:06.286Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-26T03:53:09.667Z"},"basePath":"../../..","book":{"language":""}});
         });
     </script>
 </div>

@@ -1,6 +1,5 @@
 # 加载流程
-
-> 我使用的springBoot框架，从它的入口方法main来分析。
+### springBoot大致启动流程
 
 ```java
 	@SpringBootApplication
@@ -37,13 +36,13 @@
 
 * 分析
 
->从以上的方法可以看出，主要的功能是开启一个SpringApplicationContext，即一个Spring的上下文（容器）。主要调用了initialize方法
+>从以上的方法可以看出，主要的功能是开启一个SpringApplicationContext，即一个Spring的上下文（容器）。主要调用了initialize方法，然后再执行run防范
   
   * 初始化方法initialize
      * deduceWebEnvironment()方法是验证是否有web运行的环境
      * getSpringFactoriesInstances方法
-     
-        ```java
+ 
+  ```java
       private <T> Collection<? extends T> getSpringFactoriesInstances(Class<T> type,Class<?>[] parameterTypes, Object... args) {
 		//1.获取当前类加载器
 		ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
@@ -56,7 +55,48 @@
 		return instances;
 	}
 	```
-     
+* run方法
+    * 创建配置环境
+    * 事件监听
+    * 创建应用上下文
+    * 实现自动化配置
+  
+   ```java
+   public ConfigurableApplicationContext run(String... args) {
+		StopWatch stopWatch = new StopWatch();
+		stopWatch.start();
+		ConfigurableApplicationContext context = null;
+		FailureAnalyzers analyzers = null;
+		configureHeadlessProperty();
+		//创建应用监听器，开始监听
+		SpringApplicationRunListeners listeners = getRunListeners(args);
+		listeners.starting();
+		try {
+			ApplicationArguments applicationArguments = new DefaultApplicationArguments(args);
+			//加载SpringBoot的配置环境
+			ConfigurableEnvironment environment = prepareEnvironment(listeners,applicationArguments);
+			Banner printedBanner = printBanner(environment);
+			//创建配置上下文
+			context = createApplicationContext();
+			analyzers = new FailureAnalyzers(context);
+			//将listeners、environment、applicationArguments、banner等重要组件与上下文对象关联
+			prepareContext(context, environment, listeners, applicationArguments,printedBanner);
+			refreshContext(context);
+			afterRefresh(context, applicationArguments);
+			//实现spring-boot-starter-*(mybatis、redis等)自动化配置的关键，包括spring.factories的加载，bean的实例化等核心工作。
+			listeners.finished(context, null);
+			stopWatch.stop();
+			if (this.logStartupInfo) {
+				new StartupInfoLogger(this.mainApplicationClass).logStarted(getApplicationLog(), stopWatch);
+			}
+			return context;
+		}
+		catch (Throwable ex) {
+			handleRunFailure(context, listeners, analyzers, ex);
+			throw new IllegalStateException(ex);
+		}
+	}
+``` 
 
 
 
