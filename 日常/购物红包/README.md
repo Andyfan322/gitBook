@@ -88,7 +88,7 @@ CREATE TABLE `shoping_red_pac_details` (
   * MQ&模版消息&朋友圈分享图
   * 发红包
   * 分享红包
-  * 帮拆红包
+  * 帮拆红包(并发情况下，采用Redisson分布式锁)
 
 * 流程图
 
