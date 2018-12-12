@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>并发包 · GitBook</title>
+        <title>读写锁 · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="../锁相关/" />
+    <link rel="next" href="../倒计时计数器/" />
     
     
-    <link rel="prev" href="../线程基础/" />
+    <link rel="prev" href="../信号量/" />
     
 
     </head>
@@ -259,9 +259,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.2.3.3" data-path="./">
+        <li class="chapter " data-level="1.2.3.3" data-path="../并发包/">
             
-                <a href="./">
+                <a href="../并发包/">
             
                     
                     并发包
@@ -313,9 +313,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.3.3.1.3" data-path="../读写锁/">
+        <li class="chapter active" data-level="1.2.3.3.1.3" data-path="./">
             
-                <a href="../读写锁/">
+                <a href="./">
             
                     
                     读写锁
@@ -505,7 +505,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../.." >并发包</a>
+        <a href="../.." >读写锁</a>
     </h1>
 </div>
 
@@ -520,8 +520,52 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="&#x5E76;&#x53D1;&#x5305;">&#x5E76;&#x53D1;&#x5305;</h1>
-<p>JDk5 &#x540E;&#x7684;&#x5E76;&#x53D1;&#x5305;&#x63D0;&#x4F9B;&#x4E86;&#x8BF8;&#x5982;&#x7EBF;&#x7A0B;&#x6C60;&#x3001;&#x5404;&#x79CD;&#x9501;&#x3001;&#x7EBF;&#x7A0B;&#x5B89;&#x5168;&#x7684;&#x5BB9;&#x5668;&#xFF0C;&#x53EF;&#x4EE5;&#x8BF4;&#x529F;&#x80FD;&#x5341;&#x5206;&#x5F3A;&#x5927;&#xFF0C;&#x7ED9;Java&#x5728;&#x5E76;&#x53D1;&#x65B9;&#x9762;&#x63D0;&#x4F9B;&#x4E86;&#x575A;&#x5982;&#x78D0;&#x77F3;&#x7684;&#x6839;&#x57FA;&#xFF0C;&#x4F46;&#x662F;&#x540C;&#x65F6;&#x4E5F;&#x5E26;&#x6765;&#x4E86;&#x7F16;&#x7A0B;&#x7684;&#x590D;&#x6742;&#x5EA6;&#x3002;</p>
+                                <h1 id="&#x8BFB;&#x5199;&#x9501;">&#x8BFB;&#x5199;&#x9501;</h1>
+<p>ReadWriteLock &#x8BFB;&#x5199;&#x9501;&#xFF0C;&#x63D0;&#x4F9B;&#x4E86;&#x5F88;&#x597D;&#x7684;&#x8BFB;&#x5199;&#x5206;&#x79BB;&#xFF0C;&#x8BFB;&#x8BFB;&#x4E4B;&#x95F4;&#x65F6;&#x5E76;&#x884C;&#xFF0C;&#x8BFB;&#x5199;/&#x5199;&#x5199;&#x4E4B;&#x95F4;&#x4E32;&#x884C;&#xFF0C;&#x5148;&#x770B;&#x4E2A;&#x4F8B;&#x5B50;</p>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ReadWriteLockDemo</span> </span>{
+    <span class="hljs-keyword">final</span> <span class="hljs-keyword">static</span> ReadWriteLock readWriteLock = <span class="hljs-keyword">new</span> ReentrantReadWriteLock();
+    <span class="hljs-keyword">final</span> <span class="hljs-keyword">static</span> Lock readLock = readWriteLock.readLock();
+    <span class="hljs-keyword">final</span> <span class="hljs-keyword">static</span> Lock writeLock = readWriteLock.writeLock();
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">read</span><span class="hljs-params">(Lock lock)</span> <span class="hljs-keyword">throws</span> Exception </span>{
+        Thread read = <span class="hljs-keyword">new</span> Thread(() -&gt; {
+            lock.lock();
+            <span class="hljs-keyword">try</span> {
+                Thread.sleep(<span class="hljs-number">10</span>);
+            } <span class="hljs-keyword">catch</span> (InterruptedException e) {
+                e.printStackTrace();
+            } <span class="hljs-keyword">finally</span> {
+                lock.unlock();
+            }
+        });
+        read.start();
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">write</span><span class="hljs-params">(Lock lock)</span> <span class="hljs-keyword">throws</span> Exception </span>{
+        Thread write = <span class="hljs-keyword">new</span> Thread(() -&gt; {
+            lock.lock();
+            <span class="hljs-keyword">try</span> {
+                Thread.sleep(<span class="hljs-number">1000</span>);
+            } <span class="hljs-keyword">catch</span> (InterruptedException e) {
+                e.printStackTrace();
+            } <span class="hljs-keyword">finally</span> {
+                lock.unlock();
+            }
+        });
+        write.start();
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> <span class="hljs-keyword">throws</span> Exception </span>{
+        ReadWriteLockDemo demo = <span class="hljs-keyword">new</span> ReadWriteLockDemo();
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">10</span>; i++) {
+            demo.read(readLock);
+            demo.write(writeLock);
+
+        }
+    }
+}
+</code></pre>
+<p>ReadWriteLock &#x4E0E;ReentrantLock &#x4E4B;&#x95F4;&#x4F5C;&#x7528;&#x4E0D;&#x540C;&#xFF0C;ReentrantLock&#x4EFB;&#x4F55;&#x8BFB;&#x5199;&#x4E4B;&#x95F4;&#x90FD;&#x662F;&#x4E32;&#x884C;&#xFF0C;&#x5728;&#x8BFB;&#x591A;&#x5199;&#x5C11;&#x7684;&#x573A;&#x666F;&#x8BFB;&#x5199;&#x9501;&#x53EF;&#x4EE5;&#x53D1;&#x6325;&#x5F88;&#x5927;&#x7684;&#x4F5C;&#x7528;&#x3002;</p>
 
                                 
                                 </section>
@@ -549,12 +593,12 @@
 
             
                 
-                <a href="../线程基础/" class="navigation navigation-prev " aria-label="Previous page: 线程基础">
+                <a href="../信号量/" class="navigation navigation-prev " aria-label="Previous page: 信号量">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="../锁相关/" class="navigation navigation-next " aria-label="Next page: 锁相关">
+                <a href="../倒计时计数器/" class="navigation navigation-next " aria-label="Next page: 倒计时计数器">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -565,7 +609,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"并发包","level":"1.2.3.3","depth":3,"next":{"title":"锁相关","level":"1.2.3.3.1","depth":4,"path":"学习/锁相关/README.md","ref":"学习/锁相关/README.md","articles":[{"title":"可重入锁","level":"1.2.3.3.1.1","depth":5,"path":"学习/可重入锁/README.md","ref":"学习/可重入锁/README.md","articles":[]},{"title":"信号量","level":"1.2.3.3.1.2","depth":5,"path":"学习/信号量/README.md","ref":"学习/信号量/README.md","articles":[]},{"title":"读写锁","level":"1.2.3.3.1.3","depth":5,"path":"学习/读写锁/README.md","ref":"学习/读写锁/README.md","articles":[]},{"title":"倒计时计数器","level":"1.2.3.3.1.4","depth":5,"path":"学习/倒计时计数器/README.md","ref":"学习/倒计时计数器/README.md","articles":[]},{"title":"循环栅栏","level":"1.2.3.3.1.5","depth":5,"path":"学习/循环栅栏/README.md","ref":"学习/循环栅栏/README.md","articles":[]},{"title":"线程阻塞","level":"1.2.3.3.1.6","depth":5,"path":"学习/线程阻塞/README.md","ref":"学习/线程阻塞/README.md","articles":[]}]},"previous":{"title":"线程基础","level":"1.2.3.2","depth":3,"path":"学习/线程基础/README.md","ref":"学习/线程基础/README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"学习/并发包/README.md","mtime":"2018-12-08T05:24:02.992Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-12T01:42:03.863Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"读写锁","level":"1.2.3.3.1.3","depth":5,"next":{"title":"倒计时计数器","level":"1.2.3.3.1.4","depth":5,"path":"学习/倒计时计数器/README.md","ref":"学习/倒计时计数器/README.md","articles":[]},"previous":{"title":"信号量","level":"1.2.3.3.1.2","depth":5,"path":"学习/信号量/README.md","ref":"学习/信号量/README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"学习/读写锁/README.md","mtime":"2018-12-08T09:50:37.884Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-12T01:42:03.863Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

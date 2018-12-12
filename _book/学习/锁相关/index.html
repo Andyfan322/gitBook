@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>并发包 · GitBook</title>
+        <title>锁相关 · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="../锁相关/" />
+    <link rel="next" href="../可重入锁/" />
     
     
-    <link rel="prev" href="../线程基础/" />
+    <link rel="prev" href="../并发包/" />
     
 
     </head>
@@ -259,9 +259,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.2.3.3" data-path="./">
+        <li class="chapter " data-level="1.2.3.3" data-path="../并发包/">
             
-                <a href="./">
+                <a href="../并发包/">
             
                     
                     并发包
@@ -273,9 +273,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.2.3.3.1" data-path="../锁相关/">
+        <li class="chapter active" data-level="1.2.3.3.1" data-path="./">
             
-                <a href="../锁相关/">
+                <a href="./">
             
                     
                     锁相关
@@ -505,7 +505,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../.." >并发包</a>
+        <a href="../.." >锁相关</a>
     </h1>
 </div>
 
@@ -520,8 +520,8 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="&#x5E76;&#x53D1;&#x5305;">&#x5E76;&#x53D1;&#x5305;</h1>
-<p>JDk5 &#x540E;&#x7684;&#x5E76;&#x53D1;&#x5305;&#x63D0;&#x4F9B;&#x4E86;&#x8BF8;&#x5982;&#x7EBF;&#x7A0B;&#x6C60;&#x3001;&#x5404;&#x79CD;&#x9501;&#x3001;&#x7EBF;&#x7A0B;&#x5B89;&#x5168;&#x7684;&#x5BB9;&#x5668;&#xFF0C;&#x53EF;&#x4EE5;&#x8BF4;&#x529F;&#x80FD;&#x5341;&#x5206;&#x5F3A;&#x5927;&#xFF0C;&#x7ED9;Java&#x5728;&#x5E76;&#x53D1;&#x65B9;&#x9762;&#x63D0;&#x4F9B;&#x4E86;&#x575A;&#x5982;&#x78D0;&#x77F3;&#x7684;&#x6839;&#x57FA;&#xFF0C;&#x4F46;&#x662F;&#x540C;&#x65F6;&#x4E5F;&#x5E26;&#x6765;&#x4E86;&#x7F16;&#x7A0B;&#x7684;&#x590D;&#x6742;&#x5EA6;&#x3002;</p>
+                                <h1 id="&#x9501;&#x76F8;&#x5173;">&#x9501;&#x76F8;&#x5173;</h1>
+<p>&#x9501;&#x5728;&#x5E76;&#x53D1;&#x7F16;&#x7A0B;&#x91CC;&#x9762;&#x662F;&#x6700;&#x6838;&#x5FC3;&#x7684;&#xFF0C;&#x4E5F;&#x662F;&#x76F8;&#x5BF9;&#x6BD4;&#x8F83;&#x590D;&#x6742;&#x7684;&#xFF0C;&#x6211;&#x4EEC;&#x5728;&#x8FD9;&#x91CC;&#x7740;&#x91CD;&#x4ECB;&#x7ECD;&#x51E0;&#x79CD;&#x5E38;&#x89C1;&#x7684;&#x9501;&#x548C;&#x4E0E;&#x5176;&#x9501;&#x76F8;&#x5173;&#x8054;&#x7684;&#x77E5;&#x8BC6;&#x3002;</p>
 
                                 
                                 </section>
@@ -549,12 +549,12 @@
 
             
                 
-                <a href="../线程基础/" class="navigation navigation-prev " aria-label="Previous page: 线程基础">
+                <a href="../并发包/" class="navigation navigation-prev " aria-label="Previous page: 并发包">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="../锁相关/" class="navigation navigation-next " aria-label="Next page: 锁相关">
+                <a href="../可重入锁/" class="navigation navigation-next " aria-label="Next page: 可重入锁">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -565,7 +565,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"并发包","level":"1.2.3.3","depth":3,"next":{"title":"锁相关","level":"1.2.3.3.1","depth":4,"path":"学习/锁相关/README.md","ref":"学习/锁相关/README.md","articles":[{"title":"可重入锁","level":"1.2.3.3.1.1","depth":5,"path":"学习/可重入锁/README.md","ref":"学习/可重入锁/README.md","articles":[]},{"title":"信号量","level":"1.2.3.3.1.2","depth":5,"path":"学习/信号量/README.md","ref":"学习/信号量/README.md","articles":[]},{"title":"读写锁","level":"1.2.3.3.1.3","depth":5,"path":"学习/读写锁/README.md","ref":"学习/读写锁/README.md","articles":[]},{"title":"倒计时计数器","level":"1.2.3.3.1.4","depth":5,"path":"学习/倒计时计数器/README.md","ref":"学习/倒计时计数器/README.md","articles":[]},{"title":"循环栅栏","level":"1.2.3.3.1.5","depth":5,"path":"学习/循环栅栏/README.md","ref":"学习/循环栅栏/README.md","articles":[]},{"title":"线程阻塞","level":"1.2.3.3.1.6","depth":5,"path":"学习/线程阻塞/README.md","ref":"学习/线程阻塞/README.md","articles":[]}]},"previous":{"title":"线程基础","level":"1.2.3.2","depth":3,"path":"学习/线程基础/README.md","ref":"学习/线程基础/README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"学习/并发包/README.md","mtime":"2018-12-08T05:24:02.992Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-12T01:42:03.863Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"锁相关","level":"1.2.3.3.1","depth":4,"next":{"title":"可重入锁","level":"1.2.3.3.1.1","depth":5,"path":"学习/可重入锁/README.md","ref":"学习/可重入锁/README.md","articles":[]},"previous":{"title":"并发包","level":"1.2.3.3","depth":3,"path":"学习/并发包/README.md","ref":"学习/并发包/README.md","articles":[{"title":"锁相关","level":"1.2.3.3.1","depth":4,"path":"学习/锁相关/README.md","ref":"学习/锁相关/README.md","articles":[{"title":"可重入锁","level":"1.2.3.3.1.1","depth":5,"path":"学习/可重入锁/README.md","ref":"学习/可重入锁/README.md","articles":[]},{"title":"信号量","level":"1.2.3.3.1.2","depth":5,"path":"学习/信号量/README.md","ref":"学习/信号量/README.md","articles":[]},{"title":"读写锁","level":"1.2.3.3.1.3","depth":5,"path":"学习/读写锁/README.md","ref":"学习/读写锁/README.md","articles":[]},{"title":"倒计时计数器","level":"1.2.3.3.1.4","depth":5,"path":"学习/倒计时计数器/README.md","ref":"学习/倒计时计数器/README.md","articles":[]},{"title":"循环栅栏","level":"1.2.3.3.1.5","depth":5,"path":"学习/循环栅栏/README.md","ref":"学习/循环栅栏/README.md","articles":[]},{"title":"线程阻塞","level":"1.2.3.3.1.6","depth":5,"path":"学习/线程阻塞/README.md","ref":"学习/线程阻塞/README.md","articles":[]}]},{"title":"线程池","level":"1.2.3.3.2","depth":4,"path":"学习/线程池/README.md","ref":"学习/线程池/README.md","articles":[{"title":"线程池工厂","level":"1.2.3.3.2.1","depth":5,"path":"学习/线程池工厂/README.md","ref":"学习/线程池工厂/README.md","articles":[]}]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"学习/锁相关/README.md","mtime":"2018-12-09T05:13:14.499Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-12T01:42:03.863Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

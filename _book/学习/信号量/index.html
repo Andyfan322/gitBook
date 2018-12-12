@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>并发包 · GitBook</title>
+        <title>信号量 · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="../锁相关/" />
+    <link rel="next" href="../读写锁/" />
     
     
-    <link rel="prev" href="../线程基础/" />
+    <link rel="prev" href="../可重入锁/" />
     
 
     </head>
@@ -259,9 +259,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.2.3.3" data-path="./">
+        <li class="chapter " data-level="1.2.3.3" data-path="../并发包/">
             
-                <a href="./">
+                <a href="../并发包/">
             
                     
                     并发包
@@ -300,9 +300,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.3.3.1.2" data-path="../信号量/">
+        <li class="chapter active" data-level="1.2.3.3.1.2" data-path="./">
             
-                <a href="../信号量/">
+                <a href="./">
             
                     
                     信号量
@@ -505,7 +505,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../.." >并发包</a>
+        <a href="../.." >信号量</a>
     </h1>
 </div>
 
@@ -520,8 +520,84 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="&#x5E76;&#x53D1;&#x5305;">&#x5E76;&#x53D1;&#x5305;</h1>
-<p>JDk5 &#x540E;&#x7684;&#x5E76;&#x53D1;&#x5305;&#x63D0;&#x4F9B;&#x4E86;&#x8BF8;&#x5982;&#x7EBF;&#x7A0B;&#x6C60;&#x3001;&#x5404;&#x79CD;&#x9501;&#x3001;&#x7EBF;&#x7A0B;&#x5B89;&#x5168;&#x7684;&#x5BB9;&#x5668;&#xFF0C;&#x53EF;&#x4EE5;&#x8BF4;&#x529F;&#x80FD;&#x5341;&#x5206;&#x5F3A;&#x5927;&#xFF0C;&#x7ED9;Java&#x5728;&#x5E76;&#x53D1;&#x65B9;&#x9762;&#x63D0;&#x4F9B;&#x4E86;&#x575A;&#x5982;&#x78D0;&#x77F3;&#x7684;&#x6839;&#x57FA;&#xFF0C;&#x4F46;&#x662F;&#x540C;&#x65F6;&#x4E5F;&#x5E26;&#x6765;&#x4E86;&#x7F16;&#x7A0B;&#x7684;&#x590D;&#x6742;&#x5EA6;&#x3002;</p>
+                                <h1 id="&#x4FE1;&#x53F7;&#x91CF;">&#x4FE1;&#x53F7;&#x91CF;</h1>
+<p>Semaphore &#x548C;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x7684;&#x4FE1;&#x53F7;&#x91CF;&#x5F88;&#x7C7B;&#x4F3C;&#xFF0C;&#x4F46;&#x662F;&#x8FD9;&#x91CC;&#x5B83;&#x4E5F;&#x53EF;&#x4EE5;&#x4F5C;&#x4E3A;&#x9501;&#x4F7F;&#x7528;&#x3002;&#x5373;&#x53EF;&#x4EE5;&#x4F5C;&#x4E3A;&#x9501;&#x4E0E;&#x534F;&#x8C03;&#x7EBF;&#x7A0B;&#x4F5C;&#x7528;</p>
+<ul>
+<li>&#x9501;</li>
+</ul>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SemaphoreDemo</span> </span>{
+    <span class="hljs-keyword">static</span> Semaphore semaphore = <span class="hljs-keyword">new</span> Semaphore(<span class="hljs-number">1</span>,<span class="hljs-keyword">true</span>);<span class="hljs-comment">//&#x4E00;&#x4E2A;&#x4FE1;&#x53F7;&#x91CF;&#x4E14;&#x65F6;&#x516C;&#x5E73;&#x7684;&#xFF0C;&#x9ED8;&#x8BA4;&#x975E;&#x516C;&#x5E73;</span>
+    <span class="hljs-keyword">static</span> Runnable r = () -&gt; {
+        <span class="hljs-keyword">try</span> {
+            System.out.println(Thread.currentThread().getName() + <span class="hljs-string">&quot;&#x7B49;&#x5F85;&quot;</span>);
+            semaphore.acquire();
+            System.out.println(Thread.currentThread().getName()+<span class="hljs-string">&quot;&#x8FDB;&#x5165;&quot;</span>);
+            semaphore.release();
+            System.out.println(Thread.currentThread().getName() + <span class="hljs-string">&quot;&#x91CA;&#x653E;&quot;</span>);
+        } <span class="hljs-keyword">catch</span> (InterruptedException e) {
+            e.printStackTrace();
+        }
+    };
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+        Thread t1 = <span class="hljs-keyword">new</span> Thread(r,<span class="hljs-string">&quot;1&quot;</span>);
+        Thread t2 = <span class="hljs-keyword">new</span> Thread(r,<span class="hljs-string">&quot;2&quot;</span>);
+        Thread t3 = <span class="hljs-keyword">new</span> Thread(r,<span class="hljs-string">&quot;3&quot;</span>);
+        t1.start();
+        t2.start();
+        t3.start();
+    }
+}
+</code></pre>
+<p>&#x6253;&#x5370;&#x7ED3;&#x679C;<br>2&#x7B49;&#x5F85;
+1&#x7B49;&#x5F85;
+3&#x7B49;&#x5F85;
+2&#x8FDB;&#x5165;
+2&#x91CA;&#x653E;
+1&#x8FDB;&#x5165;
+1&#x91CA;&#x653E;
+3&#x8FDB;&#x5165;
+3&#x91CA;&#x653E;</p>
+<blockquote>
+<p>&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x9996;&#x5148;3&#x4E2A;&#x7EBF;&#x7A0B;&#x540C;&#x65F6;&#x5230;&#x6765;&#x4E34;&#x754C;&#x533A;&#x8FB9;&#x754C;&#xFF0C;&#x4F46;&#x662F;&#x540C;&#x65F6;&#x53EA;&#x6709;&#x4E00;&#x4E2A;&#x7EBF;&#x7A0B;&#x80FD;&#x8FDB;&#x5165;&#x4E34;&#x754C;&#x533A;&#x3002;</p>
+</blockquote>
+<ul>
+<li>&#x534F;&#x8C03;&#x7EBF;&#x7A0B;</li>
+</ul>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SemaohoreDemo2</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+        ExecutorService pool = Executors.newCachedThreadPool();
+        <span class="hljs-keyword">final</span> Semaphore semaphore = <span class="hljs-keyword">new</span> Semaphore(<span class="hljs-number">3</span>, <span class="hljs-keyword">true</span>);
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">6</span>; i++) {
+            Runnable runnable = () -&gt; {
+                <span class="hljs-keyword">try</span> {
+                    semaphore.acquire();<span class="hljs-comment">//&#x83B7;&#x53D6;&#x4FE1;&#x53F7;&#x706F;&#x8BB8;&#x53EF;</span>
+                } <span class="hljs-keyword">catch</span> (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                <span class="hljs-keyword">try</span> {
+                    Thread.sleep(<span class="hljs-number">2000</span>);<span class="hljs-comment">//&#x4E3A;&#x4E86;&#x6253;&#x5370;&#xFF0C;&#x8FDB;&#x5165;&#x4E34;&#x754C;&#x533A;&#x603B;&#x7684;&#x7EBF;&#x7A0B;&#x6570;&#x91CF;</span>
+                    System.out.println(Thread.currentThread().getName()+<span class="hljs-string">&quot;&#x8FDB;&#x5165;&#x4E34;&#x754C;&#x533A;&quot;</span>);
+                    Thread.sleep(<span class="hljs-number">4000</span>);<span class="hljs-comment">//&#x6A21;&#x62DF;&#x4E1A;&#x52A1;&#x903B;&#x8F91;&#x5904;&#x7406;</span>
+                } <span class="hljs-keyword">catch</span> (InterruptedException e) {
+                    e.printStackTrace();
+                }
+
+                System.out.println(Thread.currentThread().getName()+<span class="hljs-string">&quot;&#x91CA;&#x653E;&#x4FE1;&#x53F7;&quot;</span>);
+                semaphore.release();<span class="hljs-comment">//&#x91CA;&#x653E;&#x4FE1;&#x53F7;&#x706F;</span>
+
+            };
+            pool.execute(runnable);
+
+        }
+        pool.shutdown();
+    }
+}
+</code></pre>
+<p>&#x6253;&#x5370;&#x7ED3;&#x679C;<br>pool-1-thread-3&#x8FDB;&#x5165;&#x4E34;&#x754C;&#x533A;<br>pool-1-thread-2&#x8FDB;&#x5165;&#x4E34;&#x754C;&#x533A;<br>pool-1-thread-1&#x8FDB;&#x5165;&#x4E34;&#x754C;&#x533A;<br>pool-1-thread-3&#x91CA;&#x653E;&#x4FE1;&#x53F7;<br>pool-1-thread-1&#x91CA;&#x653E;&#x4FE1;&#x53F7;<br>pool-1-thread-2&#x91CA;&#x653E;&#x4FE1;&#x53F7;<br>pool-1-thread-4&#x8FDB;&#x5165;&#x4E34;&#x754C;&#x533A;<br>pool-1-thread-5&#x8FDB;&#x5165;&#x4E34;&#x754C;&#x533A;<br>pool-1-thread-6&#x8FDB;&#x5165;&#x4E34;&#x754C;&#x533A;<br>pool-1-thread-4&#x91CA;&#x653E;&#x4FE1;&#x53F7;<br>pool-1-thread-5&#x91CA;&#x653E;&#x4FE1;&#x53F7;<br>pool-1-thread-6&#x91CA;&#x653E;&#x4FE1;&#x53F7;    </p>
+<blockquote>
+<p>&#x4ECE;&#x7ED3;&#x679C;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x6709;3&#x4E2A;&#x7EBF;&#x7A0B;&#x540C;&#x65F6;&#x8FDB;&#x5165;&#x4E86;&#x4E34;&#x754C;&#x533A;&#x3002;</p>
+</blockquote>
 
                                 
                                 </section>
@@ -549,12 +625,12 @@
 
             
                 
-                <a href="../线程基础/" class="navigation navigation-prev " aria-label="Previous page: 线程基础">
+                <a href="../可重入锁/" class="navigation navigation-prev " aria-label="Previous page: 可重入锁">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="../锁相关/" class="navigation navigation-next " aria-label="Next page: 锁相关">
+                <a href="../读写锁/" class="navigation navigation-next " aria-label="Next page: 读写锁">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -565,7 +641,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"并发包","level":"1.2.3.3","depth":3,"next":{"title":"锁相关","level":"1.2.3.3.1","depth":4,"path":"学习/锁相关/README.md","ref":"学习/锁相关/README.md","articles":[{"title":"可重入锁","level":"1.2.3.3.1.1","depth":5,"path":"学习/可重入锁/README.md","ref":"学习/可重入锁/README.md","articles":[]},{"title":"信号量","level":"1.2.3.3.1.2","depth":5,"path":"学习/信号量/README.md","ref":"学习/信号量/README.md","articles":[]},{"title":"读写锁","level":"1.2.3.3.1.3","depth":5,"path":"学习/读写锁/README.md","ref":"学习/读写锁/README.md","articles":[]},{"title":"倒计时计数器","level":"1.2.3.3.1.4","depth":5,"path":"学习/倒计时计数器/README.md","ref":"学习/倒计时计数器/README.md","articles":[]},{"title":"循环栅栏","level":"1.2.3.3.1.5","depth":5,"path":"学习/循环栅栏/README.md","ref":"学习/循环栅栏/README.md","articles":[]},{"title":"线程阻塞","level":"1.2.3.3.1.6","depth":5,"path":"学习/线程阻塞/README.md","ref":"学习/线程阻塞/README.md","articles":[]}]},"previous":{"title":"线程基础","level":"1.2.3.2","depth":3,"path":"学习/线程基础/README.md","ref":"学习/线程基础/README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"学习/并发包/README.md","mtime":"2018-12-08T05:24:02.992Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-12T01:42:03.863Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"信号量","level":"1.2.3.3.1.2","depth":5,"next":{"title":"读写锁","level":"1.2.3.3.1.3","depth":5,"path":"学习/读写锁/README.md","ref":"学习/读写锁/README.md","articles":[]},"previous":{"title":"可重入锁","level":"1.2.3.3.1.1","depth":5,"path":"学习/可重入锁/README.md","ref":"学习/可重入锁/README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"学习/信号量/README.md","mtime":"2018-12-08T08:02:41.988Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-12T01:42:03.863Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
