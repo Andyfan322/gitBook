@@ -6,7 +6,7 @@ Semaphore 和操作系统的信号量很类似，但是这里它也可以作为�
 
 ```java
 public class SemaphoreDemo {
-    static Semaphore semaphore = new Semaphore(1,true);//一个信号量且时公平的，默认非公平
+    static Semaphore semaphore = new Semaphore(1,true);//一个信号量且是公平的，默认非公平
     static Runnable r = () -> {
         try {
             System.out.println(Thread.currentThread().getName() + "等待");

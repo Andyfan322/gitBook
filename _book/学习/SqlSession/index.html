@@ -1,0 +1,901 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>SqlSessionFactory · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="./" />
+    
+    
+    <link rel="prev" href="../SqlSessionFactory/" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    学习
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../Java基础/">
+            
+                <a href="../Java基础/">
+            
+                    
+                    一、Java基础
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1.1" data-path="../String/">
+            
+                <a href="../String/">
+            
+                    
+                    String
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../Spring/">
+            
+                <a href="../Spring/">
+            
+                    
+                    二、Spring
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.2.1" data-path="../Spring/核心组件/">
+            
+                <a href="../Spring/核心组件/">
+            
+                    
+                    核心组件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.2" data-path="../Spring/加载流程/">
+            
+                <a href="../Spring/加载流程/">
+            
+                    
+                    加载流程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.3" data-path="../Spring/BeanFactory/">
+            
+                <a href="../Spring/BeanFactory/">
+            
+                    
+                    BeanFactory
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../Mybatis/">
+            
+                <a href="../Mybatis/">
+            
+                    
+                    三、Mybatis
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.3.1" data-path="../SqlSessionFactory/">
+            
+                <a href="../SqlSessionFactory/">
+            
+                    
+                    SqlSessionFactoryBuilder
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.3.2" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    SqlSessionFactory
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.3.3" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    SqlSession
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.4" data-path="../映射器/">
+            
+                <a href="../映射器/">
+            
+                    
+                    映射器
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../Tomcat/">
+            
+                <a href="../Tomcat/">
+            
+                    
+                    四、Tomcat
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.4.1" data-path="../结构/">
+            
+                <a href="../结构/">
+            
+                    
+                    结构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4.2" data-path="../核心类/">
+            
+                <a href="../核心类/">
+            
+                    
+                    核心类
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../并行/">
+            
+                <a href="../并行/">
+            
+                    
+                    五、并行
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.5.1" data-path="../并行介绍/">
+            
+                <a href="../并行介绍/">
+            
+                    
+                    并行介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.2" data-path="../线程基础/">
+            
+                <a href="../线程基础/">
+            
+                    
+                    线程基础
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.3" data-path="../并发包/">
+            
+                <a href="../并发包/">
+            
+                    
+                    并发包
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.5.3.1" data-path="../锁相关/">
+            
+                <a href="../锁相关/">
+            
+                    
+                    锁相关
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.5.3.1.1" data-path="../可重入锁/">
+            
+                <a href="../可重入锁/">
+            
+                    
+                    可重入锁
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.3.1.2" data-path="../信号量/">
+            
+                <a href="../信号量/">
+            
+                    
+                    信号量
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.3.1.3" data-path="../读写锁/">
+            
+                <a href="../读写锁/">
+            
+                    
+                    读写锁
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.3.1.4" data-path="../倒计时计数器/">
+            
+                <a href="../倒计时计数器/">
+            
+                    
+                    倒计时计数器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.3.1.5" data-path="../循环栅栏/">
+            
+                <a href="../循环栅栏/">
+            
+                    
+                    循环栅栏
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.3.1.6" data-path="../线程阻塞/">
+            
+                <a href="../线程阻塞/">
+            
+                    
+                    线程阻塞
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.3.1.7" data-path="../同步队列器/">
+            
+                <a href="../同步队列器/">
+            
+                    
+                    同步队列器
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.5.3.1.7.1" data-path="../线程池/">
+            
+                <a href="../线程池/">
+            
+                    
+                    六、线程池
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.3.1.7.2" data-path="../线程池工厂/">
+            
+                <a href="../线程池工厂/">
+            
+                    
+                    线程池工厂
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.3.1.7.3" data-path="../Netty/">
+            
+                <a href="../Netty/">
+            
+                    
+                    七、Netty
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.3.1.7.4" data-path="../IO/">
+            
+                <a href="../IO/">
+            
+                    
+                    IO
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.3.1.7.5" data-path="../Java里的NIO/">
+            
+                <a href="../Java里的NIO/">
+            
+                    
+                    Java里的NIO
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../../日常/">
+            
+                <a href="../../日常/">
+            
+                    
+                    日常
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../../日常/吃货大作战/">
+            
+                <a href="../../日常/吃货大作战/">
+            
+                    
+                    一、吃货大作战
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../../日常/购物红包/">
+            
+                <a href="../../日常/购物红包/">
+            
+                    
+                    二、购物红包
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../../日常/一元购/">
+            
+                <a href="../../日常/一元购/">
+            
+                    
+                    三、一元购
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >SqlSessionFactory</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="sqlsessionfactory">SqlSessionFactory</h1>
+<blockquote>
+<p>&#x7528;&#x5B83;&#x6765;&#x751F;&#x6210;SqlSession&#xFF0C;&#x4E00;&#x822C;&#x9879;&#x76EE;&#x4E2D;&#x4E00;&#x4E2A;&#x6570;&#x636E;&#x6E90;&#x6709;&#x4EC5;&#x6709;&#x4E00;&#x4E2A;&#x8BE5;&#x5DE5;&#x5382;&#x3002;&#x751F;&#x547D;&#x5468;&#x671F;&#xFF1A;&#x4E00;&#x4E2A;&#x56DE;&#x8BDD;&#x5185;&#x3002;</p>
+</blockquote>
+<ul>
+<li>&#x4EE3;&#x7801;</li>
+</ul>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">SqlSessionFactory</span> </span>{
+  <span class="hljs-function">SqlSession <span class="hljs-title">openSession</span><span class="hljs-params">()</span></span>;
+  <span class="hljs-function">SqlSession <span class="hljs-title">openSession</span><span class="hljs-params">(<span class="hljs-keyword">boolean</span> autoCommit)</span></span>;
+  <span class="hljs-function">SqlSession <span class="hljs-title">openSession</span><span class="hljs-params">(Connection connection)</span></span>;
+  <span class="hljs-function">SqlSession <span class="hljs-title">openSession</span><span class="hljs-params">(TransactionIsolationLevel level)</span></span>;
+  <span class="hljs-function">SqlSession <span class="hljs-title">openSession</span><span class="hljs-params">(ExecutorType execType)</span></span>;
+  <span class="hljs-function">SqlSession <span class="hljs-title">openSession</span><span class="hljs-params">(ExecutorType execType, <span class="hljs-keyword">boolean</span> autoCommit)</span></span>;
+  <span class="hljs-function">SqlSession <span class="hljs-title">openSession</span><span class="hljs-params">(ExecutorType execType, TransactionIsolationLevel level)</span></span>;
+  <span class="hljs-function">SqlSession <span class="hljs-title">openSession</span><span class="hljs-params">(ExecutorType execType, Connection connection)</span></span>;
+  <span class="hljs-function">Configuration <span class="hljs-title">getConfiguration</span><span class="hljs-params">()</span></span>;
+}
+</code></pre>
+<ul>
+<li>&#x9ED8;&#x8BA4;&#x5B9E;&#x73B0;</li>
+</ul>
+<p><img src="http://47.95.12.0:3389/ftp/SqlSessionFactory.png" alt=""> </p>
+<p>&#x4E00;&#x822C;&#x60C5;&#x51B5;DefaultSqlSessionFactory&#x4F5C;&#x4E3A;&#x9ED8;&#x8BA4;&#x7684;&#x5B9E;&#x73B0;&#xFF0C;SqlSessionManager &#x4ECE;&#x9879;&#x76EE;&#x6E90;&#x7801;&#x6765;&#x770B;&#x6CA1;&#x6709;&#x5730;&#x65B9;&#x88AB;&#x5F15;&#x7528;&#xFF0C;&#x53EA;&#x6709;&#x5B83;test&#x7C7B;&#xFF0C;&#x6211;&#x4E0D;&#x77E5;&#x9053;&#x5199;&#x5B83;&#x7684;&#x76EE;&#x7684;&#x662F;&#x5565;&#xFF1F;&#x597D;&#x5427;&#xFF0C;&#x8BA9;&#x6211;&#x4EEC;&#x4E00;&#x8D77;&#x6765;&#x770B;&#x770B;DefaultSqlSessionFactory&#x6E90;&#x7801;</p>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">DefaultSqlSessionFactory</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">SqlSessionFactory</span> </span>{
+
+  <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> Configuration configuration;
+  <span class="hljs-comment">//&#x521D;&#x59CB;&#x5316;&#x914D;&#x7F6E;&#x4FE1;&#x606F;</span>
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">DefaultSqlSessionFactory</span><span class="hljs-params">(Configuration configuration)</span> </span>{
+    <span class="hljs-keyword">this</span>.configuration = configuration;
+  }
+
+ <span class="hljs-comment">//&#x82E5;&#x5E72;&#x4E2A;&#x83B7;&#x53D6;SqlSession&#x65B9;&#x6CD5;</span>
+  <span class="hljs-meta">@Override</span>
+  <span class="hljs-function"><span class="hljs-keyword">public</span> SqlSession <span class="hljs-title">openSession</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-keyword">return</span> openSessionFromDataSource(configuration.getDefaultExecutorType(), <span class="hljs-keyword">null</span>, <span class="hljs-keyword">false</span>);
+  }
+
+  <span class="hljs-meta">@Override</span>
+  <span class="hljs-function"><span class="hljs-keyword">public</span> SqlSession <span class="hljs-title">openSession</span><span class="hljs-params">(<span class="hljs-keyword">boolean</span> autoCommit)</span> </span>{
+    <span class="hljs-keyword">return</span> openSessionFromDataSource(configuration.getDefaultExecutorType(), <span class="hljs-keyword">null</span>, autoCommit);
+  }
+
+  <span class="hljs-meta">@Override</span>
+  <span class="hljs-function"><span class="hljs-keyword">public</span> SqlSession <span class="hljs-title">openSession</span><span class="hljs-params">(ExecutorType execType)</span> </span>{
+    <span class="hljs-keyword">return</span> openSessionFromDataSource(execType, <span class="hljs-keyword">null</span>, <span class="hljs-keyword">false</span>);
+  }
+
+  <span class="hljs-meta">@Override</span>
+  <span class="hljs-function"><span class="hljs-keyword">public</span> SqlSession <span class="hljs-title">openSession</span><span class="hljs-params">(TransactionIsolationLevel level)</span> </span>{
+    <span class="hljs-keyword">return</span> openSessionFromDataSource(configuration.getDefaultExecutorType(), level, <span class="hljs-keyword">false</span>);
+  }
+
+  <span class="hljs-meta">@Override</span>
+  <span class="hljs-function"><span class="hljs-keyword">public</span> SqlSession <span class="hljs-title">openSession</span><span class="hljs-params">(ExecutorType execType, TransactionIsolationLevel level)</span> </span>{
+    <span class="hljs-keyword">return</span> openSessionFromDataSource(execType, level, <span class="hljs-keyword">false</span>);
+  }
+
+  <span class="hljs-meta">@Override</span>
+  <span class="hljs-function"><span class="hljs-keyword">public</span> SqlSession <span class="hljs-title">openSession</span><span class="hljs-params">(ExecutorType execType, <span class="hljs-keyword">boolean</span> autoCommit)</span> </span>{
+    <span class="hljs-keyword">return</span> openSessionFromDataSource(execType, <span class="hljs-keyword">null</span>, autoCommit);
+  }
+
+  <span class="hljs-meta">@Override</span>
+  <span class="hljs-function"><span class="hljs-keyword">public</span> SqlSession <span class="hljs-title">openSession</span><span class="hljs-params">(Connection connection)</span> </span>{
+    <span class="hljs-keyword">return</span> openSessionFromConnection(configuration.getDefaultExecutorType(), connection);
+  }
+
+  <span class="hljs-meta">@Override</span>
+  <span class="hljs-function"><span class="hljs-keyword">public</span> SqlSession <span class="hljs-title">openSession</span><span class="hljs-params">(ExecutorType execType, Connection connection)</span> </span>{
+    <span class="hljs-keyword">return</span> openSessionFromConnection(execType, connection);
+  }
+
+  <span class="hljs-meta">@Override</span>
+  <span class="hljs-function"><span class="hljs-keyword">public</span> Configuration <span class="hljs-title">getConfiguration</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-keyword">return</span> configuration;
+  }
+<span class="hljs-comment">// &#x65B9;&#x6CD5;1</span>
+  <span class="hljs-function"><span class="hljs-keyword">private</span> SqlSession <span class="hljs-title">openSessionFromDataSource</span><span class="hljs-params">(ExecutorType execType, TransactionIsolationLevel level, <span class="hljs-keyword">boolean</span> autoCommit)</span> </span>{
+    Transaction tx = <span class="hljs-keyword">null</span>;
+    <span class="hljs-keyword">try</span> {
+      <span class="hljs-keyword">final</span> Environment environment = configuration.getEnvironment();
+      <span class="hljs-keyword">final</span> TransactionFactory transactionFactory = getTransactionFactoryFromEnvironment(environment);
+      tx = transactionFactory.newTransaction(environment.getDataSource(), level, autoCommit);
+      <span class="hljs-keyword">final</span> Executor executor = configuration.newExecutor(tx, execType);<span class="hljs-comment">////&#x771F;&#x6B63;&#x5E72;&#x6D3B;&#x7684;</span>
+      <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> DefaultSqlSession(configuration, executor, autoCommit);
+    } <span class="hljs-keyword">catch</span> (Exception e) {
+      closeTransaction(tx); <span class="hljs-comment">// may have fetched a connection so lets call close()</span>
+      <span class="hljs-keyword">throw</span> ExceptionFactory.wrapException(<span class="hljs-string">&quot;Error opening session.  Cause: &quot;</span> + e, e);
+    } <span class="hljs-keyword">finally</span> {
+      ErrorContext.instance().reset();
+    }
+  }
+<span class="hljs-comment">// &#x65B9;&#x6CD5;2</span>
+  <span class="hljs-function"><span class="hljs-keyword">private</span> SqlSession <span class="hljs-title">openSessionFromConnection</span><span class="hljs-params">(ExecutorType execType, Connection connection)</span> </span>{
+    <span class="hljs-keyword">try</span> {
+      <span class="hljs-keyword">boolean</span> autoCommit;
+      <span class="hljs-keyword">try</span> {
+        autoCommit = connection.getAutoCommit();
+      } <span class="hljs-keyword">catch</span> (SQLException e) {
+        autoCommit = <span class="hljs-keyword">true</span>;
+      }
+      <span class="hljs-keyword">final</span> Environment environment = configuration.getEnvironment();
+      <span class="hljs-keyword">final</span> TransactionFactory transactionFactory = getTransactionFactoryFromEnvironment(environment);
+      <span class="hljs-keyword">final</span> Transaction tx = transactionFactory.newTransaction(connection);
+      <span class="hljs-keyword">final</span> Executor executor = configuration.newExecutor(tx, execType);<span class="hljs-comment">//&#x771F;&#x6B63;&#x5E72;&#x6D3B;&#x7684;</span>
+      <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> DefaultSqlSession(configuration, executor, autoCommit);
+    } <span class="hljs-keyword">catch</span> (Exception e) {
+      <span class="hljs-keyword">throw</span> ExceptionFactory.wrapException(<span class="hljs-string">&quot;Error opening session.  Cause: &quot;</span> + e, e);
+    } <span class="hljs-keyword">finally</span> {
+      ErrorContext.instance().reset();
+    }
+  }
+<span class="hljs-comment">// &#x83B7;&#x53D6;&#x4E8B;&#x52A1;&#x5DE5;&#x5382;</span>
+  <span class="hljs-function"><span class="hljs-keyword">private</span> TransactionFactory <span class="hljs-title">getTransactionFactoryFromEnvironment</span><span class="hljs-params">(Environment environment)</span> </span>{
+    <span class="hljs-keyword">if</span> (environment == <span class="hljs-keyword">null</span> || environment.getTransactionFactory() == <span class="hljs-keyword">null</span>) {
+      <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> ManagedTransactionFactory();
+    }
+    <span class="hljs-keyword">return</span> environment.getTransactionFactory();
+  }
+
+  <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">closeTransaction</span><span class="hljs-params">(Transaction tx)</span> </span>{
+    <span class="hljs-keyword">if</span> (tx != <span class="hljs-keyword">null</span>) {
+      <span class="hljs-keyword">try</span> {
+        tx.close();
+      } <span class="hljs-keyword">catch</span> (SQLException ignore) {
+        <span class="hljs-comment">// Intentionally ignore. Prefer previous error.</span>
+      }
+    }
+  }
+}
+</code></pre>
+<ul>
+<li>&#x521B;&#x5EFA;SqlSession&#x7684;&#x6B65;&#x9AA4;    <ul>
+<li>&#x4ECE;&#x914D;&#x7F6E;&#x4E2D;&#x83B7;&#x53D6;Environment&#xFF1B;<ul>
+<li>&#x4ECE;Environment&#x4E2D;&#x53D6;&#x5F97;TransactionFactory&#xFF1B;</li>
+<li>&#x5728;&#x53D6;&#x5F97;&#x7684;&#x6570;&#x636E;&#x5E93;&#x8FDE;&#x63A5;&#x4E0A;&#x521B;&#x5EFA;&#x4E8B;&#x52A1;&#x5BF9;&#x8C61;Transaction&#xFF1B;</li>
+<li>&#x521B;&#x5EFA;Executor&#x5BF9;&#x8C61;&#xFF08;&#x8BE5;&#x5BF9;&#x8C61;&#x975E;&#x5E38;&#x91CD;&#x8981;&#xFF0C;&#x4E8B;&#x5B9E;&#x4E0A;sqlsession&#x7684;&#x6240;&#x6709;&#x64CD;&#x4F5C;&#x90FD;&#x662F;&#x901A;&#x8FC7;&#x5B83;&#x5B8C;&#x6210;&#x7684;&#xFF09;&#xFF1B;</li>
+<li>&#x521B;&#x5EFA;sqlsession&#x5BF9;&#x8C61;</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../SqlSessionFactory/" class="navigation navigation-prev " aria-label="Previous page: SqlSessionFactoryBuilder">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="./" class="navigation navigation-next " aria-label="Next page: SqlSession">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"SqlSessionFactory","level":"1.2.3.2","depth":3,"next":{"title":"SqlSession","level":"1.2.3.3","depth":3,"path":"学习/SqlSession/README.md","ref":"学习/SqlSession/README.md","articles":[]},"previous":{"title":"SqlSessionFactoryBuilder","level":"1.2.3.1","depth":3,"path":"学习/SqlSessionFactory/README.md","ref":"学习/SqlSessionFactory/README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"学习/SqlSession/README.md","mtime":"2019-01-09T15:59:03.286Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-09T16:02:23.386Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

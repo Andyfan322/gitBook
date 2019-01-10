@@ -166,12 +166,23 @@
 			
   * 说明：对于Spring来说最顶层的Bean工厂为BeanFactory，它定义的功能比较简单，getBean() 、 containsBean()等，并不关心资源、Bean的定义等信息。但它默认三个直接继承者扩展了它，Spring提供了蛮多种方式来生产Bean，比较繁杂，这些继承者们就是Spring分而治之这些难题的小组件。从类结构图可以看出DefaultListableBeanFactory是第一个普通类，它是一个集大成者，有完整的Bean生产能力。我们常知道的ClassPathXmlApllicationContext就是通过它的代理实现Bean工厂的。
  
-* 二、定义  
+* 二、资源加载
+
+>资源、加载在Spring里面是两个概念，这里它定义了2个很关键的接口，Resource和ResourceLoader。
+
+* Resource
+
+![](/Users/huangfan/Desktop/AbstractResource.png)  
+
+Resource 抽象资源，默认有个AbstractResource实现，一般我们自己想实现自己的资源，可以继承这个类。  
+
+* ResourceLoader 
+
+![](/Users/huangfan/Desktop/DefaultResourceLoader.png) 
+
+  ResourceLoader的默认的DefaultResourceLoader，这里类图并不完整。我只是列出来几个。
   
-  
-  
-  
-  
+ > Spring 提供了 Resource 和 ResourceLoader 来统一抽象整个资源及其定位。使得资源与资源的定位有了一个更加清晰的界限，并且提供了合适的 Default 类，使得自定义实现更加方便和清晰。
   
   
   
