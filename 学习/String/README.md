@@ -87,16 +87,13 @@ public final class String implements java.io.Serializable, Comparable<java.lang.
 ```    
 > String 是immutable（不可变的），这写方法的操作都是使用了新的char[],原始的字符串是不可变的。即String一旦创建，对它的任何操作都是不会原值，会再生成新的对象。
 
-
-* StringBuilder 、StringBuffer
-
-    * 线程安全否？		
+* StringBuilder 、StringBuffer 线程安全否？
+ 
+>String是immutable，因此必然是线程安全的，而StringBuilder和StringBuffer是可变的，故可能存在线程安全问题。
     
-    String是immutable，因此必然是线程安全的，而StringBuilder和StringBuffer是可变的，故可能存在线程安全问题。
-    
-    * StringBUilder
+* StringBuilder
 
-    ```java
+```java
     public final class StringBuilder extends AbstractStringBuilder implements java.io.Serializable, CharSequence
 {
 
@@ -146,53 +143,54 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
         return this;
     }
 }
-    ```
->可以看到StringBuilder底层也是数组，默认char[]大小是16，但是它可以扩容，执行append操作实现上调用的都是父类的appnd方法，且在其内部没看到任何线程安全的保护措施，因此使用它需要注意线程安全问题。
+```
 
+>可以看到StringBuilder底层也是数组，默认char[]大小是16，但是它可以扩容，执行append操作实现上调用的都是父类的appnd方法，且在其内部没看到任何线程安全的保护措施，因此使用它需要注意线程安全问题。
 
 * StringBuffer
 
 ```java
-public final class StringBuffer
-    extends AbstractStringBuilder
-    implements java.io.Serializable, CharSequence
-{
-    private transient char[] toStringCache;
-
-    static final long serialVersionUID = 3388685877147921107L;
-
-    public StringBuffer() {
-        super(16);
-    }
-
-    public StringBuffer(int capacity) {
-        super(capacity);
-    }
-
-    public StringBuffer(String str) {
-        super(str.length() + 16);
-        append(str);
-    }
-   public synchronized StringBuffer append(StringBuffer sb) {
-        toStringCache = null;
-        super.append(sb);
-        return this;
-    }
-  }
-abstract class AbstractStringBuilder implements Appendable, CharSequence {
-   
-    char[] value;
-
-    int count;
-
-    AbstractStringBuilder() {
-    }
-    
-    AbstractStringBuilder(int capacity) {
-        value = new char[capacity];
-    }
- }   
+	public final class StringBuffer
+	    extends AbstractStringBuilder
+	    implements java.io.Serializable, CharSequence
+	{
+	    private transient char[] toStringCache;
+	
+	    static final long serialVersionUID = 3388685877147921107L;
+	
+	    public StringBuffer() {
+	        super(16);
+	    }
+	
+	    public StringBuffer(int capacity) {
+	        super(capacity);
+	    }
+	
+	    public StringBuffer(String str) {
+	        super(str.length() + 16);
+	        append(str);
+	    }
+	   public synchronized StringBuffer append(StringBuffer sb) {
+	        toStringCache = null;
+	        super.append(sb);
+	        return this;
+	    }
+	  }
+	abstract class AbstractStringBuilder implements Appendable, CharSequence {
+	   
+	    char[] value;
+	
+	    int count;
+	
+	    AbstractStringBuilder() {
+	    }
+	    
+	    AbstractStringBuilder(int capacity) {
+	        value = new char[capacity];
+	    }
+	 }   
 ```    
+
 >可以看到StringBuffer底层也是数组，默认char[]大小是16，但是它可以扩容，执行append操作实现上调用的都是父类的appnd方法，且在其内部方法都用synchronized修饰，是线程安全的。
     
     
