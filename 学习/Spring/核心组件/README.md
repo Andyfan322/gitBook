@@ -97,7 +97,7 @@
 	     ```
 	
 	
-	   * 分层工厂 HierarchicalBeanFactory
+	 * 分层工厂 HierarchicalBeanFactory
 	   
 			```java
 			public interface HierarchicalBeanFactory extends BeanFactory {
@@ -105,11 +105,11 @@
 				BeanFactory getParentBeanFactory();
 				//本地工厂是否包含这个Bean
 				boolean containsLocalBean(String name);
-			
 			}
 		    ```
 	
-	   * 可以自动装配工厂 AutowireCapableBeanFactory
+	
+     * 可以自动装配工厂 AutowireCapableBeanFactory
 		
 			```java
 			public interface AutowireCapableBeanFactory extends BeanFactory {
@@ -172,13 +172,13 @@
 
 * Resource
 
-![](/Users/huangfan/Desktop/AbstractResource.png)  
+![](http://47.95.12.0:3389/ftp/AbstractResource.png)  
 
 Resource 抽象资源，默认有个AbstractResource实现，一般我们自己想实现自己的资源，可以继承这个类。  
 
 * ResourceLoader 
 
-![](/Users/huangfan/Desktop/DefaultResourceLoader.png) 
+![](http://47.95.12.0:3389/ftp/DefaultResourceLoader.png) 
 
   ResourceLoader的默认的DefaultResourceLoader，这里类图并不完整。我只是列出来几个。
   

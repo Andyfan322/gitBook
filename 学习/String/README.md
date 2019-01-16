@@ -88,11 +88,11 @@ public final class String implements java.io.Serializable, Comparable<java.lang.
 > String 是immutable（不可变的），这写方法的操作都是使用了新的char[],原始的字符串是不可变的。即String一旦创建，对它的任何操作都是不会原值，会再生成新的对象。
 
 
-* StringBuilder 、StringBUffer
+* StringBuilder 、StringBuffer
 
     * 线程安全否？		
     
-    String是immutable，因此必然是线程安全的，而StringBuilder和StringBuffer是可变的，故存在线程安全问题
+    String是immutable，因此必然是线程安全的，而StringBuilder和StringBuffer是可变的，故可能存在线程安全问题。
     
     * StringBUilder
 
@@ -125,7 +125,6 @@ public final class String implements java.io.Serializable, Comparable<java.lang.
     }
  } 
 abstract class AbstractStringBuilder implements Appendable, CharSequence {
-//底层也是char[]来装实际的值
     char[] value;
 
     int count;
@@ -162,7 +161,6 @@ public final class StringBuffer
 
     static final long serialVersionUID = 3388685877147921107L;
 
-//底层也是char[]来装实际的值
     public StringBuffer() {
         super(16);
     }

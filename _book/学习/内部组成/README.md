@@ -1,50 +1,11 @@
-# 映射器
+# 内部组成
 
-> 映射器可以理解为我们平常说的mapper接口，一般映射器可以由接口+xml/注解方式组成。生命周期：一个会话内。
-
-### 一、使用
-
-* 接口+xml
-
-```java
- @Mapper
- public interface userMapper{
- 	User selectById(id);
- }
- <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.vxiaoke.cp.base.mapper.UserAccountMapper">
-
-    <resultMap id="BaseResultMap" type="com.vxiaoke.cp.base.models.UserAccount">
-        <id column="id" property="id" />
-        <result column="username" property="ctime" />
-        <result column="age" property="mtime" />
-    </resultMap>
-    <!-- 通用查询结果列 -->
-    <sql id="Base_Column_List">
-        id, ctime, mtime, username, age
-    </sql>
-
-    <select id="selectById" resultMap="BaseResultMap">
-        select <include refid="Base_Column_List"/>
-        from user where id = #{id}
-    </select>
- </mapper>
-```
-* 接口+注解
-
-```java
- @Select(value="select *id,username,age from user where id=#{id}")
- public interface userMapper{
- 	User selectById(id);
- }
-``` 
-### 二、组成
+##### 一、组成
 * MappedStatement 
 * SqlSource
 * BoundSql
 
-### 三、说明
+##### 二、说明
 * MappedStatement
   这个类涉及的东西是比较多的，可以看看下面的表
   
@@ -60,7 +21,6 @@
 |... | ...| ...|
   
 * SqlSource
-
 > 根据参数/其他规则组装sql，
 
 ![](http://47.95.12.0:3389/ftp/SqlSource.png) 

@@ -246,9 +246,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.3.3" data-path="../SqlSession/">
+        <li class="chapter " data-level="1.2.3.3" data-path="../SqlSession/READM.html">
             
-                <a href="../SqlSession/">
+                <a href="../SqlSession/READM.html">
             
                     
                     SqlSession
@@ -265,6 +265,19 @@
             
                     
                     映射器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.5" data-path="../四大金刚/">
+            
+                <a href="../四大金刚/">
+            
+                    
+                    四大金刚
             
                 </a>
             
@@ -764,10 +777,10 @@
 <p>String &#x662F;immutable&#xFF08;&#x4E0D;&#x53EF;&#x53D8;&#x7684;&#xFF09;&#xFF0C;&#x8FD9;&#x5199;&#x65B9;&#x6CD5;&#x7684;&#x64CD;&#x4F5C;&#x90FD;&#x662F;&#x4F7F;&#x7528;&#x4E86;&#x65B0;&#x7684;char[],&#x539F;&#x59CB;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x662F;&#x4E0D;&#x53EF;&#x53D8;&#x7684;&#x3002;&#x5373;String&#x4E00;&#x65E6;&#x521B;&#x5EFA;&#xFF0C;&#x5BF9;&#x5B83;&#x7684;&#x4EFB;&#x4F55;&#x64CD;&#x4F5C;&#x90FD;&#x662F;&#x4E0D;&#x4F1A;&#x539F;&#x503C;&#xFF0C;&#x4F1A;&#x518D;&#x751F;&#x6210;&#x65B0;&#x7684;&#x5BF9;&#x8C61;&#x3002;</p>
 </blockquote>
 <ul>
-<li><p>StringBuilder &#x3001;StringBUffer</p>
+<li><p>StringBuilder &#x3001;StringBuffer</p>
 <ul>
 <li><p>&#x7EBF;&#x7A0B;&#x5B89;&#x5168;&#x5426;&#xFF1F;        </p>
-<p>String&#x662F;immutable&#xFF0C;&#x56E0;&#x6B64;&#x5FC5;&#x7136;&#x662F;&#x7EBF;&#x7A0B;&#x5B89;&#x5168;&#x7684;&#xFF0C;&#x800C;StringBuilder&#x548C;StringBuffer&#x662F;&#x53EF;&#x53D8;&#x7684;&#xFF0C;&#x6545;&#x5B58;&#x5728;&#x7EBF;&#x7A0B;&#x5B89;&#x5168;&#x95EE;&#x9898;</p>
+<p>String&#x662F;immutable&#xFF0C;&#x56E0;&#x6B64;&#x5FC5;&#x7136;&#x662F;&#x7EBF;&#x7A0B;&#x5B89;&#x5168;&#x7684;&#xFF0C;&#x800C;StringBuilder&#x548C;StringBuffer&#x662F;&#x53EF;&#x53D8;&#x7684;&#xFF0C;&#x6545;&#x53EF;&#x80FD;&#x5B58;&#x5728;&#x7EBF;&#x7A0B;&#x5B89;&#x5168;&#x95EE;&#x9898;&#x3002;</p>
 </li>
 <li><p>StringBUilder</p>
 <p>```java
@@ -799,7 +812,6 @@ public StringBuilder append(Object obj) {
 }
 </code></pre><p> } 
 abstract class AbstractStringBuilder implements Appendable, CharSequence {
-//&#x5E95;&#x5C42;&#x4E5F;&#x662F;char[]&#x6765;&#x88C5;&#x5B9E;&#x9645;&#x7684;&#x503C;
     char[] value;</p>
 <pre><code>int count;
 
@@ -835,7 +847,6 @@ AbstractStringBuilder(int capacity) {
 
     <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">long</span> serialVersionUID = <span class="hljs-number">3388685877147921107L</span>;
 
-<span class="hljs-comment">//&#x5E95;&#x5C42;&#x4E5F;&#x662F;char[]&#x6765;&#x88C5;&#x5B9E;&#x9645;&#x7684;&#x503C;</span>
     <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">StringBuffer</span><span class="hljs-params">()</span> </span>{
         <span class="hljs-keyword">super</span>(<span class="hljs-number">16</span>);
     }
@@ -914,7 +925,7 @@ AbstractStringBuilder(int capacity) {
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"String","level":"1.2.1.1","depth":3,"next":{"title":"二、Spring","level":"1.2.2","depth":2,"path":"学习/Spring/README.md","ref":"学习/Spring/README.md","articles":[{"title":"核心组件","level":"1.2.2.1","depth":3,"path":"学习/Spring/核心组件/README.md","ref":"学习/Spring/核心组件/README.md","articles":[]},{"title":"加载流程","level":"1.2.2.2","depth":3,"path":"学习/Spring/加载流程/README.md","ref":"学习/Spring/加载流程/README.md","articles":[]},{"title":"BeanFactory","level":"1.2.2.3","depth":3,"path":"学习/Spring/BeanFactory/README.md","ref":"学习/Spring/BeanFactory/README.md","articles":[]}]},"previous":{"title":"一、Java基础","level":"1.2.1","depth":2,"path":"学习/Java基础/README.md","ref":"学习/Java基础/README.md","articles":[{"title":"String","level":"1.2.1.1","depth":3,"path":"学习/String/README.md","ref":"学习/String/README.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"学习/String/README.md","mtime":"2019-01-06T07:38:30.584Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-09T16:02:23.386Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"String","level":"1.2.1.1","depth":3,"next":{"title":"二、Spring","level":"1.2.2","depth":2,"path":"学习/Spring/README.md","ref":"学习/Spring/README.md","articles":[{"title":"核心组件","level":"1.2.2.1","depth":3,"path":"学习/Spring/核心组件/README.md","ref":"学习/Spring/核心组件/README.md","articles":[]},{"title":"加载流程","level":"1.2.2.2","depth":3,"path":"学习/Spring/加载流程/README.md","ref":"学习/Spring/加载流程/README.md","articles":[]},{"title":"BeanFactory","level":"1.2.2.3","depth":3,"path":"学习/Spring/BeanFactory/README.md","ref":"学习/Spring/BeanFactory/README.md","articles":[]}]},"previous":{"title":"一、Java基础","level":"1.2.1","depth":2,"path":"学习/Java基础/README.md","ref":"学习/Java基础/README.md","articles":[{"title":"String","level":"1.2.1.1","depth":3,"path":"学习/String/README.md","ref":"学习/String/README.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"学习/String/README.md","mtime":"2019-01-16T05:26:12.062Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-16T05:29:55.832Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
