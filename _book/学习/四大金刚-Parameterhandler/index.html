@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>四大金刚 · GitBook</title>
+        <title>四大金刚-ParameterHandler · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="../Tomcat/" />
+    <link rel="next" href="../四大金刚-ResultHandler/" />
     
     
-    <link rel="prev" href="../映射器/" />
+    <link rel="prev" href="../四大金刚-StatementHandler/" />
     
 
     </head>
@@ -259,12 +259,77 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.2.3.5" data-path="./">
+        <li class="chapter " data-level="1.2.3.5" data-path="../四大金刚-Executor/">
+            
+                <a href="../四大金刚-Executor/">
+            
+                    
+                    四大金刚-Executor
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.6" data-path="../四大金刚-StatementHandler/">
+            
+                <a href="../四大金刚-StatementHandler/">
+            
+                    
+                    四大金刚-StatementHandler
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.3.7" data-path="./">
             
                 <a href="./">
             
                     
-                    四大金刚
+                    四大金刚-ParameterHandler
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.8" data-path="../四大金刚-ResultHandler/">
+            
+                <a href="../四大金刚-ResultHandler/">
+            
+                    
+                    四大金刚-ResultHandler
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.9" data-path="../类型转换/">
+            
+                <a href="../类型转换/">
+            
+                    
+                    类型转换
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.10" data-path="../执行流程总结/">
+            
+                <a href="../执行流程总结/">
+            
+                    
+                    执行流程总结
             
                 </a>
             
@@ -763,7 +828,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../.." >四大金刚</a>
+        <a href="../.." >四大金刚-ParameterHandler</a>
     </h1>
 </div>
 
@@ -778,7 +843,87 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="&#x56DB;&#x5927;&#x91D1;&#x521A;">&#x56DB;&#x5927;&#x91D1;&#x521A;</h1>
+                                <h1 id="&#x56DB;&#x5927;&#x91D1;&#x521A;-parameterhandler">&#x56DB;&#x5927;&#x91D1;&#x521A;-ParameterHandler</h1>
+<blockquote>
+<p>&#x5BF9;&#x9884;&#x7F16;&#x8BD1;&#x8BED;&#x53E5;&#x8FDB;&#x884C;&#x53C2;&#x6570;&#x8BBE;&#x7F6E;</p>
+</blockquote>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">ParameterHandler</span> </span>{
+
+  <span class="hljs-function">Object <span class="hljs-title">getParameterObject</span><span class="hljs-params">()</span></span>;
+
+  <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">setParameters</span><span class="hljs-params">(PreparedStatement ps)</span>
+      <span class="hljs-keyword">throws</span> SQLException</span>;
+
+}
+</code></pre>
+<ul>
+<li>&#x9ED8;&#x8BA4;&#x53C2;&#x6570;&#x5904;&#x7406;&#x5668;</li>
+</ul>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">DefaultParameterHandler</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">ParameterHandler</span> </span>{
+
+  <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> TypeHandlerRegistry typeHandlerRegistry;
+
+  <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> MappedStatement mappedStatement;
+  <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> Object parameterObject;
+  <span class="hljs-keyword">private</span> BoundSql boundSql;
+  <span class="hljs-keyword">private</span> Configuration configuration;
+
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">DefaultParameterHandler</span><span class="hljs-params">(MappedStatement mappedStatement, Object parameterObject, BoundSql boundSql)</span> </span>{
+    <span class="hljs-keyword">this</span>.mappedStatement = mappedStatement;
+    <span class="hljs-keyword">this</span>.configuration = mappedStatement.getConfiguration();
+    <span class="hljs-keyword">this</span>.typeHandlerRegistry = mappedStatement.getConfiguration().getTypeHandlerRegistry();
+    <span class="hljs-keyword">this</span>.parameterObject = parameterObject;
+    <span class="hljs-keyword">this</span>.boundSql = boundSql;
+  }
+
+  <span class="hljs-meta">@Override</span>
+  <span class="hljs-function"><span class="hljs-keyword">public</span> Object <span class="hljs-title">getParameterObject</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-keyword">return</span> parameterObject;
+  }
+
+  <span class="hljs-meta">@Override</span>
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setParameters</span><span class="hljs-params">(PreparedStatement ps)</span> </span>{
+    ErrorContext.instance().activity(<span class="hljs-string">&quot;setting parameters&quot;</span>).object(mappedStatement.getParameterMap().getId());
+    List&lt;ParameterMapping&gt; parameterMappings = boundSql.getParameterMappings();
+    <span class="hljs-keyword">if</span> (parameterMappings != <span class="hljs-keyword">null</span>) {
+      <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; parameterMappings.size(); i++) {
+        ParameterMapping parameterMapping = parameterMappings.get(i);
+        <span class="hljs-keyword">if</span> (parameterMapping.getMode() != ParameterMode.OUT) {
+          Object value;
+          String propertyName = parameterMapping.getProperty();
+          <span class="hljs-keyword">if</span> (boundSql.hasAdditionalParameter(propertyName)) { <span class="hljs-comment">// issue #448 ask first for additional params</span>
+            value = boundSql.getAdditionalParameter(propertyName);
+          } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (parameterObject == <span class="hljs-keyword">null</span>) {
+            value = <span class="hljs-keyword">null</span>;
+          } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (typeHandlerRegistry.hasTypeHandler(parameterObject.getClass())) {
+            value = parameterObject;
+          } <span class="hljs-keyword">else</span> {
+            MetaObject metaObject = configuration.newMetaObject(parameterObject);
+            value = metaObject.getValue(propertyName);
+          }
+          <span class="hljs-comment">//&#x4E00;&#x7CFB;&#x5217;&#x7684;typeHandler&#xFF0C;&#x540E;&#x9762;&#x4F1A;&#x8BB2;</span>
+          TypeHandler typeHandler = parameterMapping.getTypeHandler();
+          JdbcType jdbcType = parameterMapping.getJdbcType();
+          <span class="hljs-keyword">if</span> (value == <span class="hljs-keyword">null</span> &amp;&amp; jdbcType == <span class="hljs-keyword">null</span>) {
+            jdbcType = configuration.getJdbcTypeForNull();
+          }
+          <span class="hljs-keyword">try</span> {
+            typeHandler.setParameter(ps, i + <span class="hljs-number">1</span>, value, jdbcType);
+          } <span class="hljs-keyword">catch</span> (TypeException e) {
+            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> TypeException(<span class="hljs-string">&quot;Could not set parameters for mapping: &quot;</span> + parameterMapping + <span class="hljs-string">&quot;. Cause: &quot;</span> + e, e);
+          } <span class="hljs-keyword">catch</span> (SQLException e) {
+            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> TypeException(<span class="hljs-string">&quot;Could not set parameters for mapping: &quot;</span> + parameterMapping + <span class="hljs-string">&quot;. Cause: &quot;</span> + e, e);
+          }
+        }
+      }
+    }
+  }
+
+}
+</code></pre>
+<blockquote>
+<p>&#x4ECE;parameterObject&#x5BF9;&#x8C61;&#x91CC;&#x9762;&#x53D6;&#x5F97;&#x53C2;&#x6570;&#xFF0C;&#x7136;&#x540E;&#x4F7F;&#x7528;typeHander&#x5904;&#x7406;&#xFF0C;&#x5F53;&#x7136;&#x4E5F;&#x53EF;&#x4EE5;&#x81EA;&#x5B9A;&#x4E49;typeHander&#xFF0C;&#x914D;&#x7F6E;&#x5728;Configuration&#x91CC;&#x9762;&#x3002;</p>
+</blockquote>
 
                                 
                                 </section>
@@ -806,12 +951,12 @@
 
             
                 
-                <a href="../映射器/" class="navigation navigation-prev " aria-label="Previous page: 映射器">
+                <a href="../四大金刚-StatementHandler/" class="navigation navigation-prev " aria-label="Previous page: 四大金刚-StatementHandler">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="../Tomcat/" class="navigation navigation-next " aria-label="Next page: 四、Tomcat">
+                <a href="../四大金刚-ResultHandler/" class="navigation navigation-next " aria-label="Next page: 四大金刚-ResultHandler">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -822,7 +967,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"四大金刚","level":"1.2.3.5","depth":3,"next":{"title":"四、Tomcat","level":"1.2.4","depth":2,"path":"学习/Tomcat/README.md","ref":"学习/Tomcat/README.md","articles":[{"title":"结构","level":"1.2.4.1","depth":3,"path":"学习/结构/README.md","ref":"学习/结构/README.md","articles":[]},{"title":"核心类","level":"1.2.4.2","depth":3,"path":"学习/核心类/README.md","ref":"学习/核心类/README.md","articles":[]}]},"previous":{"title":"映射器","level":"1.2.3.4","depth":3,"path":"学习/映射器/README.md","ref":"学习/映射器/README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"学习/四大金刚/README.md","mtime":"2019-01-10T12:45:50.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-03-10T07:46:31.880Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"四大金刚-ParameterHandler","level":"1.2.3.7","depth":3,"next":{"title":"四大金刚-ResultHandler","level":"1.2.3.8","depth":3,"path":"学习/四大金刚-ResultHandler/README.md","ref":"学习/四大金刚-ResultHandler/README.md","articles":[]},"previous":{"title":"四大金刚-StatementHandler","level":"1.2.3.6","depth":3,"path":"学习/四大金刚-StatementHandler/README.md","ref":"学习/四大金刚-StatementHandler/README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"学习/四大金刚-ParameterHandler/README.md","mtime":"2019-03-10T16:05:09.327Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-03-10T16:27:02.589Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
@@ -830,10 +975,6 @@
         
     <script src="../../gitbook/gitbook.js"></script>
     <script src="../../gitbook/theme.js"></script>
-    
-        
-        <script src="../../gitbook/gitbook-plugin-livereload/plugin.js"></script>
-        
     
         
         <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>

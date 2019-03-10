@@ -57,7 +57,7 @@
     <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="../四大金刚/" />
+    <link rel="next" href="../四大金刚-Executor/" />
     
     
     <link rel="prev" href="../SqlSession/READM.html" />
@@ -259,12 +259,77 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.3.5" data-path="../四大金刚/">
+        <li class="chapter " data-level="1.2.3.5" data-path="../四大金刚-Executor/">
             
-                <a href="../四大金刚/">
+                <a href="../四大金刚-Executor/">
             
                     
-                    四大金刚
+                    四大金刚-Executor
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.6" data-path="../四大金刚-StatementHandler/">
+            
+                <a href="../四大金刚-StatementHandler/">
+            
+                    
+                    四大金刚-StatementHandler
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.7" data-path="../四大金刚-ParameterHandler/">
+            
+                <a href="../四大金刚-ParameterHandler/">
+            
+                    
+                    四大金刚-ParameterHandler
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.8" data-path="../四大金刚-ResultHandler/">
+            
+                <a href="../四大金刚-ResultHandler/">
+            
+                    
+                    四大金刚-ResultHandler
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.9" data-path="../类型转换/">
+            
+                <a href="../类型转换/">
+            
+                    
+                    类型转换
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.10" data-path="../执行流程总结/">
+            
+                <a href="../执行流程总结/">
+            
+                    
+                    执行流程总结
             
                 </a>
             
@@ -898,10 +963,10 @@
 </ul>
 <pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">BoundSql</span> </span>{
 
-  <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> String sql;
+  <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> String sql;<span class="hljs-comment">//&#x6211;&#x4EEC;&#x5199;&#x7684;&#x539F;&#x751F;sql</span>
   <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> List&lt;ParameterMapping&gt; parameterMappings;
-  <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> Object parameterObject;
-  <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> Map&lt;String, Object&gt; additionalParameters;
+  <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> Object parameterObject;<span class="hljs-comment">//&#x53C2;&#x6570;&#x672C;&#x8EAB;&#xFF0C;&#x4F8B;&#x5982;POJO&#xFF0C;Map&#x7B49;&#x4F20;&#x5165;&#x7684;&#x53C2;&#x6570;&#xFF0C;@Parm&#x6CE8;&#x89E3;&#x4F1A;&#x89E3;&#x6790;&#x6210;Map</span>
+  <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> Map&lt;String, Object&gt; additionalParameters;<span class="hljs-comment">//&#x6BCF;&#x4E2A;&#x5143;&#x7D20;&#x90FD;&#x662F;map&#xFF0C;&#x5982;&#xFF1A;&#x5C5E;&#x6027;&#x540D;&#xFF0C;&#x7C7B;&#x578B;javaType&#xFF0C;typeHandler&#x7B49;</span>
   <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> MetaObject metaParameters;
 
   <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">BoundSql</span><span class="hljs-params">(Configuration configuration, String sql, List&lt;ParameterMapping&gt; parameterMappings, Object parameterObject)</span> </span>{
@@ -938,6 +1003,144 @@
   }
 }
 </code></pre>
+<ul>
+<li>Mapper&#x672C;&#x8D28;</li>
+</ul>
+<pre><code class="lang-java"><span class="hljs-comment">// MapperProxy&#x5DE5;&#x5382;</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MapperProxyFactory</span>&lt;<span class="hljs-title">T</span>&gt; </span>{
+
+  <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> Class&lt;T&gt; mapperInterface;
+  <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> Map&lt;Method, MapperMethod&gt; methodCache = <span class="hljs-keyword">new</span> ConcurrentHashMap&lt;Method, MapperMethod&gt;();
+
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">MapperProxyFactory</span><span class="hljs-params">(Class&lt;T&gt; mapperInterface)</span> </span>{
+    <span class="hljs-keyword">this</span>.mapperInterface = mapperInterface;
+  }
+
+  <span class="hljs-function"><span class="hljs-keyword">public</span> Class&lt;T&gt; <span class="hljs-title">getMapperInterface</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-keyword">return</span> mapperInterface;
+  }
+
+  <span class="hljs-function"><span class="hljs-keyword">public</span> Map&lt;Method, MapperMethod&gt; <span class="hljs-title">getMethodCache</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-keyword">return</span> methodCache;
+  }
+
+  <span class="hljs-meta">@SuppressWarnings</span>(<span class="hljs-string">&quot;unchecked&quot;</span>)
+  <span class="hljs-function"><span class="hljs-keyword">protected</span> T <span class="hljs-title">newInstance</span><span class="hljs-params">(MapperProxy&lt;T&gt; mapperProxy)</span> </span>{
+    <span class="hljs-keyword">return</span> (T) Proxy.newProxyInstance(mapperInterface.getClassLoader(), <span class="hljs-keyword">new</span> Class[] { mapperInterface }, mapperProxy);
+  }
+
+  <span class="hljs-function"><span class="hljs-keyword">public</span> T <span class="hljs-title">newInstance</span><span class="hljs-params">(SqlSession sqlSession)</span> </span>{
+    <span class="hljs-keyword">final</span> MapperProxy&lt;T&gt; mapperProxy = <span class="hljs-keyword">new</span> MapperProxy&lt;T&gt;(sqlSession, mapperInterface, methodCache);
+    <span class="hljs-keyword">return</span> newInstance(mapperProxy);
+  }
+
+}
+
+<span class="hljs-comment">//MapperProxy JDK&#x7684;&#x52A8;&#x6001;&#x4EE3;&#x7406;&#xFF0C;&#x5B9E;&#x73B0;InvocationHandler &#x63A5;&#x53E3;</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MapperProxy</span>&lt;<span class="hljs-title">T</span>&gt; <span class="hljs-keyword">implements</span> <span class="hljs-title">InvocationHandler</span>, <span class="hljs-title">Serializable</span> </span>{
+
+  <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">long</span> serialVersionUID = -<span class="hljs-number">6424540398559729838L</span>;
+  <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> SqlSession sqlSession;
+  <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> Class&lt;T&gt; mapperInterface;
+  <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> Map&lt;Method, MapperMethod&gt; methodCache;
+
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">MapperProxy</span><span class="hljs-params">(SqlSession sqlSession, Class&lt;T&gt; mapperInterface, Map&lt;Method, MapperMethod&gt; methodCache)</span> </span>{
+    <span class="hljs-keyword">this</span>.sqlSession = sqlSession;
+    <span class="hljs-keyword">this</span>.mapperInterface = mapperInterface;
+    <span class="hljs-keyword">this</span>.methodCache = methodCache;
+  }
+
+  <span class="hljs-meta">@Override</span>
+  <span class="hljs-function"><span class="hljs-keyword">public</span> Object <span class="hljs-title">invoke</span><span class="hljs-params">(Object proxy, Method method, Object[] args)</span> <span class="hljs-keyword">throws</span> Throwable </span>{
+    <span class="hljs-keyword">try</span> {
+    <span class="hljs-comment">// &#x662F;&#x5426;&#x662F;&#x4E2A;&#x7C7B;&#xFF0C;&#x663E;&#x7136;&#x4E0D;&#x662F;</span>
+      <span class="hljs-keyword">if</span> (Object.class.equals(method.getDeclaringClass())) {
+        <span class="hljs-keyword">return</span> method.invoke(<span class="hljs-keyword">this</span>, args);
+      } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (isDefaultMethod(method)) {
+        <span class="hljs-keyword">return</span> invokeDefaultMethod(proxy, method, args);
+      }
+    } <span class="hljs-keyword">catch</span> (Throwable t) {
+      <span class="hljs-keyword">throw</span> ExceptionUtil.unwrapThrowable(t);
+    }
+    <span class="hljs-comment">// &#x6784;&#x5EFA;MapperMethod &#x5BF9;&#x8C61;&#xFF0C;&#x8DF3;&#x5230;&#x4E0B;&#x9762;*&#x5904;</span>
+    <span class="hljs-keyword">final</span> MapperMethod mapperMethod = cachedMapperMethod(method);
+    <span class="hljs-comment">// &#x6838;&#x5FC3;&#x65B9;&#x6CD5;&#xFF08;&#x6CE8;&#x610F;&#xFF01;&#xFF09;</span>
+    <span class="hljs-keyword">return</span> mapperMethod.execute(sqlSession, args);
+  }
+
+<span class="hljs-comment">// * &#x662F;&#x5426;&#x5728;&#x7F13;&#x5B58;&#x91CC;&#xFF0C;&#x5426;&#x5219;&#x521D;&#x59CB;&#x5316;mapperMethod</span>
+  <span class="hljs-function"><span class="hljs-keyword">private</span> MapperMethod <span class="hljs-title">cachedMapperMethod</span><span class="hljs-params">(Method method)</span> </span>{
+    MapperMethod mapperMethod = methodCache.get(method);
+    <span class="hljs-keyword">if</span> (mapperMethod == <span class="hljs-keyword">null</span>) {
+      mapperMethod = <span class="hljs-keyword">new</span> MapperMethod(mapperInterface, method, sqlSession.getConfiguration());
+      methodCache.put(method, mapperMethod);
+    }
+    <span class="hljs-keyword">return</span> mapperMethod;
+  }
+...
+
+<span class="hljs-comment">//&#x770B;&#x770B;&#x6838;&#x5FC3;&#x65B9;&#x6CD5;</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MapperMethod</span> </span>{
+
+  <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> SqlCommand command;
+  <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> MethodSignature method;
+
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">MapperMethod</span><span class="hljs-params">(Class&lt;?&gt; mapperInterface, Method method, Configuration config)</span> </span>{
+    <span class="hljs-keyword">this</span>.command = <span class="hljs-keyword">new</span> SqlCommand(config, mapperInterface, method);
+    <span class="hljs-keyword">this</span>.method = <span class="hljs-keyword">new</span> MethodSignature(config, mapperInterface, method);
+  }
+
+<span class="hljs-comment">// &#x547D;&#x4EE4;&#x6A21;&#x5F0F;,&#x5BF9;&#x5E95;&#x5C42;&#x8FD8;&#x662F;sqlSession&#x6765;&#x6267;&#x884C;&#x3002;</span>
+  <span class="hljs-function"><span class="hljs-keyword">public</span> Object <span class="hljs-title">execute</span><span class="hljs-params">(SqlSession sqlSession, Object[] args)</span> </span>{
+    Object result;
+    <span class="hljs-keyword">switch</span> (command.getType()) {
+      <span class="hljs-keyword">case</span> INSERT: {
+        Object param = method.convertArgsToSqlCommandParam(args);
+        result = rowCountResult(sqlSession.insert(command.getName(), param));
+        <span class="hljs-keyword">break</span>;
+      }
+      <span class="hljs-keyword">case</span> UPDATE: {
+        Object param = method.convertArgsToSqlCommandParam(args);
+        result = rowCountResult(sqlSession.update(command.getName(), param));
+        <span class="hljs-keyword">break</span>;
+      }
+      <span class="hljs-keyword">case</span> DELETE: {
+        Object param = method.convertArgsToSqlCommandParam(args);
+        result = rowCountResult(sqlSession.delete(command.getName(), param));
+        <span class="hljs-keyword">break</span>;
+      }
+      <span class="hljs-keyword">case</span> SELECT:
+        <span class="hljs-keyword">if</span> (method.returnsVoid() &amp;&amp; method.hasResultHandler()) {
+          executeWithResultHandler(sqlSession, args);
+          result = <span class="hljs-keyword">null</span>;
+        } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (method.returnsMany()) {
+          result = executeForMany(sqlSession, args);
+        } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (method.returnsMap()) {
+          result = executeForMap(sqlSession, args);
+        } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (method.returnsCursor()) {
+          result = executeForCursor(sqlSession, args);
+        } <span class="hljs-keyword">else</span> {
+          Object param = method.convertArgsToSqlCommandParam(args);
+          result = sqlSession.selectOne(command.getName(), param);<span class="hljs-comment">//sqlSession</span>
+        }
+        <span class="hljs-keyword">break</span>;
+      <span class="hljs-keyword">case</span> FLUSH:
+        result = sqlSession.flushStatements();
+        <span class="hljs-keyword">break</span>;
+      <span class="hljs-keyword">default</span>:
+        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> BindingException(<span class="hljs-string">&quot;Unknown execution method for: &quot;</span> + command.getName());
+    }
+    <span class="hljs-keyword">if</span> (result == <span class="hljs-keyword">null</span> &amp;&amp; method.getReturnType().isPrimitive() &amp;&amp; !method.returnsVoid()) {
+      <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> BindingException(<span class="hljs-string">&quot;Mapper method &apos;&quot;</span> + command.getName() 
+          + <span class="hljs-string">&quot; attempted to return null from a method with a primitive return type (&quot;</span> + method.getReturnType() + <span class="hljs-string">&quot;).&quot;</span>);
+    }
+    <span class="hljs-keyword">return</span> result;
+  }
+</code></pre>
+<ul>
+<li>&#x6D41;&#x7A0B;&#x68B3;&#x7406;</li>
+</ul>
+<center>![](http://sowcar.com/t6/679/1552231058x986907160.png)</center>
 
                                 
                                 </section>
@@ -970,7 +1173,7 @@
                 </a>
                 
                 
-                <a href="../四大金刚/" class="navigation navigation-next " aria-label="Next page: 四大金刚">
+                <a href="../四大金刚-Executor/" class="navigation navigation-next " aria-label="Next page: 四大金刚-Executor">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -981,7 +1184,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"映射器","level":"1.2.3.4","depth":3,"next":{"title":"四大金刚","level":"1.2.3.5","depth":3,"path":"学习/四大金刚/README.md","ref":"学习/四大金刚/README.md","articles":[]},"previous":{"title":"SqlSession","level":"1.2.3.3","depth":3,"path":"学习/SqlSession/READM.md","ref":"学习/SqlSession/READM.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"学习/映射器/README.md","mtime":"2019-01-10T12:44:11.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-03-10T07:46:31.880Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"映射器","level":"1.2.3.4","depth":3,"next":{"title":"四大金刚-Executor","level":"1.2.3.5","depth":3,"path":"学习/四大金刚-Executor/README.md","ref":"学习/四大金刚-Executor/README.md","articles":[]},"previous":{"title":"SqlSession","level":"1.2.3.3","depth":3,"path":"学习/SqlSession/READM.md","ref":"学习/SqlSession/READM.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"学习/映射器/README.md","mtime":"2019-03-10T15:19:35.202Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-03-10T16:27:02.589Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
@@ -989,10 +1192,6 @@
         
     <script src="../../gitbook/gitbook.js"></script>
     <script src="../../gitbook/theme.js"></script>
-    
-        
-        <script src="../../gitbook/gitbook-plugin-livereload/plugin.js"></script>
-        
     
         
         <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>

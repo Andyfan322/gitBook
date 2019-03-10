@@ -1,0 +1,1001 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>四大金刚-ResultHandler · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../类型转换/" />
+    
+    
+    <link rel="prev" href="../四大金刚-ParameterHandler/" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    学习
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../Java基础/">
+            
+                <a href="../Java基础/">
+            
+                    
+                    一、Java基础
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1.1" data-path="../String/">
+            
+                <a href="../String/">
+            
+                    
+                    String
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../Spring/">
+            
+                <a href="../Spring/">
+            
+                    
+                    二、Spring
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.2.1" data-path="../Spring/核心组件/">
+            
+                <a href="../Spring/核心组件/">
+            
+                    
+                    核心组件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.2" data-path="../Spring/加载流程/">
+            
+                <a href="../Spring/加载流程/">
+            
+                    
+                    加载流程
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../Mybatis/">
+            
+                <a href="../Mybatis/">
+            
+                    
+                    三、Mybatis
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.3.1" data-path="../SqlSessionFactory/">
+            
+                <a href="../SqlSessionFactory/">
+            
+                    
+                    SqlSessionFactoryBuilder
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.2" data-path="../SqlSession/">
+            
+                <a href="../SqlSession/">
+            
+                    
+                    SqlSessionFactory
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.3" data-path="../SqlSession/READM.html">
+            
+                <a href="../SqlSession/READM.html">
+            
+                    
+                    SqlSession
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.4" data-path="../映射器/">
+            
+                <a href="../映射器/">
+            
+                    
+                    映射器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.5" data-path="../四大金刚-Executor/">
+            
+                <a href="../四大金刚-Executor/">
+            
+                    
+                    四大金刚-Executor
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.6" data-path="../四大金刚-StatementHandler/">
+            
+                <a href="../四大金刚-StatementHandler/">
+            
+                    
+                    四大金刚-StatementHandler
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.7" data-path="../四大金刚-ParameterHandler/">
+            
+                <a href="../四大金刚-ParameterHandler/">
+            
+                    
+                    四大金刚-ParameterHandler
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.3.8" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    四大金刚-ResultHandler
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.9" data-path="../类型转换/">
+            
+                <a href="../类型转换/">
+            
+                    
+                    类型转换
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.10" data-path="../执行流程总结/">
+            
+                <a href="../执行流程总结/">
+            
+                    
+                    执行流程总结
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../Tomcat/">
+            
+                <a href="../Tomcat/">
+            
+                    
+                    四、Tomcat
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.4.1" data-path="../结构/">
+            
+                <a href="../结构/">
+            
+                    
+                    结构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4.2" data-path="../核心类/">
+            
+                <a href="../核心类/">
+            
+                    
+                    核心类
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../并行/">
+            
+                <a href="../并行/">
+            
+                    
+                    五、并行
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.5.1" data-path="../并行介绍/">
+            
+                <a href="../并行介绍/">
+            
+                    
+                    并行介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.2" data-path="../线程基础/">
+            
+                <a href="../线程基础/">
+            
+                    
+                    线程基础
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.3" data-path="../并发包/">
+            
+                <a href="../并发包/">
+            
+                    
+                    并发包
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.5.3.1" data-path="../锁相关/">
+            
+                <a href="../锁相关/">
+            
+                    
+                    锁相关
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.5.3.1.1" data-path="../可重入锁/">
+            
+                <a href="../可重入锁/">
+            
+                    
+                    可重入锁
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.3.1.2" data-path="../信号量/">
+            
+                <a href="../信号量/">
+            
+                    
+                    信号量
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.3.1.3" data-path="../读写锁/">
+            
+                <a href="../读写锁/">
+            
+                    
+                    读写锁
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.3.1.4" data-path="../倒计时计数器/">
+            
+                <a href="../倒计时计数器/">
+            
+                    
+                    倒计时计数器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.3.1.5" data-path="../循环栅栏/">
+            
+                <a href="../循环栅栏/">
+            
+                    
+                    循环栅栏
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.3.1.6" data-path="../线程阻塞/">
+            
+                <a href="../线程阻塞/">
+            
+                    
+                    线程阻塞
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.3.1.7" data-path="../同步队列器/">
+            
+                <a href="../同步队列器/">
+            
+                    
+                    同步队列器
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="../线程池/">
+            
+                <a href="../线程池/">
+            
+                    
+                    六、线程池
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.6.1" data-path="../线程池工厂/">
+            
+                <a href="../线程池工厂/">
+            
+                    
+                    线程池工厂
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="../Netty/">
+            
+                <a href="../Netty/">
+            
+                    
+                    七、Netty
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.7.1" data-path="../IO/">
+            
+                <a href="../IO/">
+            
+                    
+                    IO
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7.2" data-path="../Java里的NIO/">
+            
+                <a href="../Java里的NIO/">
+            
+                    
+                    Java里的NIO
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="../设计模式/">
+            
+                <a href="../设计模式/">
+            
+                    
+                    八、设计模式
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.8.1" data-path="../命令模式/">
+            
+                <a href="../命令模式/">
+            
+                    
+                    命令模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8.2" data-path="../观察者模式/">
+            
+                <a href="../观察者模式/">
+            
+                    
+                    观察者模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8.3" data-path="../策略模式/">
+            
+                <a href="../策略模式/">
+            
+                    
+                    策略模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8.4" data-path="../工厂模式/">
+            
+                <a href="../工厂模式/">
+            
+                    
+                    工厂模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8.5" data-path="../抽象工厂模式/">
+            
+                <a href="../抽象工厂模式/">
+            
+                    
+                    抽象工厂模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8.6" data-path="../建造者模式/">
+            
+                <a href="../建造者模式/">
+            
+                    
+                    建造者模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../../日常/">
+            
+                <a href="../../日常/">
+            
+                    
+                    日常
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../../日常/吃货大作战/">
+            
+                <a href="../../日常/吃货大作战/">
+            
+                    
+                    一、吃货大作战
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../../日常/购物红包/">
+            
+                <a href="../../日常/购物红包/">
+            
+                    
+                    二、购物红包
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../../日常/一元购/">
+            
+                <a href="../../日常/一元购/">
+            
+                    
+                    三、一元购
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >四大金刚-ResultHandler</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#x56DB;&#x5927;&#x91D1;&#x521A;-resulthandler">&#x56DB;&#x5927;&#x91D1;&#x521A;-ResultHandler</h1>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">ResultHandler</span>&lt;<span class="hljs-title">T</span>&gt; </span>{
+
+  <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">handleResult</span><span class="hljs-params">(ResultContext&lt;? extends T&gt; resultContext)</span></span>;
+
+}
+
+<span class="hljs-comment">// &#x5176;&#x4E2D;&#x4E00;&#x4E2A;&#x9ED8;&#x8BA4;&#x5B9E;&#x73B0;</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">DefaultResultHandler</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">ResultHandler</span>&lt;<span class="hljs-title">Object</span>&gt; </span>{
+
+  <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> List&lt;Object&gt; list;
+
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">DefaultResultHandler</span><span class="hljs-params">()</span> </span>{
+    list = <span class="hljs-keyword">new</span> ArrayList&lt;Object&gt;();
+  }
+
+  <span class="hljs-meta">@SuppressWarnings</span>(<span class="hljs-string">&quot;unchecked&quot;</span>)
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">DefaultResultHandler</span><span class="hljs-params">(ObjectFactory objectFactory)</span> </span>{
+    list = objectFactory.create(List.class);<span class="hljs-comment">//&#x6838;&#x5FC3;</span>
+  }
+
+  <span class="hljs-meta">@Override</span>
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">handleResult</span><span class="hljs-params">(ResultContext&lt;? extends Object&gt; context)</span> </span>{
+    list.add(context.getResultObject());
+  }
+
+  <span class="hljs-function"><span class="hljs-keyword">public</span> List&lt;Object&gt; <span class="hljs-title">getResultList</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-keyword">return</span> list;
+  }
+
+}
+
+<span class="hljs-comment">// &#x6838;&#x5FC3;&#x65B9;&#x6CD5;&#x7247;&#x6BB5;</span>
+  <span class="hljs-meta">@Override</span>
+  <span class="hljs-keyword">public</span> &lt;T&gt; <span class="hljs-function">T <span class="hljs-title">create</span><span class="hljs-params">(Class&lt;T&gt; type, List&lt;Class&lt;?&gt;&gt; constructorArgTypes, List&lt;Object&gt; constructorArgs)</span> </span>{
+    Class&lt;?&gt; classToCreate = resolveInterface(type);
+    <span class="hljs-comment">// we know types are assignable</span>
+    <span class="hljs-keyword">return</span> (T) instantiateClass(classToCreate, constructorArgTypes, constructorArgs);
+  }
+  <span class="hljs-comment">//&#x5B9E;&#x8D28;&#x65B9;&#x6CD5;&#xFF0C;&#x5229;&#x7528;&#x53CD;&#x5C04;&#x751F;&#x6210;&#x5BF9;&#x8C61;</span>
+  &lt;T&gt; <span class="hljs-function">T <span class="hljs-title">instantiateClass</span><span class="hljs-params">(Class&lt;T&gt; type, List&lt;Class&lt;?&gt;&gt; constructorArgTypes, List&lt;Object&gt; constructorArgs)</span> </span>{
+    <span class="hljs-keyword">try</span> {
+      Constructor&lt;T&gt; constructor;
+      <span class="hljs-keyword">if</span> (constructorArgTypes == <span class="hljs-keyword">null</span> || constructorArgs == <span class="hljs-keyword">null</span>) {
+        constructor = type.getDeclaredConstructor();
+        <span class="hljs-keyword">if</span> (!constructor.isAccessible()) {
+          constructor.setAccessible(<span class="hljs-keyword">true</span>);
+        }
+        <span class="hljs-keyword">return</span> constructor.newInstance();
+      }
+      constructor = type.getDeclaredConstructor(constructorArgTypes.toArray(<span class="hljs-keyword">new</span> Class[constructorArgTypes.size()]));
+      <span class="hljs-keyword">if</span> (!constructor.isAccessible()) {
+        constructor.setAccessible(<span class="hljs-keyword">true</span>);
+      }
+      <span class="hljs-keyword">return</span> constructor.newInstance(constructorArgs.toArray(<span class="hljs-keyword">new</span> Object[constructorArgs.size()]));
+    } <span class="hljs-keyword">catch</span> (Exception e) {
+      StringBuilder argTypes = <span class="hljs-keyword">new</span> StringBuilder();
+      <span class="hljs-keyword">if</span> (constructorArgTypes != <span class="hljs-keyword">null</span> &amp;&amp; !constructorArgTypes.isEmpty()) {
+        <span class="hljs-keyword">for</span> (Class&lt;?&gt; argType : constructorArgTypes) {
+          argTypes.append(argType.getSimpleName());
+          argTypes.append(<span class="hljs-string">&quot;,&quot;</span>);
+        }
+        argTypes.deleteCharAt(argTypes.length() - <span class="hljs-number">1</span>); <span class="hljs-comment">// remove trailing ,</span>
+      }
+      StringBuilder argValues = <span class="hljs-keyword">new</span> StringBuilder();
+      <span class="hljs-keyword">if</span> (constructorArgs != <span class="hljs-keyword">null</span> &amp;&amp; !constructorArgs.isEmpty()) {
+        <span class="hljs-keyword">for</span> (Object argValue : constructorArgs) {
+          argValues.append(String.valueOf(argValue));
+          argValues.append(<span class="hljs-string">&quot;,&quot;</span>);
+        }
+        argValues.deleteCharAt(argValues.length() - <span class="hljs-number">1</span>); <span class="hljs-comment">// remove trailing ,</span>
+      }
+      <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> ReflectionException(<span class="hljs-string">&quot;Error instantiating &quot;</span> + type + <span class="hljs-string">&quot; with invalid types (&quot;</span> + argTypes + <span class="hljs-string">&quot;) or values (&quot;</span> + argValues + <span class="hljs-string">&quot;). Cause: &quot;</span> + e, e);
+    }
+  }
+</code></pre>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../四大金刚-ParameterHandler/" class="navigation navigation-prev " aria-label="Previous page: 四大金刚-ParameterHandler">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../类型转换/" class="navigation navigation-next " aria-label="Next page: 类型转换">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"四大金刚-ResultHandler","level":"1.2.3.8","depth":3,"next":{"title":"类型转换","level":"1.2.3.9","depth":3,"path":"学习/类型转换/README.md","ref":"学习/类型转换/README.md","articles":[]},"previous":{"title":"四大金刚-ParameterHandler","level":"1.2.3.7","depth":3,"path":"学习/四大金刚-ParameterHandler/README.md","ref":"学习/四大金刚-ParameterHandler/README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"学习/四大金刚-ResultHandler/README.md","mtime":"2019-03-10T16:11:08.322Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-03-10T16:27:02.589Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

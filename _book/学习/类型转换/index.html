@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>SqlSession · GitBook</title>
+        <title>类型转换 · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="../映射器/" />
+    <link rel="next" href="../执行流程总结/" />
     
     
-    <link rel="prev" href="./" />
+    <link rel="prev" href="../四大金刚-ResultHandler/" />
     
 
     </head>
@@ -220,9 +220,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.3.2" data-path="./">
+        <li class="chapter " data-level="1.2.3.2" data-path="../SqlSession/">
             
-                <a href="./">
+                <a href="../SqlSession/">
             
                     
                     SqlSessionFactory
@@ -233,9 +233,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.2.3.3" data-path="READM.html">
+        <li class="chapter " data-level="1.2.3.3" data-path="../SqlSession/READM.html">
             
-                <a href="READM.html">
+                <a href="../SqlSession/READM.html">
             
                     
                     SqlSession
@@ -259,12 +259,77 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.3.5" data-path="../四大金刚/">
+        <li class="chapter " data-level="1.2.3.5" data-path="../四大金刚-Executor/">
             
-                <a href="../四大金刚/">
+                <a href="../四大金刚-Executor/">
             
                     
-                    四大金刚
+                    四大金刚-Executor
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.6" data-path="../四大金刚-StatementHandler/">
+            
+                <a href="../四大金刚-StatementHandler/">
+            
+                    
+                    四大金刚-StatementHandler
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.7" data-path="../四大金刚-ParameterHandler/">
+            
+                <a href="../四大金刚-ParameterHandler/">
+            
+                    
+                    四大金刚-ParameterHandler
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.8" data-path="../四大金刚-ResultHandler/">
+            
+                <a href="../四大金刚-ResultHandler/">
+            
+                    
+                    四大金刚-ResultHandler
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.3.9" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    类型转换
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.10" data-path="../执行流程总结/">
+            
+                <a href="../执行流程总结/">
+            
+                    
+                    执行流程总结
             
                 </a>
             
@@ -763,7 +828,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../.." >SqlSession</a>
+        <a href="../.." >类型转换</a>
     </h1>
 </div>
 
@@ -778,85 +843,147 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="sqlsession">SqlSession</h1>
+                                <h1 id="&#x7C7B;&#x578B;&#x8F6C;&#x6362;">&#x7C7B;&#x578B;&#x8F6C;&#x6362;</h1>
 <blockquote>
-<p>&#x76F8;&#x5F53;&#x4E8E;JDBC&#x7684;Connection&#xFF0C;&#x7EBF;&#x7A0B;&#x4E0D;&#x5B89;&#x5168;&#xFF0C;&#x751F;&#x547D;&#x5468;&#x671F;&#xFF1A;&#x4E00;&#x4E2A;&#x4F1A;&#x8BDD;&#x5185;&#x3002;</p>
-<ul>
-<li>&#x6E90;&#x7801;</li>
-</ul>
+<p>&#x524D;&#x9762;&#x6211;&#x4EEC;&#x5206;&#x6790;sql&#x6267;&#x884C;&#x65F6;&#x5019;&#x6D89;&#x53CA;&#x5230;&#x4E86;typeHandler&#xFF0C;typeHandler&#x5728;&#x53C2;&#x6570;&#x7684;&#x8BBE;&#x7F6E;&#x548C;&#x8FD4;&#x56DE;&#x7ED3;&#x679C;&#x7684;&#x5904;&#x7406;&#x4E0A;&#x8D77;&#x7740;&#x5F88;&#x91CD;&#x8981;&#x7684;&#x4F5C;&#x7528;&#x3002;&#x6211;&#x4EEC;&#x5E38;&#x7528;&#x5B83;&#x7684;&#x914D;&#x7F6E;&#x4E3A;javaType&#xFF0C;jdbcType&#xFF0C;&#x5373;&#x5BF9;&#x5E94;&#x7684;2&#x4E2A;&#x65B9;&#x5411;&#xFF0C;&#x5165;&#x53C2;&#xFF1A;Java-&gt;Jdbc&#xFF0C;&#x67E5;&#x8BE2;&#x7ED3;&#x679C;&#xFF1A;Jdbc-&gt;Java &#x7C7B;&#x578B;&#x7684;&#x8F6C;&#x6362;&#x3002;</p>
 </blockquote>
-<pre><code class="lang-java">
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">SqlSession</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Closeable</span> </span>{
+<ul>
+<li>TypeHandlerRegistry &#x6CE8;&#x518C;&#x4E86;&#x5F88;&#x591A;handler</li>
+</ul>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">final</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TypeHandlerRegistry</span> </span>{
 
-  &lt;T&gt; <span class="hljs-function">T <span class="hljs-title">selectOne</span><span class="hljs-params">(String statement)</span></span>;
+  <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> Map&lt;JdbcType, TypeHandler&lt;?&gt;&gt; JDBC_TYPE_HANDLER_MAP = <span class="hljs-keyword">new</span> EnumMap&lt;JdbcType, TypeHandler&lt;?&gt;&gt;(JdbcType.class);
+  <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> Map&lt;Type, Map&lt;JdbcType, TypeHandler&lt;?&gt;&gt;&gt; TYPE_HANDLER_MAP = <span class="hljs-keyword">new</span> ConcurrentHashMap&lt;Type, Map&lt;JdbcType, TypeHandler&lt;?&gt;&gt;&gt;();
+  <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> TypeHandler&lt;Object&gt; UNKNOWN_TYPE_HANDLER = <span class="hljs-keyword">new</span> UnknownTypeHandler(<span class="hljs-keyword">this</span>);
+  <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> Map&lt;Class&lt;?&gt;, TypeHandler&lt;?&gt;&gt; ALL_TYPE_HANDLERS_MAP = <span class="hljs-keyword">new</span> HashMap&lt;Class&lt;?&gt;, TypeHandler&lt;?&gt;&gt;();
 
-  &lt;T&gt; <span class="hljs-function">T <span class="hljs-title">selectOne</span><span class="hljs-params">(String statement, Object parameter)</span></span>;
+  <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> Map&lt;JdbcType, TypeHandler&lt;?&gt;&gt; NULL_TYPE_HANDLER_MAP = <span class="hljs-keyword">new</span> HashMap&lt;JdbcType, TypeHandler&lt;?&gt;&gt;();
 
-  &lt;E&gt; <span class="hljs-function">List&lt;E&gt; <span class="hljs-title">selectList</span><span class="hljs-params">(String statement)</span></span>;
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">TypeHandlerRegistry</span><span class="hljs-params">()</span> </span>{
+    register(Boolean.class, <span class="hljs-keyword">new</span> BooleanTypeHandler());
+    register(<span class="hljs-keyword">boolean</span>.class, <span class="hljs-keyword">new</span> BooleanTypeHandler());
+    register(JdbcType.BOOLEAN, <span class="hljs-keyword">new</span> BooleanTypeHandler());
+    register(JdbcType.BIT, <span class="hljs-keyword">new</span> BooleanTypeHandler());
 
-  &lt;E&gt; <span class="hljs-function">List&lt;E&gt; <span class="hljs-title">selectList</span><span class="hljs-params">(String statement, Object parameter)</span></span>;
+    register(Byte.class, <span class="hljs-keyword">new</span> ByteTypeHandler());
+    register(<span class="hljs-keyword">byte</span>.class, <span class="hljs-keyword">new</span> ByteTypeHandler());
+    register(JdbcType.TINYINT, <span class="hljs-keyword">new</span> ByteTypeHandler());
 
-  &lt;E&gt; <span class="hljs-function">List&lt;E&gt; <span class="hljs-title">selectList</span><span class="hljs-params">(String statement, Object parameter, RowBounds rowBounds)</span></span>;
+    register(Short.class, <span class="hljs-keyword">new</span> ShortTypeHandler());
+    register(<span class="hljs-keyword">short</span>.class, <span class="hljs-keyword">new</span> ShortTypeHandler());
+    register(JdbcType.SMALLINT, <span class="hljs-keyword">new</span> ShortTypeHandler());
 
-  &lt;K, V&gt; <span class="hljs-function">Map&lt;K, V&gt; <span class="hljs-title">selectMap</span><span class="hljs-params">(String statement, String mapKey)</span></span>;
+  ...
+</code></pre>
+<ul>
+<li><p>&#x81EA;&#x5B9A;&#x4E49;TypeHandler</p>
+<blockquote>
+<p>&#x4E00;&#x822C;&#x60C5;&#x51B5;&#xFF0C;&#x8FD9;&#x4E9B;handler&#x53EF;&#x4EE5;&#x6EE1;&#x8DB3;&#x6211;&#x4EEC;&#x65E5;&#x5E38;&#x7684;&#x5F00;&#x53D1;&#x4E86;&#xFF0C;&#x4F46;&#x662F;&#x4E5F;&#x4E0D;&#x6392;&#x9664;&#x7279;&#x6B8A;&#x60C5;&#x51B5;&#x9700;&#x8981;&#x81EA;&#x5B9A;&#x4E49;&#xFF0C;&#x4F8B;&#x5982;&#x679A;&#x4E3E;&#x7C7B;&#x578B;&#x3002;&#x5E38;&#x89C4;&#x60C5;&#x51B5;&#x4E0B;myBatis&#x4F7F;&#x7528;&#x7684;&#x662F;EnumTypeHandler&#x6765;&#x5904;&#x7406;&#x679A;&#x4E3E;&#xFF0C;&#x5BF9;&#x5E94;&#x4FDD;&#x5B58;&#x5230;&#x5E93;&#x91CC;&#x662F;&#x679A;&#x4E3E;&#x5BF9;&#x8C61;&#x7684;name&#xFF0C;&#x800C;EnumOridinalTypeHandler&#x4FDD;&#x5B58;&#x7684;&#x662F;&#x679A;&#x4E3E;&#x7684;&#x5E8F;&#x53F7;&#x3002;&#x6211;&#x4EEC;&#x7684;&#x9700;&#x6C42;&#x662F;&#x9700;&#x8981;&#x4FDD;&#x5B58;&#x679A;&#x4E3E;&#x7684;value&#x503C;&#x5230;&#x6570;&#x636E;&#x5E93;&#x3002;</p>
+</blockquote>
+</li>
+<li><p>&#x9ED8;&#x8BA4;&#x5904;&#x7406;&#x679A;&#x4E3E;&#x7684;handler&#xFF0C;EnumTypeHandler</p>
+</li>
+</ul>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">EnumTypeHandler</span>&lt;<span class="hljs-title">E</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Enum</span>&lt;<span class="hljs-title">E</span>&gt;&gt; <span class="hljs-keyword">extends</span> <span class="hljs-title">BaseTypeHandler</span>&lt;<span class="hljs-title">E</span>&gt; </span>{
 
-  &lt;K, V&gt; <span class="hljs-function">Map&lt;K, V&gt; <span class="hljs-title">selectMap</span><span class="hljs-params">(String statement, Object parameter, String mapKey)</span></span>;
+  <span class="hljs-keyword">private</span> Class&lt;E&gt; type;
 
-  &lt;K, V&gt; <span class="hljs-function">Map&lt;K, V&gt; <span class="hljs-title">selectMap</span><span class="hljs-params">(String statement, Object parameter, String mapKey, RowBounds rowBounds)</span></span>;
-
-  &lt;T&gt; <span class="hljs-function">Cursor&lt;T&gt; <span class="hljs-title">selectCursor</span><span class="hljs-params">(String statement)</span></span>;
-
-  &lt;T&gt; <span class="hljs-function">Cursor&lt;T&gt; <span class="hljs-title">selectCursor</span><span class="hljs-params">(String statement, Object parameter)</span></span>;
-
-  &lt;T&gt; <span class="hljs-function">Cursor&lt;T&gt; <span class="hljs-title">selectCursor</span><span class="hljs-params">(String statement, Object parameter, RowBounds rowBounds)</span></span>;
-
-  <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">select</span><span class="hljs-params">(String statement, Object parameter, ResultHandler handler)</span></span>;
-
-  <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">select</span><span class="hljs-params">(String statement, ResultHandler handler)</span></span>;
-
-  <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">select</span><span class="hljs-params">(String statement, Object parameter, RowBounds rowBounds, ResultHandler handler)</span></span>;
-
-  <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">insert</span><span class="hljs-params">(String statement)</span></span>;
-
-  <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">insert</span><span class="hljs-params">(String statement, Object parameter)</span></span>;
-
-  <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">update</span><span class="hljs-params">(String statement)</span></span>;
-
-  <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">update</span><span class="hljs-params">(String statement, Object parameter)</span></span>;
-
-  <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">delete</span><span class="hljs-params">(String statement)</span></span>;
-
-  <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">delete</span><span class="hljs-params">(String statement, Object parameter)</span></span>;
-
-  <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">commit</span><span class="hljs-params">()</span></span>;
-
-  <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">commit</span><span class="hljs-params">(<span class="hljs-keyword">boolean</span> force)</span></span>;
-
-  <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">rollback</span><span class="hljs-params">()</span></span>;
-
-  <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">rollback</span><span class="hljs-params">(<span class="hljs-keyword">boolean</span> force)</span></span>;
-
-  <span class="hljs-function">List&lt;BatchResult&gt; <span class="hljs-title">flushStatements</span><span class="hljs-params">()</span></span>;
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">EnumTypeHandler</span><span class="hljs-params">(Class&lt;E&gt; type)</span> </span>{
+    <span class="hljs-keyword">if</span> (type == <span class="hljs-keyword">null</span>) {
+      <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> IllegalArgumentException(<span class="hljs-string">&quot;Type argument cannot be null&quot;</span>);
+    }
+    <span class="hljs-keyword">this</span>.type = type;
+  }
 
   <span class="hljs-meta">@Override</span>
-  <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">close</span><span class="hljs-params">()</span></span>;
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setNonNullParameter</span><span class="hljs-params">(PreparedStatement ps, <span class="hljs-keyword">int</span> i, E parameter, JdbcType jdbcType)</span> <span class="hljs-keyword">throws</span> SQLException </span>{
+    <span class="hljs-keyword">if</span> (jdbcType == <span class="hljs-keyword">null</span>) {
+      ps.setString(i, parameter.name());
+    } <span class="hljs-keyword">else</span> {
+     <span class="hljs-comment">//&#x770B;&#x5427;&#xFF0C;&#x662F;&#x679A;&#x4E3E;&#x7684;&#x540D;&#x5B57;&#xFF01;</span>
+      ps.setObject(i, parameter.name(), jdbcType.TYPE_CODE); <span class="hljs-comment">// see r3589</span>
+    }
+  }
 
-  <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">clearCache</span><span class="hljs-params">()</span></span>;
+  <span class="hljs-meta">@Override</span>
+  <span class="hljs-function"><span class="hljs-keyword">public</span> E <span class="hljs-title">getNullableResult</span><span class="hljs-params">(ResultSet rs, String columnName)</span> <span class="hljs-keyword">throws</span> SQLException </span>{
+    String s = rs.getString(columnName);
+    <span class="hljs-keyword">return</span> s == <span class="hljs-keyword">null</span> ? <span class="hljs-keyword">null</span> : Enum.valueOf(type, s);
+  }
 
-  <span class="hljs-function">Configuration <span class="hljs-title">getConfiguration</span><span class="hljs-params">()</span></span>;
+  <span class="hljs-meta">@Override</span>
+  <span class="hljs-function"><span class="hljs-keyword">public</span> E <span class="hljs-title">getNullableResult</span><span class="hljs-params">(ResultSet rs, <span class="hljs-keyword">int</span> columnIndex)</span> <span class="hljs-keyword">throws</span> SQLException </span>{
+    String s = rs.getString(columnIndex);
+    <span class="hljs-keyword">return</span> s == <span class="hljs-keyword">null</span> ? <span class="hljs-keyword">null</span> : Enum.valueOf(type, s);
+  }
 
-  &lt;T&gt; <span class="hljs-function">T <span class="hljs-title">getMapper</span><span class="hljs-params">(Class&lt;T&gt; type)</span></span>;
-
-  <span class="hljs-function">Connection <span class="hljs-title">getConnection</span><span class="hljs-params">()</span></span>;
+  <span class="hljs-meta">@Override</span>
+  <span class="hljs-function"><span class="hljs-keyword">public</span> E <span class="hljs-title">getNullableResult</span><span class="hljs-params">(CallableStatement cs, <span class="hljs-keyword">int</span> columnIndex)</span> <span class="hljs-keyword">throws</span> SQLException </span>{
+    String s = cs.getString(columnIndex);
+    <span class="hljs-keyword">return</span> s == <span class="hljs-keyword">null</span> ? <span class="hljs-keyword">null</span> : Enum.valueOf(type, s);
+  }
 }
 </code></pre>
 <ul>
-<li>&#x9ED8;&#x8BA4;&#x5B9E;&#x73B0;</li>
+<li>&#x81EA;&#x5B9A;&#x4E49;&#x7684;&#x679A;&#x4E3E;&#x5904;&#x7406;&#x7C7B;</li>
 </ul>
-<p><img src="http://47.95.12.0:3389/ftp/SqlSession.png" alt=""> </p>
-<blockquote>
-<p>SqlSession&#x5B9A;&#x4E49;&#x4E86;&#x6709;&#x5F88;&#x591A;&#x67E5;&#x8BE2;&#x6570;&#x636E;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x56E0;&#x6B64;&#x6211;&#x4EEC;&#x4E5F;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x4F7F;&#x7528;&#x5B83;&#x6765;&#x64CD;&#x4F5C;&#x4E3A;&#x4E1A;&#x52A1;sql&#x6267;&#x884C;&#x5668;&#xFF0C;&#x4F46;&#x662F;&#x8FD9;&#x6837;&#x505A;&#x4E0D;&#x662F;&#x5F88;&#x597D;&#x3002;&#x4E00;&#x822C;&#x60C5;&#x51B5;DefaultSqlSession&#x4F5C;&#x4E3A;&#x9ED8;&#x8BA4;&#x7684;&#x5B9E;&#x73B0;&#xFF0C;SqlSessionManager &#x4ECE;&#x9879;&#x76EE;&#x6E90;&#x7801;&#x6765;&#x770B;&#x4E5F;&#x6CA1;&#x6709;&#x5730;&#x65B9;&#x88AB;&#x5F15;&#x7528;&#xFF0C;&#x53EA;&#x6709;&#x5B83;test&#x7C7B;&#x3002;</p>
-</blockquote>
+<pre><code class="lang-java"><span class="hljs-comment">//&#x5047;&#x8BBE;&#x6211;&#x4EEC;&#x5904;&#x7406;&#x6027;&#x522B;&#x7C7B;&#xFF0C;&#x60F3;&#x5B58;&#x5230;db&#x91CC;&#x9762;&#x662F;code&#x3002;</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">enum</span> SexEnum {
+    man(<span class="hljs-number">1</span>), woman(<span class="hljs-number">0</span>);
+
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> code;
+
+    SexEnum(<span class="hljs-keyword">int</span> code) {
+        <span class="hljs-keyword">this</span>.code = code;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">getCode</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> code;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setCode</span><span class="hljs-params">(<span class="hljs-keyword">int</span> code)</span> </span>{
+        <span class="hljs-keyword">this</span>.code = code;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> SexEnum <span class="hljs-title">getInstance</span><span class="hljs-params">(<span class="hljs-keyword">int</span> code)</span> </span>{
+
+        <span class="hljs-keyword">for</span> (SexEnum sexEnum : SexEnum.values()) {
+            <span class="hljs-keyword">if</span> (sexEnum.getCode() == code) {
+                <span class="hljs-keyword">return</span> sexEnum;
+            }
+        }
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>;
+    }
+}
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SexEnumTypeHandler</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">BaseTypeHandler</span>&lt;<span class="hljs-title">SexEnum</span>&gt; </span>{
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setNonNullParameter</span><span class="hljs-params">(PreparedStatement preparedStatement, <span class="hljs-keyword">int</span> i, SexEnum sexEnum, JdbcType jdbcType)</span> <span class="hljs-keyword">throws</span> SQLException </span>{
+        preparedStatement.setInt(i, sexEnum.getCode());
+
+    }
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> SexEnum <span class="hljs-title">getNullableResult</span><span class="hljs-params">(ResultSet resultSet, String s)</span> <span class="hljs-keyword">throws</span> SQLException </span>{
+        <span class="hljs-keyword">int</span> code = resultSet.getInt(s);
+        <span class="hljs-keyword">return</span> SexEnum.getInstance(code);
+    }
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> SexEnum <span class="hljs-title">getNullableResult</span><span class="hljs-params">(ResultSet resultSet, <span class="hljs-keyword">int</span> i)</span> <span class="hljs-keyword">throws</span> SQLException </span>{
+        <span class="hljs-keyword">int</span> code = resultSet.getInt(i);
+        <span class="hljs-keyword">return</span> SexEnum.getInstance(code);
+    }
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> SexEnum <span class="hljs-title">getNullableResult</span><span class="hljs-params">(CallableStatement callableStatement, <span class="hljs-keyword">int</span> i)</span> <span class="hljs-keyword">throws</span> SQLException </span>{
+        <span class="hljs-keyword">int</span> code = callableStatement.getInt(i);
+        <span class="hljs-keyword">return</span> SexEnum.getInstance(code);
+
+    }
+}
+</code></pre>
 
                                 
                                 </section>
@@ -884,12 +1011,12 @@
 
             
                 
-                <a href="./" class="navigation navigation-prev " aria-label="Previous page: SqlSessionFactory">
+                <a href="../四大金刚-ResultHandler/" class="navigation navigation-prev " aria-label="Previous page: 四大金刚-ResultHandler">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="../映射器/" class="navigation navigation-next " aria-label="Next page: 映射器">
+                <a href="../执行流程总结/" class="navigation navigation-next " aria-label="Next page: 执行流程总结">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -900,7 +1027,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"SqlSession","level":"1.2.3.3","depth":3,"next":{"title":"映射器","level":"1.2.3.4","depth":3,"path":"学习/映射器/README.md","ref":"学习/映射器/README.md","articles":[]},"previous":{"title":"SqlSessionFactory","level":"1.2.3.2","depth":3,"path":"学习/SqlSession/README.md","ref":"学习/SqlSession/README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"学习/SqlSession/READM.md","mtime":"2019-01-09T16:22:52.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-03-10T07:46:16.960Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"类型转换","level":"1.2.3.9","depth":3,"next":{"title":"执行流程总结","level":"1.2.3.10","depth":3,"path":"学习/执行流程总结/README.md","ref":"学习/执行流程总结/README.md","articles":[]},"previous":{"title":"四大金刚-ResultHandler","level":"1.2.3.8","depth":3,"path":"学习/四大金刚-ResultHandler/README.md","ref":"学习/四大金刚-ResultHandler/README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"学习/类型转换/README.md","mtime":"2019-03-10T16:13:28.995Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-03-10T16:27:02.589Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
