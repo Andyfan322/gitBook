@@ -255,7 +255,5 @@ public class MapperMethod {
 
 ```
 
-* 流程梳理
- 
-<center>![](http://sowcar.com/t6/679/1552231058x986907160.png)</center>
+![](http://sowcar.com/t6/679/1552231058x986907160.png)
   
