@@ -1,0 +1,935 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>工厂模式 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../抽象工厂模式/" />
+    
+    
+    <link rel="prev" href="../策略模式/" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    学习
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../Java基础/">
+            
+                <a href="../Java基础/">
+            
+                    
+                    一、Java基础
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1.1" data-path="../String/">
+            
+                <a href="../String/">
+            
+                    
+                    String
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../Spring/">
+            
+                <a href="../Spring/">
+            
+                    
+                    二、Spring
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.2.1" data-path="../Spring/核心组件/">
+            
+                <a href="../Spring/核心组件/">
+            
+                    
+                    核心组件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.2" data-path="../Spring/加载流程/">
+            
+                <a href="../Spring/加载流程/">
+            
+                    
+                    加载流程
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../Mybatis/">
+            
+                <a href="../Mybatis/">
+            
+                    
+                    三、Mybatis
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.3.1" data-path="../SqlSessionFactory/">
+            
+                <a href="../SqlSessionFactory/">
+            
+                    
+                    SqlSessionFactoryBuilder
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.2" data-path="../SqlSession/">
+            
+                <a href="../SqlSession/">
+            
+                    
+                    SqlSessionFactory
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.3" data-path="../SqlSession/READM.html">
+            
+                <a href="../SqlSession/READM.html">
+            
+                    
+                    SqlSession
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.4" data-path="../映射器/">
+            
+                <a href="../映射器/">
+            
+                    
+                    映射器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.5" data-path="../四大金刚/">
+            
+                <a href="../四大金刚/">
+            
+                    
+                    四大金刚
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../Tomcat/">
+            
+                <a href="../Tomcat/">
+            
+                    
+                    四、Tomcat
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.4.1" data-path="../结构/">
+            
+                <a href="../结构/">
+            
+                    
+                    结构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4.2" data-path="../核心类/">
+            
+                <a href="../核心类/">
+            
+                    
+                    核心类
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../并行/">
+            
+                <a href="../并行/">
+            
+                    
+                    五、并行
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.5.1" data-path="../并行介绍/">
+            
+                <a href="../并行介绍/">
+            
+                    
+                    并行介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.2" data-path="../线程基础/">
+            
+                <a href="../线程基础/">
+            
+                    
+                    线程基础
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.3" data-path="../并发包/">
+            
+                <a href="../并发包/">
+            
+                    
+                    并发包
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.5.3.1" data-path="../锁相关/">
+            
+                <a href="../锁相关/">
+            
+                    
+                    锁相关
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.5.3.1.1" data-path="../可重入锁/">
+            
+                <a href="../可重入锁/">
+            
+                    
+                    可重入锁
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.3.1.2" data-path="../信号量/">
+            
+                <a href="../信号量/">
+            
+                    
+                    信号量
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.3.1.3" data-path="../读写锁/">
+            
+                <a href="../读写锁/">
+            
+                    
+                    读写锁
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.3.1.4" data-path="../倒计时计数器/">
+            
+                <a href="../倒计时计数器/">
+            
+                    
+                    倒计时计数器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.3.1.5" data-path="../循环栅栏/">
+            
+                <a href="../循环栅栏/">
+            
+                    
+                    循环栅栏
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.3.1.6" data-path="../线程阻塞/">
+            
+                <a href="../线程阻塞/">
+            
+                    
+                    线程阻塞
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.3.1.7" data-path="../同步队列器/">
+            
+                <a href="../同步队列器/">
+            
+                    
+                    同步队列器
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="../线程池/">
+            
+                <a href="../线程池/">
+            
+                    
+                    六、线程池
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.6.1" data-path="../线程池工厂/">
+            
+                <a href="../线程池工厂/">
+            
+                    
+                    线程池工厂
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="../Netty/">
+            
+                <a href="../Netty/">
+            
+                    
+                    七、Netty
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.7.1" data-path="../IO/">
+            
+                <a href="../IO/">
+            
+                    
+                    IO
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7.2" data-path="../Java里的NIO/">
+            
+                <a href="../Java里的NIO/">
+            
+                    
+                    Java里的NIO
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="../设计模式/">
+            
+                <a href="../设计模式/">
+            
+                    
+                    八、设计模式
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.8.1" data-path="../命令模式/">
+            
+                <a href="../命令模式/">
+            
+                    
+                    命令模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8.2" data-path="../观察者模式/">
+            
+                <a href="../观察者模式/">
+            
+                    
+                    观察者模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8.3" data-path="../策略模式/">
+            
+                <a href="../策略模式/">
+            
+                    
+                    策略模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.8.4" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    工厂模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8.5" data-path="../抽象工厂模式/">
+            
+                <a href="../抽象工厂模式/">
+            
+                    
+                    抽象工厂模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8.6" data-path="../建造者模式/">
+            
+                <a href="../建造者模式/">
+            
+                    
+                    建造者模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../../日常/">
+            
+                <a href="../../日常/">
+            
+                    
+                    日常
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../../日常/吃货大作战/">
+            
+                <a href="../../日常/吃货大作战/">
+            
+                    
+                    一、吃货大作战
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../../日常/购物红包/">
+            
+                <a href="../../日常/购物红包/">
+            
+                    
+                    二、购物红包
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../../日常/一元购/">
+            
+                <a href="../../日常/一元购/">
+            
+                    
+                    三、一元购
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >工厂模式</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#x5DE5;&#x5382;&#x6A21;&#x5F0F;">&#x5DE5;&#x5382;&#x6A21;&#x5F0F;</h1>
+<blockquote>
+<p>&#x5DE5;&#x5382;&#x6A21;&#x5F0F;&#xFF08;Factory Pattern&#xFF09;&#x662F; Java &#x4E2D;&#x6700;&#x5E38;&#x7528;&#x7684;&#x8BBE;&#x8BA1;&#x6A21;&#x5F0F;&#x4E4B;&#x4E00;&#x3002;&#x8FD9;&#x79CD;&#x7C7B;&#x578B;&#x7684;&#x8BBE;&#x8BA1;&#x6A21;&#x5F0F;&#x5C5E;&#x4E8E;&#x521B;&#x5EFA;&#x578B;&#x6A21;&#x5F0F;&#xFF0C;&#x5B83;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x79CD;&#x521B;&#x5EFA;&#x5BF9;&#x8C61;&#x7684;&#x6700;&#x4F73;&#x65B9;&#x5F0F;&#x3002;
+&#x5728;&#x5DE5;&#x5382;&#x6A21;&#x5F0F;&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x5728;&#x521B;&#x5EFA;&#x5BF9;&#x8C61;&#x65F6;&#x4E0D;&#x4F1A;&#x5BF9;&#x5BA2;&#x6237;&#x7AEF;&#x66B4;&#x9732;&#x521B;&#x5EFA;&#x903B;&#x8F91;&#xFF0C;&#x5E76;&#x4E14;&#x662F;&#x901A;&#x8FC7;&#x4F7F;&#x7528;&#x4E00;&#x4E2A;&#x5171;&#x540C;&#x7684;&#x63A5;&#x53E3;&#x6765;&#x6307;&#x5411;&#x65B0;&#x521B;&#x5EFA;&#x7684;&#x5BF9;&#x8C61;&#x3002;</p>
+</blockquote>
+<h4 id="&#x4ECB;&#x7ECD;">&#x4ECB;&#x7ECD;</h4>
+<ul>
+<li>&#x610F;&#x56FE;&#xFF1A;&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x521B;&#x5EFA;&#x5BF9;&#x8C61;&#x7684;&#x63A5;&#x53E3;&#xFF0C;&#x8BA9;&#x5176;&#x5B50;&#x7C7B;&#x81EA;&#x5DF1;&#x51B3;&#x5B9A;&#x5B9E;&#x4F8B;&#x5316;&#x54EA;&#x4E00;&#x4E2A;&#x5DE5;&#x5382;&#x7C7B;&#xFF0C;&#x5DE5;&#x5382;&#x6A21;&#x5F0F;&#x4F7F;&#x5176;&#x521B;&#x5EFA;&#x8FC7;&#x7A0B;&#x5EF6;&#x8FDF;&#x5230;&#x5B50;&#x7C7B;&#x8FDB;&#x884C;&#x3002;</li>
+<li>&#x4E3B;&#x8981;&#x89E3;&#x51B3;&#xFF1A;&#x4E3B;&#x8981;&#x89E3;&#x51B3;&#x63A5;&#x53E3;&#x9009;&#x62E9;&#x7684;&#x95EE;&#x9898;&#x3002;</li>
+<li>&#x4F55;&#x65F6;&#x4F7F;&#x7528;&#xFF1A;&#x6211;&#x4EEC;&#x660E;&#x786E;&#x5730;&#x8BA1;&#x5212;&#x4E0D;&#x540C;&#x6761;&#x4EF6;&#x4E0B;&#x521B;&#x5EFA;&#x4E0D;&#x540C;&#x5B9E;&#x4F8B;&#x65F6;&#x3002;</li>
+<li>&#x5982;&#x4F55;&#x89E3;&#x51B3;&#xFF1A;&#x8BA9;&#x5176;&#x5B50;&#x7C7B;&#x5B9E;&#x73B0;&#x5DE5;&#x5382;&#x63A5;&#x53E3;&#xFF0C;&#x8FD4;&#x56DE;&#x7684;&#x4E5F;&#x662F;&#x4E00;&#x4E2A;&#x62BD;&#x8C61;&#x7684;&#x4EA7;&#x54C1;&#x3002;</li>
+<li>&#x5173;&#x952E;&#x4EE3;&#x7801;&#xFF1A;&#x521B;&#x5EFA;&#x8FC7;&#x7A0B;&#x5728;&#x5176;&#x5B50;&#x7C7B;&#x6267;&#x884C;&#x3002;
+&#x5E94;&#x7528;&#x5B9E;&#x4F8B;&#xFF1A; 1&#x3001;&#x60A8;&#x9700;&#x8981;&#x4E00;&#x8F86;&#x6C7D;&#x8F66;&#xFF0C;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x4ECE;&#x5DE5;&#x5382;&#x91CC;&#x9762;&#x63D0;&#x8D27;&#xFF0C;&#x800C;&#x4E0D;&#x7528;&#x53BB;&#x7BA1;&#x8FD9;&#x8F86;&#x6C7D;&#x8F66;&#x662F;&#x600E;&#x4E48;&#x505A;&#x51FA;&#x6765;&#x7684;&#xFF0C;&#x4EE5;&#x53CA;&#x8FD9;&#x4E2A;&#x6C7D;&#x8F66;&#x91CC;&#x9762;&#x7684;&#x5177;&#x4F53;&#x5B9E;&#x73B0;&#x3002; 2&#x3001;Hibernate &#x6362;&#x6570;&#x636E;&#x5E93;&#x53EA;&#x9700;&#x6362;&#x65B9;&#x8A00;&#x548C;&#x9A71;&#x52A8;&#x5C31;&#x53EF;&#x4EE5;&#x3002;</li>
+<li>&#x4F18;&#x70B9;&#xFF1A; 1&#x3001;&#x4E00;&#x4E2A;&#x8C03;&#x7528;&#x8005;&#x60F3;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#xFF0C;&#x53EA;&#x8981;&#x77E5;&#x9053;&#x5176;&#x540D;&#x79F0;&#x5C31;&#x53EF;&#x4EE5;&#x4E86;&#x3002; 2&#x3001;&#x6269;&#x5C55;&#x6027;&#x9AD8;&#xFF0C;&#x5982;&#x679C;&#x60F3;&#x589E;&#x52A0;&#x4E00;&#x4E2A;&#x4EA7;&#x54C1;&#xFF0C;&#x53EA;&#x8981;&#x6269;&#x5C55;&#x4E00;&#x4E2A;&#x5DE5;&#x5382;&#x7C7B;&#x5C31;&#x53EF;&#x4EE5;&#x3002; 3&#x3001;&#x5C4F;&#x853D;&#x4EA7;&#x54C1;&#x7684;&#x5177;&#x4F53;&#x5B9E;&#x73B0;&#xFF0C;&#x8C03;&#x7528;&#x8005;&#x53EA;&#x5173;&#x5FC3;&#x4EA7;&#x54C1;&#x7684;&#x63A5;&#x53E3;&#x3002;</li>
+<li>&#x7F3A;&#x70B9;&#xFF1A;&#x6BCF;&#x6B21;&#x589E;&#x52A0;&#x4E00;&#x4E2A;&#x4EA7;&#x54C1;&#x65F6;&#xFF0C;&#x90FD;&#x9700;&#x8981;&#x589E;&#x52A0;&#x4E00;&#x4E2A;&#x5177;&#x4F53;&#x7C7B;&#x548C;&#x5BF9;&#x8C61;&#x5B9E;&#x73B0;&#x5DE5;&#x5382;&#xFF0C;&#x4F7F;&#x5F97;&#x7CFB;&#x7EDF;&#x4E2D;&#x7C7B;&#x7684;&#x4E2A;&#x6570;&#x6210;&#x500D;&#x589E;&#x52A0;&#xFF0C;&#x5728;&#x4E00;&#x5B9A;&#x7A0B;&#x5EA6;&#x4E0A;&#x589E;&#x52A0;&#x4E86;&#x7CFB;&#x7EDF;&#x7684;&#x590D;&#x6742;&#x5EA6;&#xFF0C;&#x540C;&#x65F6;&#x4E5F;&#x589E;&#x52A0;&#x4E86;&#x7CFB;&#x7EDF;&#x5177;&#x4F53;&#x7C7B;&#x7684;&#x4F9D;&#x8D56;&#x3002;&#x8FD9;&#x5E76;&#x4E0D;&#x662F;&#x4EC0;&#x4E48;&#x597D;&#x4E8B;&#x3002;</li>
+</ul>
+<h4 id="&#x4F8B;&#x5B50;">&#x4F8B;&#x5B50;</h4>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">Shape</span> </span>{
+
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">draw</span><span class="hljs-params">()</span></span>;
+}
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Circle</span> <span class="hljs-keyword">implements</span>  <span class="hljs-title">Shape</span> </span>{
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">draw</span><span class="hljs-params">()</span> </span>{
+        System.out.println(<span class="hljs-string">&quot;&#x6784;&#x9020;&#x5706;&#x5F62;&quot;</span>);
+    }
+}
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Rectangle</span> <span class="hljs-keyword">implements</span>  <span class="hljs-title">Shape</span> </span>{
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">draw</span><span class="hljs-params">()</span> </span>{
+        System.out.println(<span class="hljs-string">&quot;&#x6784;&#x9020;&#x76F4;&#x89D2;&#x5F62;&quot;</span>);
+    }
+}
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Square</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Shape</span> </span>{
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">draw</span><span class="hljs-params">()</span> </span>{
+        System.out.println(<span class="hljs-string">&quot;&#x6784;&#x9020;&#x65B9;&#x5F62;&quot;</span>);
+    }
+}
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ShapeFactory</span> </span>{
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> Shape <span class="hljs-title">getShape</span><span class="hljs-params">(String shapeType)</span> </span>{
+
+        <span class="hljs-keyword">if</span> (shapeType.equalsIgnoreCase(<span class="hljs-string">&quot;CIRCLE&quot;</span>)) {
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> Circle();
+        }
+        <span class="hljs-keyword">if</span> (shapeType.equalsIgnoreCase(<span class="hljs-string">&quot;RECTANGLE&quot;</span>)) {
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> Rectangle();
+        }
+        <span class="hljs-keyword">if</span> (shapeType.equalsIgnoreCase(<span class="hljs-string">&quot;SQUARE&quot;</span>)) {
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> Square();
+        }
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>;
+    }
+}
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Main</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+        Shape circle = ShapeFactory.getShape(<span class="hljs-string">&quot;CIRCLE&quot;</span>);
+        circle.draw();
+        Shape rectangle = ShapeFactory.getShape(<span class="hljs-string">&quot;RECTANGLE&quot;</span>);
+        rectangle.draw();
+        Shape square = ShapeFactory.getShape(<span class="hljs-string">&quot;SQUARE&quot;</span>);
+        square.draw();
+    }
+}
+</code></pre>
+<h4 id="&#x6838;&#x5FC3;&#x601D;&#x8DEF;">&#x6838;&#x5FC3;&#x601D;&#x8DEF;</h4>
+<ul>
+<li>&#x9700;&#x8981;&#x82E5;&#x5E72;&#x5B9E;&#x4F8B;</li>
+<li>&#x6784;&#x5EFA;&#x5DE5;&#x5382;</li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../策略模式/" class="navigation navigation-prev " aria-label="Previous page: 策略模式">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../抽象工厂模式/" class="navigation navigation-next " aria-label="Next page: 抽象工厂模式">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"工厂模式","level":"1.2.8.4","depth":3,"next":{"title":"抽象工厂模式","level":"1.2.8.5","depth":3,"path":"学习/抽象工厂模式/README.md","ref":"学习/抽象工厂模式/README.md","articles":[]},"previous":{"title":"策略模式","level":"1.2.8.3","depth":3,"path":"学习/策略模式/README.md","ref":"学习/策略模式/README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"学习/工厂模式/README.md","mtime":"2019-03-10T07:31:51.951Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-03-10T07:46:31.880Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Java里的NIO · GitBook</title>
+        <title>八、设计模式 · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="../../日常/" />
+    <link rel="next" href="../命令模式/" />
     
     
-    <link rel="prev" href="../IO/" />
+    <link rel="prev" href="../Java里的NIO/" />
     
 
     </head>
@@ -555,12 +555,109 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.2.7.2" data-path="./">
+        <li class="chapter " data-level="1.2.7.2" data-path="../Java里的NIO/">
+            
+                <a href="../Java里的NIO/">
+            
+                    
+                    Java里的NIO
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.8" data-path="./">
             
                 <a href="./">
             
                     
-                    Java里的NIO
+                    八、设计模式
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.8.1" data-path="../命令模式/">
+            
+                <a href="../命令模式/">
+            
+                    
+                    命令模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8.2" data-path="../观察者模式/">
+            
+                <a href="../观察者模式/">
+            
+                    
+                    观察者模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8.3" data-path="../策略模式/">
+            
+                <a href="../策略模式/">
+            
+                    
+                    策略模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8.4" data-path="../工厂模式/">
+            
+                <a href="../工厂模式/">
+            
+                    
+                    工厂模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8.5" data-path="../抽象工厂模式/">
+            
+                <a href="../抽象工厂模式/">
+            
+                    
+                    抽象工厂模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8.6" data-path="../建造者模式/">
+            
+                <a href="../建造者模式/">
+            
+                    
+                    建造者模式
             
                 </a>
             
@@ -666,7 +763,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../.." >Java里的NIO</a>
+        <a href="../.." >八、设计模式</a>
     </h1>
 </div>
 
@@ -681,111 +778,60 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="java&#x91CC;&#x7684;nio">Java&#x91CC;&#x7684;NIO</h1>
-<ul>
-<li><p>&#x4F20;&#x7EDF;&#x7684;BIO&#x7F16;&#x7A0B;<br>&#x7F51;&#x7EDC;&#x7F16;&#x7A0B;&#x57FA;&#x672C;&#x6A21;&#x578B;&#x662F;Client/Server&#x6A21;&#x578B;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;2&#x4E2A;&#x8FDB;&#x7A0B;&#x95F4;&#x7684;&#x76F8;&#x4E92;&#x901A;&#x4FE1;&#xFF0C;&#x5176;&#x4E2D;&#x670D;&#x52A1;&#x7AEF;&#x63D0;&#x4F9B;&#x4F4D;&#x7F6E;&#x4FE1;&#x606F;&#xFF08;&#x7ED1;&#x5B9A;Ip&#x548C;&#x76D1;&#x542C;&#x7AEF;&#x53E3;&#xFF09;&#xFF0C;&#x5BA2;&#x6237;&#x7AEF;&#x901A;&#x8FC7;&#x8FDE;&#x63A5;&#x64CD;&#x4F5C;&#x5411;&#x670D;&#x52A1;&#x5668;&#x76D1;&#x542C;&#x7684;&#x5730;&#x5740;&#x53D1;&#x8D77;&#x8BF7;&#x6C42;&#xFF0C;&#x901A;&#x8FC7;&#x4E09;&#x6B21;&#x63E1;&#x624B;&#x5EFA;&#x7ACB;&#x8FDE;&#x63A5;&#xFF0C;&#x5982;&#x679C;&#x8FDE;&#x63A5;&#x6210;&#x529F;&#xFF0C;&#x53CC;&#x65B9;&#x5C31;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x7F51;&#x7EDC;&#x5957;&#x63A5;&#x5B57;&#x8FDB;&#x884C;&#x901A;&#x4FE1;&#x3002;</p>
-<p><img src="http://47.95.12.0:3389/ftp/socket&#x8FDE;&#x63A5;.png" alt="">  </p>
+                                <h1 id="&#x516B;&#x3001;&#x8BBE;&#x8BA1;&#x6A21;&#x5F0F;">&#x516B;&#x3001;&#x8BBE;&#x8BA1;&#x6A21;&#x5F0F;</h1>
 <blockquote>
-<p>&#x8BE5;&#x6A21;&#x578B;&#x6700;&#x5927;&#x7684;&#x95EE;&#x9898;&#x662F;&#x53EF;&#x4F38;&#x7F29;&#x6027;&#x592A;&#x5DEE;&#xFF0C;&#x5F53;&#x5BA2;&#x6237;&#x7AEF;&#x8BBF;&#x95EE;&#x589E;&#x52A0;&#x540E;&#xFF0C;&#x670D;&#x52A1;&#x7AEF;&#x7684;&#x7EBF;&#x7A0B;&#x6570;&#x4E5F;&#x968F;&#x4E4B;1:1&#x7684;&#x65B0;&#x589E;&#x3002;</p>
+<p>&#x8BBE;&#x8BA1;&#x6A21;&#x5F0F;&#x4E0D;&#x662F;&#x4EC0;&#x4E48;&#x9AD8;&#x6DF1;&#x7684;&#x62DB;&#x5F0F;&#xFF0C;&#x518D;&#x6211;&#x4EEC;&#x5E73;&#x5E38;&#x7684;&#x7F16;&#x7801;&#x91CC;&#x9762;&#xFF0C;&#x53EA;&#x8981;&#x7A0D;&#x5FAE;&#x7528;&#x5FC3;&#xFF0C;&#x4F60;&#x5C31;&#x4F1A;&#x627E;&#x5230;&#x5BF9;&#x5E94;&#x7684;&#x6A21;&#x5F0F;&#x6765;&#x5339;&#x914D;&#x4F60;&#x7684;&#x4E1A;&#x52A1;&#x3002;&#x4F46;&#x6709;&#x4E9B;&#x65F6;&#x5019;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x53D8;&#x901A;&#xFF0C;&#x4E0D;&#x80FD;&#x6B7B;&#x642C;&#x786C;&#x5957;&#xFF0C;&#x8FD9;&#x9700;&#x8981;&#x4E00;&#x79CD;&#x611F;&#x89C9;&#xFF0C;&#x53EF;&#x4EE5;&#x9002;&#x5F53;&#x7684;&#x589E;&#x51CF;&#x8FD9;&#x4E9B;&#x6A21;&#x5F0F;&#x7684;&#x57FA;&#x672C;&#x9AA8;&#x67B6;&#x6765;&#x4F7F;&#x7528;&#x3002;</p>
+</blockquote>
+<h3 id="&#x4E00;&#x3001;23&#x79CD;&#x8BBE;&#x8BA1;&#x6A21;&#x5F0F;">&#x4E00;&#x3001;23&#x79CD;&#x8BBE;&#x8BA1;&#x6A21;&#x5F0F;</h3>
+<table>
+<thead>
+<tr>
+<th>&#x7C7B;&#x578B;</th>
+<th>&#x63CF;&#x8FF0;</th>
+<th>&#x5185;&#x5BB9;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&#x884C;&#x4E3A;&#x578B;&#xFF08;11&#x79CD;)</td>
+<td>&#x63CF;&#x8FF0;&#x7C7B;&#x6216;&#x5BF9;&#x8C61;&#x600E;&#x6837;&#x8FDB;&#x884C;&#x4EA4;&#x4E92;&#x548C;&#x804C;&#x8D23;&#x5206;&#x914D;</td>
+<td>&#x7B56;&#x7565;&#xFF0C;&#x89C2;&#x5BDF;&#x8005;&#xFF0C;&#x8FED;&#x4EE3;&#x5668;&#xFF0C;&#x547D;&#x4EE4;&#xFF0C;&#x5907;&#x5FD8;&#x5F55;&#xFF0C;&#x4E2D;&#x4ECB;&#x8005;&#xFF0C;&#x89E3;&#x91CA;&#x5668;&#xFF0C;&#x8BBF;&#x95EE;&#x8005;&#xFF0C;&#x8D23;&#x4EFB;&#x94FE;&#xFF0C;&#x72B6;&#x6001;&#xFF0C;&#x6A21;&#x677F;&#x65B9;&#x6CD5;</td>
+</tr>
+<tr>
+<td>&#x521B;&#x5EFA;&#x578B;&#xFF08;5&#x79CD;&#xFF09;</td>
+<td>&#x4E3B;&#x8981;&#x7528;&#x4E8E;&#x5904;&#x7406;&#x5BF9;&#x8C61;&#x7684;&#x521B;&#x5EFA;&#xFF0C;&#x5B9E;&#x4F8B;&#x5316;&#x5BF9;&#x8C61;</td>
+<td>&#x5355;&#x4F8B;&#xFF0C;&#x5EFA;&#x9020;&#x8005;&#xFF0C;&#x539F;&#x578B;&#xFF0C;&#x5DE5;&#x5382;&#x65B9;&#x6CD5;&#xFF0C;&#x62BD;&#x8C61;&#x5DE5;&#x5382;</td>
+</tr>
+<tr>
+<td>&#x7ED3;&#x6784;&#x578B;&#xFF08;7&#x79CD;&#xFF09;</td>
+<td>&#x5904;&#x7406;&#x7C7B;&#x6216;&#x5BF9;&#x8C61;&#x95F4;&#x7684;&#x7EC4;&#x5408;</td>
+<td>&#x9002;&#x914D;&#x5668;&#xFF0C;&#x88C5;&#x9970;&#x8005;&#xFF0C;&#x7ED3;&#x5408;&#xFF0C;&#x6865;&#x63A5;&#xFF0C;&#x5916;&#x89C2;&#xFF0C;&#x4EAB;&#x5143;&#xFF0C;&#x4EE3;&#x7406;</td>
+</tr>
+</tbody>
+</table>
+<h4 id="&#x4E8C;&#x3001;&#x89C4;&#x8303;">&#x4E8C;&#x3001;&#x89C4;&#x8303;</h4>
+<h5 id="&#x91CC;&#x6C0F;&#x66FF;&#x6362;">&#x91CC;&#x6C0F;&#x66FF;&#x6362;</h5>
+<blockquote>
+<p>&#x7236;&#x7C7B;&#x51FA;&#x73B0;&#x7684;&#x5730;&#x65B9;&#xFF0C;&#x5B50;&#x7C7B;&#x4E00;&#x5B9A;&#x53EF;&#x4EE5;&#x51FA;&#x73B0;&#xFF0C;&#x53CD;&#x4E4B;&#x4E0D;&#x53EF;&#x4EE5;&#x3002;</p>
 </blockquote>
 <ul>
-<li>&#x4F2A;&#x5F02;&#x6B65;I/O
-&#x4F20;&#x7EDF;&#x7684;BIO&#x6A21;&#x578B;&#x4F1A;&#x5BFC;&#x81F4;&#x670D;&#x52A1;&#x7AEF;&#x7684;&#x7EBF;&#x7A0B;&#x6570;&#x91CF;&#x968F;&#x7740;&#x5BA2;&#x6237;&#x7AEF;&#x7684;&#x8FDE;&#x63A5;&#x6570;&#x589E;&#x52A0;&#x540C;&#x6BD4;&#x4F8B;&#x7684;&#x65B0;&#x589E;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5229;&#x7528;Java&#x7684;&#x7EBF;&#x7A0B;&#x6C60;&#xFF0C;&#x4F2A;&#x5F02;&#x6B65;&#x3002;&#x8FD9;&#x91CC;&#x4E5F;&#x4F1A;&#x6709;&#x95EE;&#x9898;&#xFF0C;&#x5982;&#x679C;&#x5BA2;&#x6237;&#x7AEF;&#x8FDE;&#x63A5;&#x6570;&#x5F88;&#x591A;&#xFF0C;&#x4F46;&#x662F;&#x901A;&#x4FE1;&#x4E4B;&#x95F4;&#x6D77;&#x963B;&#x585E;&#x7684;&#xFF0C;&#x8FD9;&#x6837;&#x5F88;&#x5BB9;&#x6613;&#x5BFC;&#x81F4;&#x7EBF;&#x7A0B;&#x8017;&#x5C3D;&#x3002;</li>
+<li>&#x5B50;&#x7C7B;&#x5FC5;&#x987B;&#x5B8C;&#x5168;&#x5B9E;&#x73B0;&#x7236;&#x7C7B;&#x7684;&#x65B9;&#x6CD5;</li>
+<li>&#x5B50;&#x7C7B;&#x53EF;&#x4EE5;&#x6709;&#x81EA;&#x5DF1;&#x4E2A;&#x6027;&#x7684;&#x5C5E;&#x6027;/&#x65B9;&#x6CD5;</li>
+<li>&#x8986;&#x76D6;&#x5B9E;&#x73B0;&#x7236;&#x7C7B;&#x65B9;&#x6CD5;&#x65F6;&#x5019;&#xFF0C;&#x8F93;&#x5165;&#x53C2;&#x6570;&#x7C7B;&#x578B;&#x53EF;&#x4EE5;&#x88AB;&#x653E;&#x5927;</li>
+<li>&#x8986;&#x76D6;&#x5B9E;&#x73B0;&#x7236;&#x7C7B;&#x65B9;&#x6CD5;&#x65F6;&#x5019;&#xFF0C;&#x8FD4;&#x56DE;&#x7ED3;&#x679C;&#x53EF;&#x4EE5;&#x88AB;&#x7F29;&#x5C0F;</li>
 </ul>
-</li>
-</ul>
-<ul>
-<li><p>NIO</p>
+<h5 id="&#x4F9D;&#x8D56;&#x5012;&#x8F6C;">&#x4F9D;&#x8D56;&#x5012;&#x8F6C;</h5>
 <blockquote>
-<p>NIO&#x4ECE;JDK1.4 &#x5F00;&#x59CB;&#x5F15;&#x5165;&#x7684;&#xFF0C;&#x6211;&#x4E48;&#x53EF;&#x4EE5;&#x79F0;&#x5B83;&#x4E3A;&#x65B0;I/O&#xFF0C;&#x4F46;&#x662F;&#x6211;&#x89C9;&#x5F97;&#x53EB;&#x4ED6;&#x975E;&#x963B;&#x585E;I/O&#x53EF;&#x80FD;&#x66F4;&#x4F53;&#x73B0;&#x5B83;&#x7684;&#x672C;&#x8D28;&#x3002;</p>
+<p>&#x4E00;&#x53E5;&#x8BDD;&#xFF1A;&#x9762;&#x5411;&#x63A5;&#x53E3;&#x7F16;&#x7A0B;&#xFF0C;&#x7C7B;&#x4E4B;&#x95F4;&#x7684;&#x4F9D;&#x8D56;&#x901A;&#x8FC7;&#x63A5;&#x53E3;&#x3001;&#x62BD;&#x8C61;&#x7C7B;&#x4EA7;&#x751F;&#x3002;</p>
 </blockquote>
-<ul>
-<li><p>&#x7F13;&#x51B2;&#x533A;Buffer</p>
-<p> Buffer&#x5305;&#x542B;&#x4E00;&#x4E9B;&#x9700;&#x8981;&#x5199;&#x5165;&#x548C;&#x8BFB;&#x53D6;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x5728;NIO&#x7C7B;&#x5E93;&#x91CC;&#x9762;&#x52A0;&#x5165;Buffer&#x5BF9;&#x8C61;&#xFF0C;&#x4F53;&#x73B0;&#x65B0;&#x5E93;&#x548C;&#x8001;&#x5E93;&#x7684;&#x533A;&#x522B;&#xFF0C;&#x5728;NIO&#x5E93;&#x91CC;&#x9762;&#xFF0C;&#x6240;&#x6709;&#x7684;&#x6570;&#x636E;&#x90FD;&#x662F;&#x7528;&#x7F13;&#x51B2;&#x533A;&#x6765;&#x5904;&#x7406;&#x7684;&#xFF0C;&#x5728;&#x8BFB;&#x53D6;&#x6570;&#x636E;&#x7684;&#x65F6;&#x5019;&#x5B83;&#x662F;&#x4ECE;&#x7F13;&#x51B2;&#x533A;&#x6765;&#x8BFB;&#x53D6;&#x7684;&#xFF0C;&#x5728;&#x5199;&#x5165;&#x7684;&#x6570;&#x636E;&#x65F6;&#xFF0C;&#x4E5F;&#x662F;&#x5199;&#x5230;&#x82B1;&#x51B2;&#x533A;&#x3002;&#x7F13;&#x51B2;&#x533A;&#x7684;&#x672C;&#x8D28;&#x662F;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;&#xFF0C;&#x901A;&#x5E38;&#x662F;&#x4E00;&#x4E2A;&#x5B57;&#x8282;&#x6570;&#x7EC4;&#xFF08;ByteBuffer&#xFF09;</p>
-</li>
-</ul>
-<ul>
-<li>&#x901A;&#x9053;Chanel<br>   &#x6253;&#x4E2A;&#x6BD4;&#x55BB;&#xFF0C;&#x5B83;&#x5C31;&#x50CF;&#x662F;&#x6C34;&#x7BA1;&#xFF0C;&#x7F51;&#x7EDC;&#x4E0A;&#x7684;&#x6570;&#x636E;&#x90FD;&#x662F;&#x901A;&#x8FC7;Channel&#x6765;&#x8BFB;&#x53D6;&#x548C;&#x5199;&#x5165;&#x3002;Channel&#x76F8;&#x5BF9;&#x4E8E;&#x6D41;    &#x6765;&#x8BF4;&#x662F;&#x5168;&#x53CC;&#x5DE5;&#x7684;&#x3002;</li>
-</ul>
-</li>
-<li><p>&#x591A;&#x8DEF;&#x590D;&#x7528;Selector    </p>
-<pre><code> &#x591A;&#x8DEF;&#x590D;&#x7528;&#x5668;&#x63D0;&#x9009;&#x62E9;&#x5C31;&#x7EEA;&#x7684;&#x4EFB;&#x52A1;&#x80FD;&#x529B;&#xFF0C;&#x7B80;&#x5355;&#x6765;&#x8BF4;&#xFF0C;Selector&#x4F1A;&#x4E0D;&#x65AD;&#x7684;&#x8F6E;&#x8BAD;&#x6CE8;&#x518C;&#x5728;Chanel&#xFF0C;&#x5982;&#x679C;&#x67D0;&#x4E2A;Channel&#x4E0A;&#x9762;&#x53D1;&#x751F;&#x8BFB;&#x6216;&#x8005;&#x5199;&#x4E8B;&#x4EF6;&#xFF0C;&#x8FD9;&#x4E2A;Channel &#x5C31;&#x5904;&#x4E8E;&#x5C31;&#x7EEA;&#x72B6;&#x6001;&#xFF0C;&#x4F1A;&#x88AB;Selector&#x8F6E;&#x8BAD;&#x51FA;&#x6765;&#xFF0C;&#x8C08;&#x540E;&#x901A;&#x8FC7;SelectionKey&#x53EF;&#x4EE5;&#x83B7;&#x53D6;&#x5C31;&#x7EEA;Channel 
-</code></pre><p>  &#x7684;&#x96C6;&#x5408;&#xFF0C;&#x8FDB;&#x884C;&#x540E;&#x7EED;&#x7684;I/O&#x64CD;&#x4F5C;&#x3002;</p>
-<pre><code> &#x4E00;&#x4E2A;&#x591A;&#x8DEF;&#x590D;&#x7528;&#x5668;&#x53EF;&#x4EE5;&#x8F6E;&#x8BAD;&#x591A;&#x4E2A;Channel  &#xFF0C;JDk&#x4F7F;&#x7528;&#x7684;epoll()&#x4EE3;&#x66FF;&#x4F20;&#x7EDF;&#x7684;select&#x5B9E;&#x73B0;&#xFF0C;&#x6240;&#x4EE5;&#x5B83;&#x5E76;&#x6CA1;&#x6709;&#x8FDE;&#x63A5;&#x6700;&#x5927;&#x53E5;&#x67C4;1024/2048&#x7684;&#x9650;&#x5236;&#x3002;&#x8FD9;&#x5C31;&#x662F;&#x8BF4;&#x4E00;&#x4E2A;&#x7EBF;&#x7A0B;&#x8D1F;&#x8D23;Selector&#x8F6E;&#x8BAD;&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x5B9E;&#x73B0;&#x6210;&#x5343;&#x4E0A;&#x4E07;&#x7684;&#x5BA2;&#x6237;&#x7AEF;&#x7684;&#x63A5;&#x5165;&#x3002;
-</code></pre></li>
-</ul>
-<ul>
-<li>&#x670D;&#x52A1;&#x7AEF;&#x521B;&#x5EFA;&#x6B65;&#x9AA4;<ol>
-<li>&#x6253;&#x5F00;serverSocketChannel    <pre><code class="lang-java">ServerSocketChannel     ssc=ServerSocketCHannel.open();
-</code></pre>
-</li>
-<li>&#x7ED1;&#x5B9A;&#x76D1;&#x542C;&#x7AEF;&#x53E3;&#xFF0C;&#x8BBE;&#x7F6E;&#x8FDE;&#x63A5;&#x4E3A;&#x975E;&#x963B;&#x585E;&#x6A21;&#x5F0F;    <pre><code class="lang-java">ssc.socket().bind(new   InetSocketAddress(inteAddress.getByName(&quot;IP),port));
-ssc.configureBlocking(false);
-</code></pre>
-</li>
-<li>&#x521B;&#x5EFA;Reactor&#x7EBF;&#x7A0B;&#xFF0C;&#x521B;&#x5EFA;&#x591A;&#x82E6;&#x590D;&#x7528;&#x5668;&#x5E76;&#x542F;&#x52A8;&#x7EBF;&#x7A0B;&#x3002;<pre><code class="lang-java">Selector selector=Selector.open();
-<span class="hljs-function">New <span class="hljs-title">Thread</span><span class="hljs-params">(new ReactorTask()</span>).<span class="hljs-title">start</span><span class="hljs-params">()</span></span>;
-</code></pre>
-</li>
-<li>&#x5C06;ServerSocketChannel  &#x6CE8;&#x518C;&#x5230;Selector&#x4E0A;<pre><code class="lang-java">SelectionKey key=scc.register(selector,SelectionKey.OP_ACCEPT,handle);
-</code></pre>
-</li>
-<li>&#x591A;&#x8DEF;&#x590D;&#x7528;&#x5668;&#x5728;&#x7EBF;&#x7A0B;run&#x65B9;&#x6CD5;&#x7684;&#x65E0;&#x9650;&#x5FAA;&#x73AF;&#x4F53;&#x5185;&#x8F6E;&#x8BE2;&#x51C6;&#x5907;&#x5C31;&#x7EEA;&#x7684;Key<pre><code class="lang-java"><span class="hljs-keyword">int</span> num=selector.select();
-Set selectedKeys=selector.selectedkeys();
-Iterator it=selectedKeys.iterator();
-<span class="hljs-keyword">while</span>(it.hasNex()){
- SelectionKey key=(SelectionKey)it.next();
- <span class="hljs-comment">//...deal with I/O event...</span>
-}
-</code></pre>
-<ol>
-<li>&#x591A;&#x8DEF;&#x590D;&#x7528;&#x5668;&#x76D1;&#x542C;&#x5230;&#x6709;&#x95F2;&#x7684;&#x5BA2;&#x6237;&#x7AEF;&#x63A5;&#x5165;&#xFF0C;&#x5904;&#x7406;&#x65B0;&#x7684;&#x63A5;&#x5165;&#x8BF7;&#x6C42;&#xFF0C;&#x5B8C;&#x6210;&#x4E09;&#x6B21;TCP&#x63E1;&#x624B;&#xFF0C;&#x5EFA;&#x7ACB;&#x7269;&#x7406;&#x94FE;&#x8DEF;<pre><code class="lang-java">SocketChannel channel=scc.accept();
-</code></pre>
-<ol>
-<li>&#x8BBE;&#x7F6E;&#x5BA2;&#x6237;&#x7AEF;&#x4E3A;&#x975E;&#x963B;&#x585E;    <pre><code class="lang-java">channel.configureBlocking(<span class="hljs-keyword">false</span>);
-channel.socket.setReuseAddress(<span class="hljs-keyword">true</span>);
-</code></pre>
-</li>
-<li>&#x5C06;&#x65B0;&#x63A5;&#x5165;&#x7684;&#x5BA2;&#x6237;&#x7AEF;&#x8FDE;&#x63A5;&#x6CE8;&#x518C;&#x5230;Reactor&#x7EBF;&#x7A0B;&#x7684;&#x591A;&#x8DEF;&#x590D;&#x7528;&#x5668;&#x4E0A;&#xFF0C;&#x76D1;&#x542C;&#x8BFB;&#x64CD;&#x4F5C;&#xFF0C;&#x8BFB;&#x53D6;&#x5BA2;&#x6237;&#x7AEF;&#x53D1;&#x9001;&#x7684;&#x7F51;&#x7EDC;&#x6D88;&#x606F;<pre><code class="lang-java">SelectionKey key=ssc.register(selector,SelectionKey.OP_READ,handle);
-</code></pre>
-</li>
-<li>&#x5F02;&#x6B65;&#x8BFB;&#x53D6;&#x5BA2;&#x6237;&#x7AEF;&#x8BF7;&#x6C42;&#x5230;&#x7F13;&#x51B2;&#x533A;
-int      readNumber=channel.read(receviverBuffer);</li>
-<li>&#x5BF9;ByteBuffer&#x8FDB;&#x884C;&#x7F16;&#x7801;&#xFF0C;&#x5982;&#x679C;&#x6709;&#x534A;&#x5305;&#x6D88;&#x606F;&#x6307;&#x9488;reset&#xFF0C;&#x7EE7;&#x7EED;&#x8BFB;&#x53D6;&#x540E;&#x7EED;&#x7684;&#x6591;&#x7EB9;&#xFF0C;&#x5C06;&#x89E3;&#x7801;&#x6210;&#x529F;&#x7684;&#x6D88;&#x606F;&#x5C01;&#x88C5;&#x6210;Task&#xFF0C;&#x6295;&#x9012;&#x5230;&#x4E1A;&#x52A1;&#x7EBF;&#x7A0B;&#x6C60;&#x4E2D;&#xFF0C;&#x8FDB;&#x884C;&#x4E1A;&#x52A1;&#x903B;&#x8F91;&#x5224;&#x65AD;<pre><code class="lang-java">Object message=<span class="hljs-keyword">null</span>;
-<span class="hljs-keyword">while</span>(<span class="hljs-keyword">true</span>){
-byteBuffer.mark();
-Object message=decode(byteBuffer);
-<span class="hljs-keyword">if</span>(<span class="hljs-keyword">null</span>==message){
-byteBuffer.reset();
-<span class="hljs-keyword">break</span>;
-}
-messagelist.add(message);
-}
-<span class="hljs-keyword">if</span>(!byteBuffer.hasRemain)
-{
-byteBuffer.clear();
-}
-<span class="hljs-keyword">else</span>{
-byteBuffer.compact();
-}
-<span class="hljs-keyword">if</span>(CollectionUtils.isNotEmpty(messageList)){
-<span class="hljs-keyword">for</span>(Object message:messagelist){
-handertask(message);
-}
-}
-</code></pre>
-</li>
-<li>&#x5C06;POJO&#x5BF9;&#x8C61;encode&#x6210;ByteBuffer&#xFF0C;&#x8C03;&#x7528;SocketChannel
-&#x7684;&#x5F02;&#x6B65;wait&#x65B9;&#x6CD5;&#x5C06;&#x6D88;&#x606F;&#x53D1;&#x9001;&#x7ED9;&#x5BA2;&#x6237;&#x7AEF;    <pre><code class="lang-java">socketChannel.wirte(buffer);
-</code></pre>
-</li>
-</ol>
-</li>
-</ol>
-</li>
-</ol>
-</li>
-</ul>
+<h5 id="&#x63A5;&#x53E3;&#x9694;&#x79BB;&#x539F;&#x5219;">&#x63A5;&#x53E3;&#x9694;&#x79BB;&#x539F;&#x5219;</h5>
+<blockquote>
+<p>&#x5EFA;&#x7ACB;&#x5355;&#x4E00;&#x63A5;&#x53E3;&#xFF0C;&#x5C3D;&#x91CF;&#x7EC6;&#x5316;&#xFF0C;&#x65B9;&#x6CD5;&#x5C3D;&#x91CF;&#x5C11;&#x3002;</p>
+</blockquote>
+<h5 id="&#x5F00;&#x95ED;&#x539F;&#x5219;">&#x5F00;&#x95ED;&#x539F;&#x5219;</h5>
+<blockquote>
+<p>&#x5BF9;&#x6269;&#x5C55;&#x5F00;&#x653E;&#xFF0C;&#x5BF9;&#x4FEE;&#x6539;&#x5173;&#x95ED;&#x3002; </p>
+</blockquote>
 
                                 
                                 </section>
@@ -813,12 +859,12 @@ handertask(message);
 
             
                 
-                <a href="../IO/" class="navigation navigation-prev " aria-label="Previous page: IO">
+                <a href="../Java里的NIO/" class="navigation navigation-prev " aria-label="Previous page: Java里的NIO">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="../../日常/" class="navigation navigation-next " aria-label="Next page: 日常">
+                <a href="../命令模式/" class="navigation navigation-next " aria-label="Next page: 命令模式">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -829,7 +875,7 @@ handertask(message);
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Java里的NIO","level":"1.2.7.2","depth":3,"next":{"title":"日常","level":"1.3","depth":1,"path":"日常/README.md","ref":"日常/README.md","articles":[{"title":"一、吃货大作战","level":"1.3.1","depth":2,"path":"日常/吃货大作战/README.md","ref":"日常/吃货大作战/README.md","articles":[]},{"title":"二、购物红包","level":"1.3.2","depth":2,"path":"日常/购物红包/README.md","ref":"日常/购物红包/README.md","articles":[]},{"title":"三、一元购","level":"1.3.3","depth":2,"path":"日常/一元购/README.md","ref":"日常/一元购/README.md","articles":[]}]},"previous":{"title":"IO","level":"1.2.7.1","depth":3,"path":"学习/IO/README.md","ref":"学习/IO/README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"学习/Java里的NIO/README.md","mtime":"2019-01-06T15:51:15.691Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-16T06:00:52.426Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"八、设计模式","level":"1.2.8","depth":2,"next":{"title":"命令模式","level":"1.2.8.1","depth":3,"path":"学习/命令模式/README.md","ref":"学习/命令模式/README.md","articles":[]},"previous":{"title":"Java里的NIO","level":"1.2.7.2","depth":3,"path":"学习/Java里的NIO/README.md","ref":"学习/Java里的NIO/README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"学习/设计模式/README.md","mtime":"2019-03-10T06:15:48.467Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-03-10T07:46:31.880Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
@@ -837,6 +883,10 @@ handertask(message);
         
     <script src="../../gitbook/gitbook.js"></script>
     <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
     
         
         <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>

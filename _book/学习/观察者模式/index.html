@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>信号量 · GitBook</title>
+        <title>观察者模式 · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="../读写锁/" />
+    <link rel="next" href="../策略模式/" />
     
     
-    <link rel="prev" href="../可重入锁/" />
+    <link rel="prev" href="../命令模式/" />
     
 
     </head>
@@ -403,9 +403,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.2.5.3.1.2" data-path="./">
+        <li class="chapter " data-level="1.2.5.3.1.2" data-path="../信号量/">
             
-                <a href="./">
+                <a href="../信号量/">
             
                     
                     信号量
@@ -573,6 +573,103 @@
             
         </li>
     
+        <li class="chapter " data-level="1.2.8" data-path="../设计模式/">
+            
+                <a href="../设计模式/">
+            
+                    
+                    八、设计模式
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.8.1" data-path="../命令模式/">
+            
+                <a href="../命令模式/">
+            
+                    
+                    命令模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.8.2" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    观察者模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8.3" data-path="../策略模式/">
+            
+                <a href="../策略模式/">
+            
+                    
+                    策略模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8.4" data-path="../工厂模式/">
+            
+                <a href="../工厂模式/">
+            
+                    
+                    工厂模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8.5" data-path="../抽象工厂模式/">
+            
+                <a href="../抽象工厂模式/">
+            
+                    
+                    抽象工厂模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8.6" data-path="../建造者模式/">
+            
+                <a href="../建造者模式/">
+            
+                    
+                    建造者模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
 
             </ul>
             
@@ -666,7 +763,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../.." >信号量</a>
+        <a href="../.." >观察者模式</a>
     </h1>
 </div>
 
@@ -681,84 +778,101 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="&#x4FE1;&#x53F7;&#x91CF;">&#x4FE1;&#x53F7;&#x91CF;</h1>
-<p>Semaphore &#x548C;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x7684;&#x4FE1;&#x53F7;&#x91CF;&#x5F88;&#x7C7B;&#x4F3C;&#xFF0C;&#x4F46;&#x662F;&#x8FD9;&#x91CC;&#x5B83;&#x4E5F;&#x53EF;&#x4EE5;&#x4F5C;&#x4E3A;&#x9501;&#x4F7F;&#x7528;&#x3002;&#x5373;&#x53EF;&#x4EE5;&#x4F5C;&#x4E3A;&#x9501;&#x4E0E;&#x534F;&#x8C03;&#x7EBF;&#x7A0B;&#x4F5C;&#x7528;</p>
+                                <h1 id="&#x89C2;&#x5BDF;&#x8005;&#x6A21;&#x5F0F;">&#x89C2;&#x5BDF;&#x8005;&#x6A21;&#x5F0F;</h1>
+<blockquote>
+<p>&#x5F53;&#x5BF9;&#x8C61;&#x95F4;&#x5B58;&#x5728;&#x4E00;&#x5BF9;&#x591A;&#x5173;&#x7CFB;&#x65F6;&#xFF0C;&#x5219;&#x4F7F;&#x7528;&#x89C2;&#x5BDF;&#x8005;&#x6A21;&#x5F0F;&#xFF08;Observer Pattern&#xFF09;&#x3002;&#x6BD4;&#x5982;&#xFF0C;&#x5F53;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x88AB;&#x4FEE;&#x6539;&#x65F6;&#xFF0C;&#x5219;&#x4F1A;&#x81EA;&#x52A8;&#x901A;&#x77E5;&#x5B83;&#x7684;&#x4F9D;&#x8D56;&#x5BF9;&#x8C61;&#x3002;&#x89C2;&#x5BDF;&#x8005;&#x6A21;&#x5F0F;&#x5C5E;&#x4E8E;&#x884C;&#x4E3A;&#x578B;&#x6A21;&#x5F0F;</p>
+</blockquote>
+<h4 id="&#x4ECB;&#x7ECD;">&#x4ECB;&#x7ECD;</h4>
 <ul>
-<li>&#x9501;</li>
+<li>&#x610F;&#x56FE;&#xFF1A;&#x5B9A;&#x4E49;&#x5BF9;&#x8C61;&#x95F4;&#x7684;&#x4E00;&#x79CD;&#x4E00;&#x5BF9;&#x591A;&#x7684;&#x4F9D;&#x8D56;&#x5173;&#x7CFB;&#xFF0C;&#x5F53;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x7684;&#x72B6;&#x6001;&#x53D1;&#x751F;&#x6539;&#x53D8;&#x65F6;&#xFF0C;&#x6240;&#x6709;&#x4F9D;&#x8D56;&#x4E8E;&#x5B83;&#x7684;&#x5BF9;&#x8C61;&#x90FD;&#x5F97;&#x5230;&#x901A;&#x77E5;&#x5E76;&#x88AB;&#x81EA;&#x52A8;&#x66F4;&#x65B0;&#x3002;</li>
+<li>&#x4E3B;&#x8981;&#x89E3;&#x51B3;&#xFF1A;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x72B6;&#x6001;&#x6539;&#x53D8;&#x7ED9;&#x5176;&#x4ED6;&#x5BF9;&#x8C61;&#x901A;&#x77E5;&#x7684;&#x95EE;&#x9898;&#xFF0C;&#x800C;&#x4E14;&#x8981;&#x8003;&#x8651;&#x5230;&#x6613;&#x7528;&#x548C;&#x4F4E;&#x8026;&#x5408;&#xFF0C;&#x4FDD;&#x8BC1;&#x9AD8;&#x5EA6;&#x7684;&#x534F;&#x4F5C;&#x3002;</li>
+<li>&#x4F55;&#x65F6;&#x4F7F;&#x7528;&#xFF1A;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#xFF08;&#x76EE;&#x6807;&#x5BF9;&#x8C61;&#xFF09;&#x7684;&#x72B6;&#x6001;&#x53D1;&#x751F;&#x6539;&#x53D8;&#xFF0C;&#x6240;&#x6709;&#x7684;&#x4F9D;&#x8D56;&#x5BF9;&#x8C61;&#xFF08;&#x89C2;&#x5BDF;&#x8005;&#x5BF9;&#x8C61;&#xFF09;&#x90FD;&#x5C06;&#x5F97;&#x5230;&#x901A;&#x77E5;&#xFF0C;&#x8FDB;&#x884C;&#x5E7F;&#x64AD;&#x901A;&#x77E5;&#x3002;</li>
+<li>&#x5982;&#x4F55;&#x89E3;&#x51B3;&#xFF1A;&#x4F7F;&#x7528;&#x9762;&#x5411;&#x5BF9;&#x8C61;&#x6280;&#x672F;&#xFF0C;&#x53EF;&#x4EE5;&#x5C06;&#x8FD9;&#x79CD;&#x4F9D;&#x8D56;&#x5173;&#x7CFB;&#x5F31;&#x5316;&#x3002;</li>
+<li>&#x5173;&#x952E;&#x4EE3;&#x7801;&#xFF1A;&#x5728;&#x62BD;&#x8C61;&#x7C7B;&#x91CC;&#x6709;&#x4E00;&#x4E2A; ArrayList &#x5B58;&#x653E;&#x89C2;&#x5BDF;&#x8005;&#x4EEC;&#x3002;</li>
+<li>&#x5E94;&#x7528;&#x5B9E;&#x4F8B;&#xFF1A; 1&#x3001;&#x62CD;&#x5356;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x62CD;&#x5356;&#x5E08;&#x89C2;&#x5BDF;&#x6700;&#x9AD8;&#x6807;&#x4EF7;&#xFF0C;&#x7136;&#x540E;&#x901A;&#x77E5;&#x7ED9;&#x5176;&#x4ED6;&#x7ADE;&#x4EF7;&#x8005;&#x7ADE;&#x4EF7;&#x3002; 2&#x3001;&#x897F;&#x6E38;&#x8BB0;&#x91CC;&#x9762;&#x609F;&#x7A7A;&#x8BF7;&#x6C42;&#x83E9;&#x8428;&#x964D;&#x670D;&#x7EA2;&#x5B69;&#x513F;&#xFF0C;&#x83E9;&#x8428;&#x6D12;&#x4E86;&#x4E00;&#x5730;&#x6C34;&#x62DB;&#x6765;&#x4E00;&#x4E2A;&#x8001;&#x4E4C;&#x9F9F;&#xFF0C;&#x8FD9;&#x4E2A;&#x4E4C;&#x9F9F;&#x5C31;&#x662F;&#x89C2;&#x5BDF;&#x8005;&#xFF0C;&#x4ED6;&#x89C2;&#x5BDF;&#x83E9;&#x8428;&#x6D12;&#x6C34;&#x8FD9;&#x4E2A;&#x52A8;&#x4F5C;&#x3002;</li>
+<li>&#x4F18;&#x70B9;&#xFF1A; 1&#x3001;&#x89C2;&#x5BDF;&#x8005;&#x548C;&#x88AB;&#x89C2;&#x5BDF;&#x8005;&#x662F;&#x62BD;&#x8C61;&#x8026;&#x5408;&#x7684;&#x3002; 2&#x3001;&#x5EFA;&#x7ACB;&#x4E00;&#x5957;&#x89E6;&#x53D1;&#x673A;&#x5236;&#x3002;</li>
+<li>&#x7F3A;&#x70B9;&#xFF1A; 1&#x3001;&#x5982;&#x679C;&#x4E00;&#x4E2A;&#x88AB;&#x89C2;&#x5BDF;&#x8005;&#x5BF9;&#x8C61;&#x6709;&#x5F88;&#x591A;&#x7684;&#x76F4;&#x63A5;&#x548C;&#x95F4;&#x63A5;&#x7684;&#x89C2;&#x5BDF;&#x8005;&#x7684;&#x8BDD;&#xFF0C;&#x5C06;&#x6240;&#x6709;&#x7684;&#x89C2;&#x5BDF;&#x8005;&#x90FD;&#x901A;&#x77E5;&#x5230;&#x4F1A;&#x82B1;&#x8D39;&#x5F88;&#x591A;&#x65F6;&#x95F4;&#x3002; 2&#x3001;&#x5982;&#x679C;&#x5728;&#x89C2;&#x5BDF;&#x8005;&#x548C;&#x89C2;&#x5BDF;&#x76EE;&#x6807;&#x4E4B;&#x95F4;&#x6709;&#x5FAA;&#x73AF;&#x4F9D;&#x8D56;&#x7684;&#x8BDD;&#xFF0C;&#x89C2;&#x5BDF;&#x76EE;&#x6807;&#x4F1A;&#x89E6;&#x53D1;&#x5B83;&#x4EEC;&#x4E4B;&#x95F4;&#x8FDB;&#x884C;&#x5FAA;&#x73AF;&#x8C03;&#x7528;&#xFF0C;&#x53EF;&#x80FD;&#x5BFC;&#x81F4;&#x7CFB;&#x7EDF;&#x5D29;&#x6E83;&#x3002; 3&#x3001;&#x89C2;&#x5BDF;&#x8005;&#x6A21;&#x5F0F;&#x6CA1;&#x6709;&#x76F8;&#x5E94;&#x7684;&#x673A;&#x5236;&#x8BA9;&#x89C2;&#x5BDF;&#x8005;&#x77E5;&#x9053;&#x6240;&#x89C2;&#x5BDF;&#x7684;&#x76EE;&#x6807;&#x5BF9;&#x8C61;&#x662F;&#x600E;&#x4E48;&#x53D1;&#x751F;&#x53D8;&#x5316;&#x7684;&#xFF0C;&#x800C;&#x4EC5;&#x4EC5;&#x53EA;&#x662F;&#x77E5;&#x9053;&#x89C2;&#x5BDF;&#x76EE;&#x6807;&#x53D1;&#x751F;&#x4E86;&#x53D8;&#x5316;&#x3002;</li>
 </ul>
-<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SemaphoreDemo</span> </span>{
-    <span class="hljs-keyword">static</span> Semaphore semaphore = <span class="hljs-keyword">new</span> Semaphore(<span class="hljs-number">1</span>,<span class="hljs-keyword">true</span>);<span class="hljs-comment">//&#x4E00;&#x4E2A;&#x4FE1;&#x53F7;&#x91CF;&#x4E14;&#x662F;&#x516C;&#x5E73;&#x7684;&#xFF0C;&#x9ED8;&#x8BA4;&#x975E;&#x516C;&#x5E73;</span>
-    <span class="hljs-keyword">static</span> Runnable r = () -&gt; {
-        <span class="hljs-keyword">try</span> {
-            System.out.println(Thread.currentThread().getName() + <span class="hljs-string">&quot;&#x7B49;&#x5F85;&quot;</span>);
-            semaphore.acquire();
-            System.out.println(Thread.currentThread().getName()+<span class="hljs-string">&quot;&#x8FDB;&#x5165;&quot;</span>);
-            semaphore.release();
-            System.out.println(Thread.currentThread().getName() + <span class="hljs-string">&quot;&#x91CA;&#x653E;&quot;</span>);
-        } <span class="hljs-keyword">catch</span> (InterruptedException e) {
-            e.printStackTrace();
-        }
-    };
+<h4 id="&#x4F8B;&#x5B50;">&#x4F8B;&#x5B50;</h4>
+<pre><code class="lang-java"><span class="hljs-comment">// &#x62BD;&#x8C61;&#x89C2;&#x5BDF;&#x8005;</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">abstract</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Observer</span> </span>{
+   <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">abstract</span> <span class="hljs-keyword">void</span> <span class="hljs-title">update</span><span class="hljs-params">()</span></span>;
+}
+<span class="hljs-comment">// &#x5177;&#x4F53;&#x88AB;&#x89C2;&#x5BDF;&#x8005;</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">User</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Observer</span> </span>{
 
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
-        Thread t1 = <span class="hljs-keyword">new</span> Thread(r,<span class="hljs-string">&quot;1&quot;</span>);
-        Thread t2 = <span class="hljs-keyword">new</span> Thread(r,<span class="hljs-string">&quot;2&quot;</span>);
-        Thread t3 = <span class="hljs-keyword">new</span> Thread(r,<span class="hljs-string">&quot;3&quot;</span>);
-        t1.start();
-        t2.start();
-        t3.start();
+    <span class="hljs-keyword">private</span> String name;
+    <span class="hljs-keyword">private</span> String message;
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">User</span><span class="hljs-params">(String name)</span> </span>{
+        <span class="hljs-keyword">this</span>.name = name;
     }
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">update</span><span class="hljs-params">(String message)</span> </span>{
+        <span class="hljs-keyword">this</span>.message = message;
+        read();
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">read</span><span class="hljs-params">()</span> </span>{
+        System.out.println(name + <span class="hljs-string">&quot; &#x6536;&#x5230;&#x63A8;&#x9001;&#x6D88;&#x606F;&#xFF1A; &quot;</span> + message);
+    }
+
+}
+
+<span class="hljs-comment">// &#x62BD;&#x8C61;&#x88AB;&#x89C2;&#x5BDF;&#x8005;</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">Observerable</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">registerObserver</span><span class="hljs-params">(Observer o)</span></span>;
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">removeObserver</span><span class="hljs-params">(Observer o)</span></span>;
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">notifyObserver</span><span class="hljs-params">()</span></span>;
+
+}
+
+<span class="hljs-comment">// &#x5177;&#x4F53;&#x88AB;&#x89C2;&#x5BDF;&#x8005;</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">WechatServer</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Observerable</span> </span>{
+
+    <span class="hljs-comment">//&#x6CE8;&#x610F;&#x5230;&#x8FD9;&#x4E2A;List&#x96C6;&#x5408;&#x7684;&#x6CDB;&#x578B;&#x53C2;&#x6570;&#x4E3A;Observer&#x63A5;&#x53E3;&#xFF0C;&#x8BBE;&#x8BA1;&#x539F;&#x5219;&#xFF1A;&#x9762;&#x5411;&#x63A5;&#x53E3;&#x7F16;&#x7A0B;&#x800C;&#x4E0D;&#x662F;&#x9762;&#x5411;&#x5B9E;&#x73B0;&#x7F16;&#x7A0B;</span>
+    <span class="hljs-keyword">private</span> List&lt;Observer&gt; list;
+    <span class="hljs-keyword">private</span> String message;
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">WechatServer</span><span class="hljs-params">()</span> </span>{
+        list = <span class="hljs-keyword">new</span> ArrayList&lt;Observer&gt;();
+    }
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">registerObserver</span><span class="hljs-params">(Observer o)</span> </span>{
+        list.add(o);
+    }
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">removeObserver</span><span class="hljs-params">(Observer o)</span> </span>{
+        <span class="hljs-keyword">if</span>(!list.isEmpty())
+            list.remove(o);
+    }
+
+    <span class="hljs-comment">//&#x904D;&#x5386;</span>
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">notifyObserver</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; list.size(); i++) {
+            Observer oserver = list.get(i);
+            oserver.update(message);
+        }
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setInfomation</span><span class="hljs-params">(String s)</span> </span>{
+        <span class="hljs-keyword">this</span>.message = s;
+        System.out.println(<span class="hljs-string">&quot;&#x5FAE;&#x4FE1;&#x670D;&#x52A1;&#x66F4;&#x65B0;&#x6D88;&#x606F;&#xFF1A; &quot;</span> + s);
+        <span class="hljs-comment">//&#x6D88;&#x606F;&#x66F4;&#x65B0;&#xFF0C;&#x901A;&#x77E5;&#x6240;&#x6709;&#x89C2;&#x5BDF;&#x8005;</span>
+        notifyObserver();
+    }
+
 }
 </code></pre>
-<p>&#x6253;&#x5370;&#x7ED3;&#x679C;<br>2&#x7B49;&#x5F85;
-1&#x7B49;&#x5F85;
-3&#x7B49;&#x5F85;
-2&#x8FDB;&#x5165;
-2&#x91CA;&#x653E;
-1&#x8FDB;&#x5165;
-1&#x91CA;&#x653E;
-3&#x8FDB;&#x5165;
-3&#x91CA;&#x653E;</p>
-<blockquote>
-<p>&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x9996;&#x5148;3&#x4E2A;&#x7EBF;&#x7A0B;&#x540C;&#x65F6;&#x5230;&#x6765;&#x4E34;&#x754C;&#x533A;&#x8FB9;&#x754C;&#xFF0C;&#x4F46;&#x662F;&#x540C;&#x65F6;&#x53EA;&#x6709;&#x4E00;&#x4E2A;&#x7EBF;&#x7A0B;&#x80FD;&#x8FDB;&#x5165;&#x4E34;&#x754C;&#x533A;&#x3002;</p>
-</blockquote>
+<h4 id="&#x6838;&#x5FC3;&#x601D;&#x8DEF;">&#x6838;&#x5FC3;&#x601D;&#x8DEF;</h4>
 <ul>
-<li>&#x534F;&#x8C03;&#x7EBF;&#x7A0B;</li>
+<li>&#x89C2;&#x5BDF;&#x8005;</li>
+<li>&#x88AB;&#x89C2;&#x5BDF;&#x8005;&#xFF08;&#x91CC;&#x9762;&#x5305;&#x542B;&#x89C2;&#x5BDF;&#x8005;&#x5F15;&#x7528;&#xFF09;</li>
 </ul>
-<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SemaohoreDemo2</span> </span>{
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
-        ExecutorService pool = Executors.newCachedThreadPool();
-        <span class="hljs-keyword">final</span> Semaphore semaphore = <span class="hljs-keyword">new</span> Semaphore(<span class="hljs-number">3</span>, <span class="hljs-keyword">true</span>);
-        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">6</span>; i++) {
-            Runnable runnable = () -&gt; {
-                <span class="hljs-keyword">try</span> {
-                    semaphore.acquire();<span class="hljs-comment">//&#x83B7;&#x53D6;&#x4FE1;&#x53F7;&#x706F;&#x8BB8;&#x53EF;</span>
-                } <span class="hljs-keyword">catch</span> (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                <span class="hljs-keyword">try</span> {
-                    Thread.sleep(<span class="hljs-number">2000</span>);<span class="hljs-comment">//&#x4E3A;&#x4E86;&#x6253;&#x5370;&#xFF0C;&#x8FDB;&#x5165;&#x4E34;&#x754C;&#x533A;&#x603B;&#x7684;&#x7EBF;&#x7A0B;&#x6570;&#x91CF;</span>
-                    System.out.println(Thread.currentThread().getName()+<span class="hljs-string">&quot;&#x8FDB;&#x5165;&#x4E34;&#x754C;&#x533A;&quot;</span>);
-                    Thread.sleep(<span class="hljs-number">4000</span>);<span class="hljs-comment">//&#x6A21;&#x62DF;&#x4E1A;&#x52A1;&#x903B;&#x8F91;&#x5904;&#x7406;</span>
-                } <span class="hljs-keyword">catch</span> (InterruptedException e) {
-                    e.printStackTrace();
-                }
-
-                System.out.println(Thread.currentThread().getName()+<span class="hljs-string">&quot;&#x91CA;&#x653E;&#x4FE1;&#x53F7;&quot;</span>);
-                semaphore.release();<span class="hljs-comment">//&#x91CA;&#x653E;&#x4FE1;&#x53F7;&#x706F;</span>
-
-            };
-            pool.execute(runnable);
-
-        }
-        pool.shutdown();
-    }
-}
-</code></pre>
-<p>&#x6253;&#x5370;&#x7ED3;&#x679C;<br>pool-1-thread-3&#x8FDB;&#x5165;&#x4E34;&#x754C;&#x533A;<br>pool-1-thread-2&#x8FDB;&#x5165;&#x4E34;&#x754C;&#x533A;<br>pool-1-thread-1&#x8FDB;&#x5165;&#x4E34;&#x754C;&#x533A;<br>pool-1-thread-3&#x91CA;&#x653E;&#x4FE1;&#x53F7;<br>pool-1-thread-1&#x91CA;&#x653E;&#x4FE1;&#x53F7;<br>pool-1-thread-2&#x91CA;&#x653E;&#x4FE1;&#x53F7;<br>pool-1-thread-4&#x8FDB;&#x5165;&#x4E34;&#x754C;&#x533A;<br>pool-1-thread-5&#x8FDB;&#x5165;&#x4E34;&#x754C;&#x533A;<br>pool-1-thread-6&#x8FDB;&#x5165;&#x4E34;&#x754C;&#x533A;<br>pool-1-thread-4&#x91CA;&#x653E;&#x4FE1;&#x53F7;<br>pool-1-thread-5&#x91CA;&#x653E;&#x4FE1;&#x53F7;<br>pool-1-thread-6&#x91CA;&#x653E;&#x4FE1;&#x53F7;    </p>
-<blockquote>
-<p>&#x4ECE;&#x7ED3;&#x679C;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x6709;3&#x4E2A;&#x7EBF;&#x7A0B;&#x540C;&#x65F6;&#x8FDB;&#x5165;&#x4E86;&#x4E34;&#x754C;&#x533A;&#x3002;</p>
-</blockquote>
 
                                 
                                 </section>
@@ -786,12 +900,12 @@
 
             
                 
-                <a href="../可重入锁/" class="navigation navigation-prev " aria-label="Previous page: 可重入锁">
+                <a href="../命令模式/" class="navigation navigation-prev " aria-label="Previous page: 命令模式">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="../读写锁/" class="navigation navigation-next " aria-label="Next page: 读写锁">
+                <a href="../策略模式/" class="navigation navigation-next " aria-label="Next page: 策略模式">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -802,7 +916,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"信号量","level":"1.2.5.3.1.2","depth":5,"next":{"title":"读写锁","level":"1.2.5.3.1.3","depth":5,"path":"学习/读写锁/README.md","ref":"学习/读写锁/README.md","articles":[]},"previous":{"title":"可重入锁","level":"1.2.5.3.1.1","depth":5,"path":"学习/可重入锁/README.md","ref":"学习/可重入锁/README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"学习/信号量/README.md","mtime":"2019-01-06T08:00:11.927Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-16T06:00:52.426Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"观察者模式","level":"1.2.8.2","depth":3,"next":{"title":"策略模式","level":"1.2.8.3","depth":3,"path":"学习/策略模式/README.md","ref":"学习/策略模式/README.md","articles":[]},"previous":{"title":"命令模式","level":"1.2.8.1","depth":3,"path":"学习/命令模式/README.md","ref":"学习/命令模式/README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"学习/观察者模式/README.md","mtime":"2019-03-10T07:16:05.978Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-03-10T07:46:31.880Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
@@ -810,6 +924,10 @@
         
     <script src="../../gitbook/gitbook.js"></script>
     <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
     
         
         <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
